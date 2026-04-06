@@ -34,7 +34,6 @@
       overflow-x: hidden;
     }
 
-    /* ── HEADER ── */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -237,7 +236,7 @@
       z-index: 0;
     }
 
-    /* ── EMERGENCY BANNER ── */
+  
     .emergency-bar {
       background: var(--red);
       padding: 1rem 5rem;
@@ -271,7 +270,6 @@
     }
     .hotline-divider { width: 1px; background: rgba(255,255,255,0.3); height: 24px; }
 
-    /* ── SECTION WRAPPER ── */
     section { padding: 5rem 5rem; }
     .section-label {
       font-family: 'DM Mono', monospace;
@@ -294,8 +292,6 @@
       margin-bottom: 3rem;
       color: var(--text-main);
     }
-
-    /* ── QUICK ACCESS ── */
     #quick-access { background: #FFFFFF; }
 
     .quick-grid {
@@ -341,7 +337,6 @@
       color: var(--gray);
     }
 
-    /* ── ACCORDION SECTIONS ── */
     #tai-nan { background: #F5F8FC; }
 
     .accordion-grid {
@@ -460,7 +455,7 @@
       margin-top: 0.8rem;
     }
 
-    /* ── CPR SECTION ── */
+
     #cpr {
       background: var(--red);
       position: relative;
@@ -599,7 +594,7 @@
     .do-dot { color: var(--green); font-weight: 900; flex-shrink: 0; }
     .dont-dot { color: var(--red); font-weight: 900; flex-shrink: 0; }
 
-    /* ── FIRST AID KIT ── */
+   
     #bo-kit { background: #F5F8FC; }
 
     .kit-grid {
@@ -622,7 +617,7 @@
     .kit-name { font-size: 0.82rem; font-weight: 700; margin-bottom: 0.2rem; color: var(--text-main); }
     .kit-desc { font-size: 0.72rem; color: var(--gray); line-height: 1.4; }
 
-    /* ── FOOTER ── */
+
     footer {
       background: #FFFFFF;
       border-top: 1px solid #E2EAF4;
@@ -655,10 +650,9 @@
       transform: none;
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       header { padding: 0 1.5rem; }
-      nav { display: none; }
+      
       .hero { grid-template-columns: 1fr; }
       .hero-left { padding: 7rem 2rem 2rem; }
       .hero-right { display: none; }
@@ -670,7 +664,6 @@
       .emergency-bar { padding: 1rem 2rem; }
     }
 
-    /* ── PRINT BUTTON ── */
     .print-btn {
       position: fixed;
       bottom: 2rem;
