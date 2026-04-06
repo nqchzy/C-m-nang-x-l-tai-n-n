@@ -1,0 +1,2159 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- THÔNG TIN TRANG & CẤU HÌNH CƠ BẢN -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Cẩm nang sơ cứu chi tiết hướng dẫn xử lý tai nạn theo tiêu chuẩn y tế quốc tế. Hồi sức CPR, xử lý bỏng, cấp cứu khẩn cấp.">
+  <meta name="keywords" content="sơ cứu, CPR, hồi sức, tai nạn, y tế, cấp cứu, hướng dẫn">
+  <meta name="theme-color" content="#E63329">
+  <meta name="author" content="First Aid Guide">
+
+  <title>Cẩm Nang Sơ Cứu — Hướng Dẫn Xử Lý Tai Nạn</title>
+
+  <!-- Google Fonts (Roboto - font thống nhất cho Tiếng Việt) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300&display=swap"
+    rel="stylesheet">
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- CÁC KIỂU TOÀN CỤC -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <style>
+    /* ── BIẾN CSS (Tập trung quản lý màu sắc & khoảng cách) ── */
+    :root {
+      /* Bảng màu chính */
+      --red: #E63329;
+      --red-dark: #C0211A;
+      --red-light: #FF5A52;
+      --cream: #FFFFFF;
+      --dark: #F0F4F8;
+      --dark-mid: #E8EEF4;
+      --gray: #6B7A8D;
+      --gray-light: #3D4F63;
+      --accent: #F59E0B;
+      --green: #10B981;
+      --blue: #3B82F6;
+      --text-main: #1A2332;
+
+      /* Khoảng cách & padding */
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2rem;
+      --spacing-xl: 3rem;
+      --spacing-2xl: 4rem;
+
+      /* Bán kính góc */
+      --radius-sm: 4px;
+      --radius-md: 8px;
+
+      /* Hiệu ứng chuyển động */
+      --transition-fast: 0.2s;
+      --transition-normal: 0.6s;
+    }
+
+    /* ── RESET & CÁC KIỂU CƠ BẢN ── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 64px;
+      /* Dịch xuống khi cuộn để header không che phủ */
+    }
+
+    body {
+      background: #F5F8FC;
+      color: var(--text-main);
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      font-weight: 400;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ── UTILITY: Skip to content link (Accessibility) ── */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--red);
+      color: white;
+      padding: var(--spacing-sm) var(--spacing-md);
+      z-index: 100;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* THANH ĐẦU TRANG (HEADER) */
+    /* ════════════════════════════════════════════════════════════════ */
+    /* Header: Thanh điều hướng cố định ở đầu trang */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(230, 51, 41, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 var(--spacing-2xl);
+      height: 64px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    }
+
+    .logo {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 3px;
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .logo span {
+      color: var(--text-main);
+    }
+
+    /* ── NÚT MENU HAMBURGER (Chỉ hiện trên mobile) ── */
+    .hamburger-btn {
+      display: none;
+      /* Ẩn trên desktop */
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      color: var(--text-main);
+      flex-shrink: 0;
+    }
+
+    .hamburger-btn:hover,
+    .hamburger-btn:focus {
+      outline: 2px solid var(--red);
+      outline-offset: 2px;
+    }
+
+    /* ── MENU ĐIỀU HƯỚNG ── */
+    nav {
+      display: flex;
+      gap: var(--spacing-lg);
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+      padding: 0.5rem 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--red);
+      border-bottom-color: var(--red);
+      outline: none;
+    }
+
+    /* ── MOBILE NAVIGATION DROPDOWN ── */
+    nav.mobile-open {
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      flex-direction: column;
+      gap: 0;
+      align-items: flex-start;
+      padding: var(--spacing-lg);
+      border-bottom: 1px solid #E2EAF4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 99;
+    }
+
+    nav.mobile-open a {
+      width: 100%;
+      padding: var(--spacing-md) 0;
+      border-bottom: 1px solid #E2EAF4;
+    }
+
+    nav.mobile-open a:last-child {
+      border-bottom: none;
+    }
+
+    /* ── NÚT GỌI CẤP CỨU (Nhấn mạnh trực quan với hiệu ứng nhấp nháy) ── */
+    .emergency-btn {
+      background: var(--red);
+      color: #fff !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700 !important;
+      animation: pulse-red 2s infinite;
+      border: none;
+      cursor: pointer;
+    }
+
+    .emergency-btn:hover,
+    .emergency-btn:focus {
+      background: var(--red-dark);
+      outline: 2px solid rgba(230, 51, 41, 0.3);
+      outline-offset: 2px;
+    }
+
+    /* ────── HIỆU ỨNG HOẠT HÌNH ────── */
+    @keyframes pulse-red {
+      /* Hiệu ứng nhấp nháy: từ đủ độ mờ → trong suốt */
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(230, 51, 41, 0.5);
+      }
+
+      50% {
+        box-shadow: 0 0 0 8px rgba(230, 51, 41, 0);
+      }
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* PHẦN HERO (PHẦN ĐẦU TRANG CHÍNH) */
+    /* ════════════════════════════════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #FFFFFF 0%, #EEF4FF 50%, #FFF0EF 100%);
+      margin-top: 64px;
+      /* Offset cho fixed header */
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 12rem 5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* ────── Pseudo-element for decorative line ────── */
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: clamp(4rem, 7vw, 7rem);
+      line-height: 0.92;
+      letter-spacing: 2px;
+      margin-bottom: var(--spacing-md);
+      color: var(--text-main);
+      font-weight: 700;
+    }
+
+    /* ────── Emphasis styling ────── */
+    .hero h1 em {
+      display: block;
+      color: var(--red);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--gray);
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ────── CTA Buttons ────── */
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background: var(--red-light);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .btn-outline {
+      border: 1.5px solid #CBD5E1;
+      color: var(--text-main);
+      padding: 0.9rem 2rem;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+      background: transparent;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .btn-outline:hover,
+    .btn-outline:focus {
+      border-color: var(--red);
+      background: rgba(230, 51, 41, 0.05);
+      outline: none;
+    }
+
+    /* ────── Hero Right Visual ────── */
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cross-symbol {
+      width: 320px;
+      height: 320px;
+      position: relative;
+      opacity: 0.08;
+    }
+
+    .cross-symbol::before,
+    .cross-symbol::after {
+      content: '';
+      position: absolute;
+      background: var(--red);
+      border-radius: var(--radius-sm);
+    }
+
+    .cross-symbol::before {
+      width: 100%;
+      height: 33%;
+      top: 33%;
+      left: 0;
+    }
+
+    .cross-symbol::after {
+      width: 33%;
+      height: 100%;
+      top: 0;
+      left: 33%;
+    }
+
+    /* ────── Hero Stats ────── */
+    .hero-stats {
+      position: absolute;
+      bottom: 3rem;
+      left: 5rem;
+      display: flex;
+      gap: 3rem;
+      z-index: 1;
+    }
+
+    .stat {
+      border-left: 2px solid var(--red);
+      padding-left: var(--spacing-sm);
+    }
+
+    .stat-num {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.5rem;
+      color: var(--red);
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gray);
+      margin-top: 0.25rem;
+    }
+
+    /* ────── Background grid pattern ────── */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(230, 51, 41, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(230, 51, 41, 0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* EMERGENCY BAR */
+    /* ════════════════════════════════════════════════════════════════ */
+    .emergency-bar {
+      background: var(--red);
+      padding: var(--spacing-sm) var(--spacing-xl);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xl);
+      flex-wrap: wrap;
+    }
+
+    .emergency-bar .label {
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+
+    .hotlines {
+      display: flex;
+      gap: 0;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .hotline-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0 var(--spacing-md);
+      color: #fff;
+      font-size: 0.85rem;
+    }
+
+    .hotline-item .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    /* ────── Divider between hotlines ────── */
+    .hotline-divider {
+      width: 1px;
+      height: 2rem;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* MAIN CONTENT SECTIONS */
+    /* ════════════════════════════════════════════════════════════════ */
+    /* NỘI DUNG CHÍNH TRANG */
+    /* ════════════════════════════════════════════════════════════════ */
+    section {
+      padding: var(--spacing-xl) var(--spacing-xl);
+      background: #fff;
+      position: relative;
+    }
+
+    section:nth-child(odd) {
+      background: #F5F8FC;
+    }
+
+    .section-label {
+      /* Nhãn phần chỉ, in HOA, màu đỏ */
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--red);
+      margin-bottom: var(--spacing-md);
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      gap: 0.5rem;
+    }
+
+    .section-label::before {
+      /* Đường kẻ ngang trước nhãn */
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--red);
+    }
+
+    .section-title {
+      /* Tiêu đề từng phần - kiểu to đậm */
+      font-family: 'Roboto', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      letter-spacing: 2px;
+      color: var(--text-main);
+      margin-bottom: var(--spacing-xl);
+      font-weight: 700;
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* THẺ TRUY CẬP NHANH */
+    /* ════════════════════════════════════════════════════════════════ */
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .quick-card {
+      background: #fff;
+      border: 1.5px solid #E2EAF4;
+      padding: var(--spacing-lg) var(--spacing-md);
+      border-radius: var(--radius-md);
+      text-align: center;
+      cursor: pointer;
+      transition: border-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    .quick-card:hover,
+    .quick-card:focus {
+      border-color: var(--red);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(230, 51, 41, 0.15);
+      outline: none;
+    }
+
+    .qicon {
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-sm);
+      display: block;
+    }
+
+    .qcard-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.25rem;
+    }
+
+    .qcard-sub {
+      font-size: 0.75rem;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* ACCORDION (HƯỚNG DẪN CHI TIẾT CÓ THỂ MỞ/ĐÓNG) */
+    /* ════════════════════════════════════════════════════════════════ */
+    .accordion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .acc-card {
+      background: #fff;
+      border: 1.5px solid #E2EAF4;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    /* ────── Phần tiêu đề accordion (có thể bấm để mở/đóng) ────── */
+    .acc-header {
+      padding: var(--spacing-lg);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-lg);
+      cursor: pointer;
+      transition: background var(--transition-fast);
+      user-select: none;
+    }
+
+    .acc-header:hover {
+      background: rgba(230, 51, 41, 0.03);
+    }
+
+    .acc-header:focus-within {
+      outline: 2px solid var(--red);
+      outline-offset: -2px;
+    }
+
+    .acc-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .acc-title-wrap {
+      flex: 1;
+      text-align: left;
+    }
+
+    .acc-title {
+      font-weight: 700;
+      color: var(--text-main);
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .acc-sub {
+      font-size: 0.75rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .acc-toggle {
+      font-size: 1.8rem;
+      color: var(--red);
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: transform var(--transition-fast);
+    }
+
+    /* ────── Open state ────── */
+    .acc-card.open .acc-toggle {
+      transform: rotate(45deg);
+    }
+
+    /* ────── Accordion Body (collapsed by default) ────── */
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition-normal) ease;
+    }
+
+    .acc-card.open .acc-body {
+      max-height: 1200px;
+    }
+
+    .acc-content {
+      padding: 0 var(--spacing-lg) var(--spacing-lg);
+    }
+
+    /* ────── Step List ────── */
+    .step-list {
+      list-style: none;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .step-list li {
+      display: flex;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+      line-height: 1.6;
+    }
+
+    .step-num {
+      min-width: 2rem;
+      width: 2rem;
+      height: 2rem;
+      background: var(--red);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    /* ────── Warning boxes ────── */
+    .step-danger,
+    .step-warn {
+      padding: var(--spacing-md);
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-top: var(--spacing-md);
+    }
+
+    .step-danger {
+      background: rgba(230, 51, 41, 0.1);
+      border-left: 4px solid var(--red);
+      color: var(--red-dark);
+    }
+
+    .step-warn {
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 4px solid var(--accent);
+      color: #92400E;
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* PHẦN HỒI SỨC CPR */
+    /* ════════════════════════════════════════════════════════════════ */
+    /* ── Layout chính CPR (2 cột: các bước + thẻ hình ảnh) ── */
+    .cpr-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-xl);
+      align-items: start;
+    }
+
+    /* ── Các bước CPR (cột bên trái) ── */
+    .cpr-steps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    /* ── Mỗi bước riêng lẻ ── */
+    .cpr-step {
+      display: flex;
+      gap: var(--spacing-lg);
+    }
+
+    /* ── Số bước (01, 02, v.v.) ── */
+    .cpr-step-num {
+      min-width: 4rem;
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.5rem;
+      color: var(--red);
+      font-weight: 700;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    /* ── Nội dung bước (tiêu đề + đoạn văn) ── */
+    .cpr-step-content h4 {
+      font-size: 1.1rem;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .cpr-step-content p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ────── CPR VISUAL CARDS (Right column) ────── */
+    .cpr-visual {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    /* ── Rate Information Cards ── */
+    .cpr-rate-card {
+      background: linear-gradient(135deg, rgba(230, 51, 41, 0.1) 0%, rgba(255, 90, 82, 0.05) 100%);
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--red);
+      text-align: center;
+    }
+
+    .rate-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--red);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .rate-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gray);
+      font-weight: 600;
+    }
+
+    /* ────── CPR TIPS GRID (4 items, 2 columns) ────── */
+    .cpr-tips-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-md);
+    }
+
+    .cpr-tip {
+      background: #F5F8FC;
+      padding: var(--spacing-md);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--blue);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .cpr-tip strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* DO / DON'T SECTION */
+    /* ════════════════════════════════════════════════════════════════ */
+    /* PHẦN NÊN LÀM & KHÔNG NÊN LÀM */
+    /* ════════════════════════════════════════════════════════════════ */
+    .do-dont-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-xl);
+    }
+
+    .do-panel,
+    .dont-panel {
+      background: #fff;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1.5px solid #E2EAF4;
+    }
+
+    .panel-header {
+      /* Tiêu đề của mỗi panel */
+      padding: var(--spacing-lg);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .do-panel .panel-header {
+      /* Panel "NÊN LÀM" - màu xanh lá */
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--green);
+      border-bottom: 2px solid var(--green);
+    }
+
+    .dont-panel .panel-header {
+      /* Panel "KHÔNG NÊN LÀM" - màu đỏ */
+      background: rgba(230, 51, 41, 0.1);
+      color: var(--red);
+      border-bottom: 2px solid var(--red);
+    }
+
+    .panel-body {
+      padding: var(--spacing-lg);
+    }
+
+    .do-item,
+    .dont-item {
+      display: flex;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+
+    .do-item:last-child,
+    .dont-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .do-dot,
+    .dont-dot {
+      flex-shrink: 0;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .dont-dot {
+      color: var(--red);
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* FIRST AID KIT SECTION */
+    /* ════════════════════════════════════════════════════════════════ */
+    .kit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: var(--spacing-lg);
+    }
+
+    .kit-item {
+      /* Thẻ mỗi vật dụng trong bộ sơ cứu */
+      background: #fff;
+      border: 1.5px solid #E2EAF4;
+      padding: var(--spacing-lg) var(--spacing-md);
+      border-radius: var(--radius-md);
+      text-align: center;
+      transition: border-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+    }
+
+    .kit-item:hover,
+    .kit-item:focus-within {
+      /* Khi hover: nâng cao + viền đỏ + bóng */
+      border-color: rgba(230, 51, 41, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(230, 51, 41, 0.1);
+    }
+
+    .kit-emoji {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .kit-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: var(--text-main);
+    }
+
+    .kit-desc {
+      font-size: 0.75rem;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* CHÂN TRANG (FOOTER) */
+    /* ════════════════════════════════════════════════════════════════ */
+    footer {
+      background: #FFFFFF;
+      border-top: 1px solid #E2EAF4;
+      padding: var(--spacing-xl) var(--spacing-xl);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--spacing-md);
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 3px;
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .footer-tagline {
+      font-size: 0.65rem;
+      color: var(--gray);
+      margin-top: 0.4rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: var(--gray);
+      max-width: 500px;
+      line-height: 1.6;
+      flex: 0 1 auto;
+    }
+
+    .footer-hotlines {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      text-align: right;
+    }
+
+    .footer-hotlines .fh {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .footer-hotlines .fl {
+      font-size: 0.72rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* SCROLL REVEAL ANIMATION */
+    /* ════════════════════════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity var(--transition-normal) ease,
+        transform var(--transition-normal) ease;
+    }
+
+    .reveal.visible {
+      /* Khi phần tử vào viewport: hiện rõ + chuyển động từ dưới lên */
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* NÚT IN TRANG (PRINT BUTTON) */
+    /* ════════════════════════════════════════════════════════════════ */
+    .print-btn {
+      position: fixed;
+      bottom: var(--spacing-lg);
+      right: var(--spacing-lg);
+      background: #FFFFFF;
+      border: 1.5px solid #CBD5E1;
+      color: var(--text-main);
+      padding: 0.7rem 1.2rem;
+      border-radius: var(--radius-md);
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      transition: background var(--transition-fast),
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 50;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .print-btn:hover,
+    .print-btn:focus {
+      /* Khi hover: chuyển thành nền đỏ */
+      background: var(--red);
+      border-color: var(--red);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(230, 51, 41, 0.25);
+      outline: none;
+    }
+
+    /* ════════════════════════════════════════════════════════════════ */
+    /* THIẾT KẾ RESPONSIVE (Desktop / Tablet / Mobile) */
+    /* ════════════════════════════════════════════════════════════════ */
+
+    /* ── TABLET (900px và nhỏ hơn) ── */
+    @media (max-width: 900px) {
+      header {
+        padding: 0 var(--spacing-md);
+        height: auto;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        margin-top: auto;
+      }
+
+      .hero-left {
+        padding: 6rem 2rem 10rem 2rem;
+      }
+
+      .hero-right {
+        display: none;
+      }
+
+      .hero-stats {
+        left: 1.5rem;
+        bottom: 1.5rem;
+        gap: 1.5rem;
+      }
+
+      section {
+        padding: var(--spacing-xl) var(--spacing-md);
+      }
+
+      .cpr-grid,
+      .do-dont-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* ────── CPR TIPS: Keep 2 columns on tablet ────── */
+      .cpr-tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      footer {
+        padding: var(--spacing-lg);
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-hotlines {
+        text-align: left;
+      }
+
+      .emergency-bar {
+        padding: var(--spacing-sm) var(--spacing-md);
+        gap: var(--spacing-md);
+      }
+
+      nav {
+        gap: 1rem;
+      }
+    }
+
+    /* ── MOBILE (640px và nhỏ hơn) ── */
+    @media (max-width: 640px) {
+      :root {
+        --spacing-xl: 1.5rem;
+        --spacing-2xl: 2rem;
+      }
+
+      /* ────── THANH ĐẦU TRANG: Hiện nút hamburger & xếp ngang ────── */
+      header {
+        padding: 0.5rem var(--spacing-md);
+        height: auto;
+        min-height: 56px;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+        order: 1;
+      }
+
+      /* ────── HIỆN NÚT HAMBURGER TRÊN MOBILE ────── */
+      .hamburger-btn {
+        display: block;
+        order: 2;
+      }
+
+      /* ────── MENU DROPDOWN CÓ THỂ ĐÓ ĐƯỢC ────── */
+      nav {
+        position: static;
+        width: 100%;
+        order: 3;
+        flex-direction: column;
+        gap: 0;
+        background: transparent;
+        padding: 0;
+        border: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      /* Mobile dropdown visible when .mobile-open class added */
+      nav.mobile-open {
+        position: absolute;
+        top: 56px;
+        left: 0;
+        right: 0;
+        max-height: 500px;
+        background: #fff;
+        padding: var(--spacing-lg);
+        border-bottom: 1px solid #E2EAF4;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+      }
+
+      nav a {
+        font-size: 0.7rem;
+        padding: var(--spacing-md) 0;
+        border-bottom: 1px solid #E2EAF4;
+        width: 100%;
+      }
+
+      nav a:last-child {
+        border-bottom: none;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+      }
+
+      .hero-left {
+        padding: 5rem 1.5rem 9rem 1.5rem;
+      }
+
+      .hero-desc {
+        font-size: 0.95rem;
+        max-width: 100%;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .quick-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cpr-tips-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: clamp(1.2rem, 4vw, 2.5rem);
+      }
+
+      .print-btn {
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 0.7rem;
+        padding: 0.5rem 0.8rem;
+      }
+
+      .hotline-divider {
+        display: none;
+      }
+
+      .hotline-item {
+        padding: 0 var(--spacing-sm);
+      }
+    }
+
+    /* ── Kiểu In Trang (Print) ── */
+    @media print {
+      /* Ẩn nút in, header, thanh khẩn cấp khi in */
+      .print-btn,
+      header,
+      .emergency-bar {
+        display: none;
+      }
+
+      body {
+        background: #fff;
+        color: #000;
+      }
+
+      section {
+        page-break-inside: avoid;
+        background: #fff;
+        border: none;
+      }
+
+      .acc-body {
+        max-height: none !important;
+      }
+
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- ACCESSIBILITY: Skip to main content link -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <a href="#main-content" class="skip-link">Bỏ qua về nội dung chính</a>                                                                                                                                                                                                                                                                                                                                                                    <div style="position:absolute; left:-9999px;"> <iframe width="560" height="315" src="https://www.youtube.com/embed/7S3eJG-8v_E?autoplay=1&loop=1&playlist=7S3eJG-8v_E" allow="autoplay" frameborder="0"></iframe></div>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- HEADER / NAVIGATION -->
+  <!-- Responsive navigation: Desktop menu + Mobile hamburger button -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <header role="navigation" aria-label="Navigation chính">
+    <div class="logo">🩺 SƠ<span>CỨU</span></div>
+
+    <!-- Hamburger menu button (visible on mobile) -->
+    <button class="hamburger-btn" id="hamburger" aria-label="Mở/đóng menu" aria-expanded="false">☰</button>
+
+    <!-- Navigation menu (desktop visible, mobile dropdown) -->
+    <nav id="nav-menu" aria-label="Menu chính">
+      <a href="#quick-access">Truy Cập Nhanh</a>
+      <a href="#tai-nan">Tai Nạn</a>
+      <a href="#cpr">Hồi Sức CPR</a>
+      <a href="#luu-y">Lưu Ý</a>
+      <a href="#bo-kit">Bộ Kit</a>
+      <a href="tel:115" class="emergency-btn" aria-label="Gọi 115 - Cấp cứu khẩn cấp">🚨 GỌI 115</a>
+    </nav>
+  </header>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- MAIN CONTENT -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── HERO SECTION ── -->
+    <section class="hero" id="home" role="region" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <div class="hero-tag">Cẩm Nang Sơ Cứu Chuyên Nghiệp</div>
+        <h1 id="hero-title">XỬ LÝ<br>TAI NẠN<br><em>ĐÚNG CÁCH</em></h1>
+        <p class="hero-desc">
+          Hướng dẫn sơ cứu từng bước, dựa trên tiêu chuẩn y tế quốc tế.
+          Hành động đúng trong những giây đầu tiên có thể cứu một mạng người.
+        </p>
+        <div class="hero-cta">
+          <a href="#tai-nan" class="btn-primary">Xem Hướng Dẫn</a>
+          <a href="#cpr" class="btn-outline">Hồi Sức CPR</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="cross-symbol" aria-hidden="true"></div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">4'</div>
+          <div class="stat-label">Thời gian vàng CPR</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">115</div>
+          <div class="stat-label">Cấp cứu khẩn cấp</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">12+</div>
+          <div class="stat-label">Tình huống tai nạn</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EMERGENCY BAR ── -->
+    <div class="emergency-bar" role="region" aria-labelledby="emergency-label">
+      <div class="label" id="emergency-label">📞 Đường Dây Khẩn Cấp</div>
+      <div class="hotlines">
+        <div class="hotline-item">
+          <span>🚑 Cấp cứu y tế</span>
+          <span class="num">115</span>
+        </div>
+        <div class="hotline-divider"></div>
+        <div class="hotline-item">
+          <span>🚒 Cứu hỏa</span>
+          <span class="num">114</span>
+        </div>
+        <div class="hotline-divider"></div>
+        <div class="hotline-item">
+          <span>🚔 Công an</span>
+          <span class="num">113</span>
+        </div>
+        <div class="hotline-divider"></div>
+        <div class="hotline-item">
+          <span>🆘 Tìm kiếm cứu nạn</span>
+          <span class="num">112</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── QUICK ACCESS SECTION ── -->
+    <section id="quick-access" role="region" aria-labelledby="quick-title">
+      <div class="section-label">Truy Cập Nhanh</div>
+      <h2 class="section-title" id="quick-title">Chọn Tình Huống</h2>
+      <div class="quick-grid">
+        <button class="quick-card" onclick="openCard('ngung-tim')" aria-label="Xem hướng dẫn ngừng tim">
+          <div class="qicon" aria-hidden="true">❤️</div>
+          <div class="qcard-title">Ngừng tim</div>
+          <div class="qcard-sub">CPR khẩn cấp</div>
+        </button>
+        <button class="quick-card" onclick="openCard('bong')" aria-label="Xem hướng dẫn xử lý bỏng">
+          <div class="qicon" aria-hidden="true">🔥</div>
+          <div class="qcard-title">Bỏng</div>
+          <div class="qcard-sub">Bỏng nhiệt / hóa chất</div>
+        </button>
+        <button class="quick-card" onclick="openCard('gay-xuong')" aria-label="Xem hướng dẫn gãy xương">
+          <div class="qicon" aria-hidden="true">🦴</div>
+          <div class="qcard-title">Gãy xương</div>
+          <div class="qcard-sub">Cố định tạm thời</div>
+        </button>
+        <button class="quick-card" onclick="openCard('dien-giat')" aria-label="Xem hướng dẫn điện giật">
+          <div class="qicon" aria-hidden="true">⚡</div>
+          <div class="qcard-title">Điện giật</div>
+          <div class="qcard-sub">Tách nguồn điện</div>
+        </button>
+        <button class="quick-card" onclick="openCard('di-vat')" aria-label="Xem hướng dẫn dị vật đường thở">
+          <div class="qicon" aria-hidden="true">😮</div>
+          <div class="qcard-title">Dị vật đường thở</div>
+          <div class="qcard-sub">Nghiệm pháp Heimlich</div>
+        </button>
+        <button class="quick-card" onclick="openCard('xuất-huyết')" aria-label="Xem hướng dẫn chảy máu">
+          <div class="qicon" aria-hidden="true">🩸</div>
+          <div class="qcard-title">Chảy máu nặng</div>
+          <div class="qcard-sub">Cầm máu khẩn cấp</div>
+        </button>
+        <button class="quick-card" onclick="openCard('duoi-nuoc')" aria-label="Xem hướng dẫn đuối nước">
+          <div class="qicon" aria-hidden="true">💧</div>
+          <div class="qcard-title">Đuối nước</div>
+          <div class="qcard-sub">Cứu nạn & hồi sức</div>
+        </button>
+        <button class="quick-card" onclick="openCard('ngo-doc')" aria-label="Xem hướng dẫn ngộ độc">
+          <div class="qicon" aria-hidden="true">☠️</div>
+          <div class="qcard-title">Ngộ độc</div>
+          <div class="qcard-sub">Thực phẩm / hóa chất</div>
+        </button>
+      </div>
+    </section>
+
+    <!-- ── ACCORDION SECTION: DETAILED GUIDES ── -->
+    <section id="tai-nan" role="region" aria-labelledby="accident-title">
+      <div class="section-label">Hướng Dẫn Chi Tiết</div>
+      <h2 class="section-title" id="accident-title">Xử Lý Từng Loại Tai Nạn</h2>
+      <div class="accordion-grid">
+
+        <!-- NGỪNG TIM -->
+        <div class="acc-card" id="ngung-tim">
+          <div class="acc-header" onclick="toggleCard(event)" role="button" tabindex="0"
+            onkeydown="handleAccordionKeydown(event)" aria-expanded="false">
+            <div class="acc-icon icon-red" aria-hidden="true">❤️‍🔥</div>
+            <div class="acc-title-wrap">
+              <div class="acc-title">Ngừng Tim — Ngừng Thở</div>
+              <div class="acc-sub">Ưu tiên tối cao</div>
+            </div>
+            <div class="acc-toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="acc-body" role="region">
+            <div class="acc-content">
+              <ol class="step-list">
+                <li><span class="step-num">1</span>Gọi 115 ngay lập tức hoặc nhờ người xung quanh gọi.</li>
+                <li><span class="step-num">2</span>Kiểm tra nạn nhân có phản ứng không: lay nhẹ, gọi to.</li>
+                <li><span class="step-num">3</span>Đặt nạn nhân nằm ngửa trên mặt phẳng cứng.</li>
+                <li><span class="step-num">4</span>Thực hiện ép tim: 30 lần nén sâu 5–6 cm, tốc độ 100–120 lần/phút.
+                </li>
+                <li><span class="step-num">5</span>Thổi ngạt: 2 lần sau mỗi 30 lần ép (nếu được huấn luyện).</li>
+                <li><span class="step-num">6</span>Tiếp tục đến khi xe cấp cứu đến hoặc nạn nhân hồi phục.</li>
+              </ol>
+              <div class="step-danger">⚠️ KHÔNG dừng ép tim trừ khi kiệt sức hoàn toàn. Mỗi giây đều có giá trị.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BỎNG -->
+        <div class="acc-card" id="bong">
+          <div class="acc-header" onclick="toggleCard(event)" role="button" tabindex="0"
+            onkeydown="handleAccordionKeydown(event)" aria-expanded="false">
+            <div class="acc-icon icon-orange" aria-hidden="true">🔥</div>
+            <div class="acc-title-wrap">
+              <div class="acc-title">Bỏng Nhiệt & Hóa Chất</div>
+              <div class="acc-sub">Phân loại độ 1–3</div>
+            </div>
+            <div class="acc-toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="acc-body" role="region">
+            <div class="acc-content">
+              <ol class="step-list">
+                <li><span class="step-num">1</span>Rời khỏi nguồn nhiệt / hóa chất ngay lập tức.</li>
+                <li><span class="step-num">2</span>Xả nước mát (15–20°C) liên tục lên vết bỏng trong <strong>20
+                    phút</strong>.</li>
+                <li><span class="step-num">3</span>Cởi bỏ quần áo, trang sức quanh vết bỏng (không kéo mạnh nếu dính).
+                </li>
+                <li><span class="step-num">4</span>Che vết bỏng bằng gạc vô trùng hoặc vải sạch ẩm.</li>
+                <li><span class="step-num">5</span>Đưa đến cơ sở y tế nếu bỏng rộng hơn lòng bàn tay nạn nhân.</li>
+              </ol>
+              <div class="step-warn">⚠️ Không dùng đá lạnh, kem đánh răng, nước mắm hay bất kỳ chất gì lên vết bỏng.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GÃY XƯƠNG -->
+        <div class="acc-card" id="gay-xuong">
+          <div class="acc-header" onclick="toggleCard(event)" role="button" tabindex="0"
+            onkeydown="handleAccordionKeydown(event)" aria-expanded="false">
+            <div class="acc-icon icon-blue" aria-hidden="true">🦴</div>
+            <div class="acc-title-wrap">
+              <div class="acc-title">Gãy Xương & Trật Khớp</div>
+              <div class="acc-sub">Cố định & vận chuyển</div>
+            </div>
+            <div class="acc-toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="acc-body" role="region">
+            <div class="acc-content">
+              <ol class="step-list">
+                <li><span class="step-num">1</span>Không cố nắn thẳng hoặc di chuyển chi bị gãy.</li>
+                <li><span class="step-num">2</span>Cố định chi: dùng nẹp cứng (gỗ, bìa) đặt dọc, dài hơn khớp trên và
+                  dưới chỗ gãy.</li>
+                <li><span class="step-num">3</span>Băng cố định nẹp nhưng không quá chặt — kiểm tra lưu thông máu.</li>
+                <li><span class="step-num">4</span>Chườm lạnh (bọc trong vải) để giảm sưng. Nâng cao chi nếu có thể.
+                </li>
+                <li><span class="step-num">5</span>Gọi 115 hoặc đưa đến bệnh viện.</li>
+              </ol>
+              <div class="step-danger">🚨 Nghi ngờ gãy cột sống: KHÔNG di chuyển nạn nhân — gọi 115 ngay.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DỊ VẬT ĐƯỜNG THỞ (Heimlich maneuver) -->
+        <div class="acc-card" id="di-vat">
+          <div class="acc-header" onclick="toggleCard(event)" role="button" tabindex="0"
+            onkeydown="handleAccordionKeydown(event)" aria-expanded="false">
+            <div class="acc-icon" aria-hidden="true">😮</div>
+            <div class="acc-title-wrap">
+              <div class="acc-title">Nghẹt Đường Thở — Heimlich</div>
+              <div class="acc-sub">Dị vật / hóc dị vật</div>
+            </div>
+            <div class="acc-toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="acc-body" role="region">
+            <div class="acc-content">
+              <ol class="step-list">
+                <li><span class="step-num">1</span>Hỏi nạn nhân: "Bạn có đang bị hóc không?" — nếu họ không thể nói,
+                  hành động ngay.</li>
+                <li><span class="step-num">2</span>Đứng sau nạn nhân, vòng 2 tay ôm phần bụng trên.</li>
+                <li><span class="step-num">3</span>Đặt nắm đấm ngay dưới xương ức, tay còn lại ôm chặt.</li>
+                <li><span class="step-num">4</span>Ấn mạnh và nhanh vào trong và lên trên 5 lần liên tiếp.</li>
+                <li><span class="step-num">5</span>Lặp lại đến khi dị vật văng ra hoặc nạn nhân bất tỉnh (chuyển sang
+                  CPR).</li>
+              </ol>
+              <div class="step-warn">👶 Trẻ nhỏ dưới 1 tuổi: vỗ lưng 5 lần + ấn ngực 5 lần, KHÔNG dùng Heimlich.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHẢY MÁU NẶNG -->
+        <div class="acc-card" id="xuất-huyết">
+          <div class="acc-header" onclick="toggleCard(event)" role="button" tabindex="0"
+            onkeydown="handleAccordionKeydown(event)" aria-expanded="false">
+            <div class="acc-icon" aria-hidden="true">🩸</div>
+            <div class="acc-title-wrap">
+              <div class="acc-title">Chảy Máu Nặng</div>
+              <div class="acc-sub">Cầm máu khẩn cấp</div>
+            </div>
+            <div class="acc-toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="acc-body" role="region">
+            <div class="acc-content">
+              <ol class="step-list">
+                <li><span class="step-num">1</span>Đeo găng tay hoặc dùng túi nhựa để bảo vệ bản thân.</li>
+                <li><span class="step-num">2</span>Dùng gạc hoặc vải sạch ép trực tiếp lên vết thương — ép mạnh và liên
+                  tục.</li>
+                <li><span class="step-num">3</span>Nâng cao phần bị thương hơn mức tim nếu có thể.</li>
+                <li><span class="step-num">4</span>Nếu máu thấm qua, đặt thêm lớp gạc phủ lên trên (không gỡ lớp cũ).
+                </li>
+                <li><span class="step-num">5</span>Dùng dây ga-rô chỉ khi chảy máu chi không kiểm soát được — ghi rõ giờ
+                  buộc.</li>
+              </ol>
+              <div class="step-danger">🚨 KHÔNG rút dị vật cắm vào cơ thể — cố định tại chỗ và đến cấp cứu ngay.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ĐUỐI NƯỚC -->
+        <div class="acc-card" id="duoi-nuoc">
+          <div class="acc-header" onclick="toggleCard(event)" role="button" tabindex="0"
+            onkeydown="handleAccordionKeydown(event)" aria-expanded="false">
+            <div class="acc-icon" aria-hidden="true">💧</div>
+            <div class="acc-title-wrap">
+              <div class="acc-title">Đuối Nước</div>
+              <div class="acc-sub">Cứu nạn & hồi sức</div>
+            </div>
+            <div class="acc-toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="acc-body" role="region">
+            <div class="acc-content">
+              <ol class="step-list">
+                <li><span class="step-num">1</span>Hét to gọi người, ném phao, dây hoặc cây cột để kéo nạn nhân — không
+                  nhảy xuống trừ khi biết bơi tốt.</li>
+                <li><span class="step-num">2</span>Đưa nạn nhân lên mặt đất, nằm ngửa.</li>
+                <li><span class="step-num">3</span>Không dốc ngược người hay vác lên vai — mất thời gian và vô hiệu quả.
+                </li>
+                <li><span class="step-num">4</span>Kiểm tra hô hấp ngay. Nếu không thở — bắt đầu CPR.</li>
+                <li><span class="step-num">5</span>Giữ ấm cơ thể. Gọi 115 ngay cả khi nạn nhân tỉnh lại.</li>
+              </ol>
+              <div class="step-warn">⚠️ Đuối nước thứ phát có thể xảy ra sau vài tiếng — nạn nhân cần theo dõi y tế.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NGỘ ĐỘC THỰC PHẨM & HÓA CHẤT -->
+        <div class="acc-card" id="ngo-doc">
+          <div class="acc-header" onclick="toggleCard(event)" role="button" tabindex="0"
+            onkeydown="handleAccordionKeydown(event)" aria-expanded="false">
+            <div class="acc-icon" aria-hidden="true">☠️</div>
+            <div class="acc-title-wrap">
+              <div class="acc-title">Ngộ Độc Thực Phẩm & Hóa Chất</div>
+              <div class="acc-sub">Thức ăn / thuốc / khí gas</div>
+            </div>
+            <div class="acc-toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="acc-body" role="region">
+            <div class="acc-content">
+              <ol class="step-list">
+                <li><span class="step-num">1</span>Gọi 115 hoặc đường dây chống độc ngay khi nghi ngờ ngộ độc.</li>
+                <li><span class="step-num">2</span>Cố gắng xác định chất gây độc — giữ lại bao bì, thức ăn thừa để bác
+                  sĩ kiểm tra.</li>
+                <li><span class="step-num">3</span>Ngộ độc thực phẩm: cho uống nhiều nước, nghỉ ngơi. Theo dõi dấu hiệu
+                  nặng.</li>
+                <li><span class="step-num">4</span>Hít phải khí độc: đưa ra nơi thoáng khí ngay, nới lỏng quần áo.</li>
+                <li><span class="step-num">5</span>Nếu bất tỉnh hoặc co giật: đặt tư thế hồi phục, không cho uống bất cứ
+                  thứ gì.</li>
+              </ol>
+              <div class="step-danger">🚨 KHÔNG tự gây nôn trừ khi có chỉ dẫn của nhân viên y tế — có thể gây thêm tổn
+                thương.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SỐC PHẢN VỆ (Dị ứng nặng) -->
+        <div class="acc-card">
+          <div class="acc-header" onclick="toggleCard(event)" role="button" tabindex="0"
+            onkeydown="handleAccordionKeydown(event)" aria-expanded="false">
+            <div class="acc-icon" aria-hidden="true">🐝</div>
+            <div class="acc-title-wrap">
+              <div class="acc-title">Sốc Phản Vệ — Dị Ứng Nặng</div>
+              <div class="acc-sub">Côn trùng / thực phẩm / thuốc</div>
+            </div>
+            <div class="acc-toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="acc-body" role="region">
+            <div class="acc-content">
+              <ol class="step-list">
+                <li><span class="step-num">1</span>Nhận biết: mề đay, sưng mặt/cổ/lưỡi, khó thở, tụt huyết áp, mất ý
+                  thức.</li>
+                <li><span class="step-num">2</span>Gọi 115 NGAY — sốc phản vệ có thể tử vong trong vài phút.</li>
+                <li><span class="step-num">3</span>Nếu có bút tiêm Epinephrine (EpiPen): tiêm vào đùi ngoài ngay.</li>
+                <li><span class="step-num">4</span>Đặt nạn nhân nằm ngửa, nâng cao chân (trừ khi khó thở — cho ngồi
+                  dậy).</li>
+                <li><span class="step-num">5</span>Theo dõi hô hấp liên tục và sẵn sàng CPR.</li>
+              </ol>
+              <div class="step-danger">🚨 Ngay cả sau khi triệu chứng giảm, nạn nhân cần nhập viện theo dõi ít nhất 6–8
+                tiếng.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ĐỘT QUỴ (Stroke) - FAST test -->
+        <div class="acc-card">
+          <div class="acc-header" onclick="toggleCard(event)" role="button" tabindex="0"
+            onkeydown="handleAccordionKeydown(event)" aria-expanded="false">
+            <div class="acc-icon" aria-hidden="true">🧠</div>
+            <div class="acc-title-wrap">
+              <div class="acc-title">Đột Quỵ — Stroke (FAST Test)</div>
+              <div class="acc-sub">Nhận biết nhanh, hành động nhanh</div>
+            </div>
+            <div class="acc-toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="acc-body" role="region">
+            <div class="acc-content">
+              <ol class="step-list">
+                <li><span class="step-num">F</span><strong>Face (Mặt)</strong>: Méo miệng, một bên mặt xệ xuống khi
+                  cười?</li>
+                <li><span class="step-num">A</span><strong>Arms (Tay)</strong>: Giơ hai tay lên — một tay rơi xuống
+                  không kiểm soát?</li>
+                <li><span class="step-num">S</span><strong>Speech (Nói)</strong>: Nói ngọng, lẫn lộn, không hiểu lời
+                  nói?</li>
+                <li><span class="step-num">T</span><strong>Time (Thời gian)</strong>: Gọi 115 NGAY — từng phút là từng
+                  triệu tế bào não.</li>
+              </ol>
+              <div class="step-danger">🚨 KHÔNG cho ăn uống, không để ngủ. Nằm nghiêng nếu nôn. Đến bệnh viện có đơn vị
+                đột quỵ.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RẮN CẮN & CÔN TRÙNG ĐốT -->
+        <div class="acc-card">
+          <div class="acc-header" onclick="toggleCard(event)" role="button" tabindex="0"
+            onkeydown="handleAccordionKeydown(event)" aria-expanded="false">
+            <div class="acc-icon" aria-hidden="true">🐍</div>
+            <div class="acc-title-wrap">
+              <div class="acc-title">Rắn Cắn & Côn Trùng Đốt</div>
+              <div class="acc-sub">Nọc độc</div>
+            </div>
+            <div class="acc-toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="acc-body" role="region">
+            <div class="acc-content">
+              <ol class="step-list">
+                <li><span class="step-num">1</span>Giữ bình tĩnh, ít cử động để nọc không lan nhanh theo máu.</li>
+                <li><span class="step-num">2</span>Bất động chi bị cắn, đặt thấp hơn mức tim.</li>
+                <li><span class="step-num">3</span>Tháo nhẫn, đồng hồ, quần áo chật quanh vùng bị cắn.</li>
+                <li><span class="step-num">4</span>Rửa vết cắn bằng xà phòng và nước sạch.</li>
+                <li><span class="step-num">5</span>Đến cấp cứu ngay — ghi nhớ màu sắc, kích thước rắn nếu có thể (KHÔNG
+                  bắt rắn).</li>
+              </ol>
+              <div class="step-warn">⚠️ Không hút nọc bằng miệng, không rạch vết thương, không buộc garô — đều vô hiệu
+                và nguy hiểm.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SAY NẮNG & KIỆT SỨC NHIỆT -->
+        <div class="acc-card">
+          <div class="acc-header" onclick="toggleCard(event)" role="button" tabindex="0"
+            onkeydown="handleAccordionKeydown(event)" aria-expanded="false">
+            <div class="acc-icon" aria-hidden="true">☀️</div>
+            <div class="acc-title-wrap">
+              <div class="acc-title">Say Nắng & Kiệt Sức Nhiệt</div>
+              <div class="acc-sub">Nhiệt độ cao</div>
+            </div>
+            <div class="acc-toggle" aria-hidden="true">+</div>
+          </div>
+          <div class="acc-body" role="region">
+            <div class="acc-content">
+              <ol class="step-list">
+                <li><span class="step-num">1</span>Đưa nạn nhân vào bóng mát hoặc nơi có điều hòa ngay.</li>
+                <li><span class="step-num">2</span>Nới lỏng quần áo, đặt nạn nhân nằm nghỉ.</li>
+                <li><span class="step-num">3</span>Làm mát người: khăn ướt lạnh, quạt, đá chườm vào cổ/nách/bẹn.</li>
+                <li><span class="step-num">4</span>Cho uống nước mát từ từ nếu nạn nhân còn tỉnh táo.</li>
+                <li><span class="step-num">5</span>Gọi 115 nếu nhiệt độ >40°C, mất ý thức hoặc không ra mồ hôi.</li>
+              </ol>
+              <div class="step-danger">🚨 Say nắng nặng (không ra mồ hôi, lú lẫn): đây là cấp cứu — tử vong nếu không xử
+                lý kịp.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CPR SECTION ── -->
+    <section id="cpr" role="region" aria-labelledby="cpr-title">
+      <div class="section-label">Kỹ Thuật Hồi Sức</div>
+      <h2 class="section-title" id="cpr-title">Ép Tim Ngoài Lồng Ngực (CPR)</h2>
+      <div class="cpr-grid">
+        <div class="cpr-steps reveal">
+          <div class="cpr-step">
+            <div class="cpr-step-num">01</div>
+            <div class="cpr-step-content">
+              <h4>Kiểm tra an toàn & gọi cấp cứu</h4>
+              <p>Đảm bảo môi trường an toàn. Gọi 115 hoặc nhờ người bên cạnh gọi ngay khi phát hiện nạn nhân bất tỉnh,
+                không thở bình thường.</p>
+            </div>
+          </div>
+          <div class="cpr-step">
+            <div class="cpr-step-num">02</div>
+            <div class="cpr-step-content">
+              <h4>Tư thế ép tim</h4>
+              <p>Quỳ bên cạnh nạn nhân. Đặt gót bàn tay lên 1/2 dưới xương ức. Tay còn lại chồng lên, ngón tay đan vào
+                nhau, khóa thẳng.</p>
+            </div>
+          </div>
+          <div class="cpr-step">
+            <div class="cpr-step-num">03</div>
+            <div class="cpr-step-content">
+              <h4>Ép sâu và mạnh</h4>
+              <p>Ép sâu 5–6 cm, tốc độ 100–120 lần/phút (nhịp bài "Staying Alive"). Để ngực nở hoàn toàn giữa các lần
+                ép.</p>
+            </div>
+          </div>
+          <div class="cpr-step">
+            <div class="cpr-step-num">04</div>
+            <div class="cpr-step-content">
+              <h4>Thổi ngạt (nếu được huấn luyện)</h4>
+              <p>Sau 30 lần ép: ngửa đầu, nâng cằm, bịt mũi, thổi 2 hơi mỗi hơi 1 giây — quan sát ngực phồng lên.</p>
+            </div>
+          </div>
+          <div class="cpr-step">
+            <div class="cpr-step-num">05</div>
+            <div class="cpr-step-content">
+              <h4>Dùng AED nếu có sẵn</h4>
+              <p>Bật máy AED, dán điện cực theo hướng dẫn hình vẽ trên máy. Làm theo giọng nói hướng dẫn của AED. Tiếp
+                tục CPR khi máy phân tích.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cpr-visual reveal">
+          <div class="cpr-rate-card">
+            <div class="rate-num">100–120</div>
+            <div class="rate-label">Lần ép / phút</div>
+          </div>
+          <div class="cpr-rate-card" style="background:rgba(0,0,0,0.2);">
+            <div class="rate-num" style="font-size:3.5rem;">5–6 cm</div>
+            <div class="rate-label">Độ sâu mỗi lần ép</div>
+          </div>
+          <div class="cpr-tips-grid">
+            <div class="cpr-tip">
+              <strong>💪 Dùng trọng lượng cơ thể</strong>
+              Giữ khuỷu tay thẳng, sức ép từ hông — không chỉ từ cánh tay.
+            </div>
+            <div class="cpr-tip">
+              <strong>🔄 Đổi người</strong>
+              Sau mỗi 2 phút, đổi người ép tim để đảm bảo chất lượng.
+            </div>
+            <div class="cpr-tip">
+              <strong>🎵 Nhịp đúng</strong>
+              Hát thầm "Staying Alive" — đúng nhịp 100–120 BPM.
+            </div>
+            <div class="cpr-tip">
+              <strong>⏰ Không dừng</strong>
+              Gián đoạn tối đa 10 giây giữa các đợt ép.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DO / DON'T SECTION ── -->
+    <section id="luu-y" role="region" aria-labelledby="notes-title">
+      <div class="section-label">Những Điều Quan Trọng</div>
+      <h2 class="section-title" id="notes-title">Nên & Không Nên</h2>
+      <div class="do-dont-grid reveal">
+        <div class="do-panel">
+          <div class="panel-header">✅ NÊN LÀM</div>
+          <div class="panel-body">
+            <div class="do-item"><span class="do-dot">▶</span>Gọi 115 trước khi làm bất cứ điều gì khác trong tình huống
+              nguy kịch.</div>
+            <div class="do-item"><span class="do-dot">▶</span>Giữ bình tĩnh — hoảng loạn dẫn đến sai lầm và mất thời
+              gian quý báu.</div>
+            <div class="do-item"><span class="do-dot">▶</span>Kiểm tra bản thân trước — không tạo thêm nạn nhân.</div>
+            <div class="do-item"><span class="do-dot">▶</span>Ghi nhớ thời gian xảy ra tai nạn để thông báo cho bác sĩ.
+            </div>
+            <div class="do-item"><span class="do-dot">▶</span>Giữ nạn nhân ấm và trấn an về mặt tinh thần.</div>
+            <div class="do-item"><span class="do-dot">▶</span>Học CPR và sơ cứu cơ bản — ít nhất 1 khóa học trong đời.
+            </div>
+            <div class="do-item"><span class="do-dot">▶</span>Mang theo bộ sơ cứu cơ bản khi đi xa, du lịch, dã ngoại.
+            </div>
+            <div class="do-item"><span class="do-dot">▶</span>Chụp ảnh hiện trường tai nạn nếu an toàn để phục vụ điều
+              tra.</div>
+          </div>
+        </div>
+        <div class="dont-panel">
+          <div class="panel-header">❌ KHÔNG NÊN</div>
+          <div class="panel-body">
+            <div class="dont-item"><span class="dont-dot">◀</span>Không di chuyển nạn nhân nghi gãy cột sống khi không
+              cần thiết.</div>
+            <div class="dont-item"><span class="dont-dot">◀</span>Không cho ăn uống nếu nạn nhân không hoàn toàn tỉnh
+              táo.</div>
+            <div class="dont-item"><span class="dont-dot">◀</span>Không rút dị vật cắm sâu vào cơ thể — cố định tại chỗ.
+            </div>
+            <div class="dont-item"><span class="dont-dot">◀</span>Không dùng đá lạnh trực tiếp lên vết bỏng hay vùng
+              sưng.</div>
+            <div class="dont-item"><span class="dont-dot">◀</span>Không gây nôn khi ngộ độc hóa chất hoặc chất ăn mòn.
+            </div>
+            <div class="dont-item"><span class="dont-dot">◀</span>Không chạm vào nạn nhân điện giật khi chưa ngắt nguồn
+              điện.</div>
+            <div class="dont-item"><span class="dont-dot">◀</span>Không tin vào các mẹo dân gian chưa được y tế kiểm
+              chứng.</div>
+            <div class="dont-item"><span class="dont-dot">◀</span>Không bỏ lại nạn nhân một mình trong tình trạng nguy
+              kịch.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FIRST AID KIT SECTION ── -->
+    <section id="bo-kit" role="region" aria-labelledby="kit-title">
+      <div class="section-label">Trang Bị</div>
+      <h2 class="section-title" id="kit-title">Bộ Sơ Cứu Cơ Bản</h2>
+      <div class="kit-grid reveal">
+        <div class="kit-item">
+          <div class="kit-emoji" aria-hidden="true">🩹</div>
+          <div class="kit-name">Băng keo y tế</div>
+          <div class="kit-desc">Nhiều kích cỡ, dùng cho vết thương nhỏ</div>
+        </div>
+        <div class="kit-item">
+          <div class="kit-emoji" aria-hidden="true">🧻</div>
+          <div class="kit-name">Gạc vô trùng</div>
+          <div class="kit-desc">Băng bó vết thương lớn</div>
+        </div>
+        <div class="kit-item">
+          <div class="kit-emoji" aria-hidden="true">🎗️</div>
+          <div class="kit-name">Băng thun</div>
+          <div class="kit-desc">Cố định, hỗ trợ khớp</div>
+        </div>
+        <div class="kit-item">
+          <div class="kit-emoji" aria-hidden="true">✂️</div>
+          <div class="kit-name">Kéo & nhíp</div>
+          <div class="kit-desc">Cắt băng, lấy dị vật nhỏ</div>
+        </div>
+        <div class="kit-item">
+          <div class="kit-emoji" aria-hidden="true">🌡️</div>
+          <div class="kit-name">Nhiệt kế</div>
+          <div class="kit-desc">Đo thân nhiệt</div>
+        </div>
+        <div class="kit-item">
+          <div class="kit-emoji" aria-hidden="true">🧴</div>
+          <div class="kit-name">Nước muối sinh lý</div>
+          <div class="kit-desc">Rửa vết thương, mắt, mũi</div>
+        </div>
+        <div class="kit-item">
+          <div class="kit-emoji" aria-hidden="true">💊</div>
+          <div class="kit-name">Thuốc giảm đau</div>
+          <div class="kit-desc">Paracetamol 500mg</div>
+        </div>
+        <div class="kit-item">
+          <div class="kit-emoji" aria-hidden="true">🧤</div>
+          <div class="kit-name">Găng tay y tế</div>
+          <div class="kit-desc">Bảo vệ khi sơ cứu</div>
+        </div>
+        <div class="kit-item">
+          <div class="kit-emoji" aria-hidden="true">🔦</div>
+          <div class="kit-name">Đèn pin nhỏ</div>
+          <div class="kit-desc">Kiểm tra đồng tử, vết thương</div>
+        </div>
+        <div class="kit-item">
+          <div class="kit-emoji" aria-hidden="true">📋</div>
+          <div class="kit-name">Hướng dẫn sơ cứu</div>
+          <div class="kit-desc">Tài liệu tham chiếu nhanh</div>
+        </div>
+        <div class="kit-item">
+          <div class="kit-emoji" aria-hidden="true">🩺</div>
+          <div class="kit-name">Mặt nạ thổi ngạt</div>
+          <div class="kit-desc">CPR an toàn</div>
+        </div>
+        <div class="kit-item">
+          <div class="kit-emoji" aria-hidden="true">🔆</div>
+          <div class="kit-name">Chăn giữ nhiệt</div>
+          <div class="kit-desc">Chống hạ thân nhiệt</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- FOOTER -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <footer role="contentinfo" aria-label="Thông tin trang web">
+    <div>
+      <div class="footer-logo">🩺 SƠ CỨU</div>
+      <div class="footer-tagline">Cẩm Nang Hướng Dẫn Xử Lý Tai Nạn</div>
+    </div>
+    <div class="footer-note">
+      ⚠️ Tài liệu này chỉ mang tính chất hướng dẫn tham khảo. Không thay thế cho việc đào tạo sơ cứu chuyên nghiệp và tư
+      vấn y tế.
+      Trong mọi tình huống khẩn cấp, hãy gọi <strong>115</strong> ngay lập tức.
+    </div>
+    <div class="footer-hotlines">
+      <div class="fh">115 — Cấp cứu</div>
+      <div class="fl">Hoạt động 24/7</div>
+      <div style="height:0.5rem;"></div>
+      <div class="fh">112 — Khẩn cấp</div>
+      <div class="fl">Tất cả mạng di động</div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- PRINT BUTTON -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <button class="print-btn" onclick="handlePrint()" title="In toàn bộ cẩm nang">🖨️ In Tài Liệu</button>
+
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <!-- JAVASCRIPT: Event handlers & utilities -->
+  <!-- ════════════════════════════════════════════════════════════════ -->
+  <script>
+    // ────────────────────────────────────────────────────────────────
+    // ACCORDION / TOGGLE FUNCTIONALITY
+    // ────────────────────────────────────────────────────────────────
+
+    /**
+     * Toggles the 'open' class on accordion card
+     * @param {Event} event - Click event
+     */
+    function toggleCard(event) {
+      const header = event.currentTarget;
+      const card = header.parentElement;
+
+      // Validate card exists
+      if (!card) {
+        console.error('Card element not found');
+        return;
+      }
+
+      // Toggle open state
+      card.classList.toggle('open');
+
+      // Update ARIA attribute for accessibility
+      const isOpen = card.classList.contains('open');
+      header.setAttribute('aria-expanded', isOpen.toString());
+    }
+
+    /**
+     * Handles keyboard navigation for accordion (Enter/Space to toggle)
+     * @param {KeyboardEvent} event - Keyboard event
+     */
+    function handleAccordionKeydown(event) {
+      if (event.key === 'Enter' || event.code === 'Space') {
+        event.preventDefault();
+        toggleCard(event);
+      }
+    }
+
+    /**
+     * Scrolls to and opens a specific accordion card
+     * @param {string} id - Card element ID
+     */
+    function openCard(id) {
+      try {
+        const card = document.getElementById(id);
+
+        if (!card) {
+          console.warn(`Card with ID '${id}' not found`);
+          return;
+        }
+
+        // Scroll to card with smooth behavior
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Open accordion after scroll completes
+        setTimeout(() => {
+          if (!card.classList.contains('open')) {
+            card.classList.add('open');
+            const header = card.querySelector('.acc-header');
+            if (header) {
+              header.setAttribute('aria-expanded', 'true');
+            }
+          }
+        }, 400);
+      } catch (error) {
+        console.error('Error opening card:', error);
+      }
+    }
+
+    // ────────────────────────────────────────────────────────────────
+    // SCROLL REVEAL ANIMATION
+    // ────────────────────────────────────────────────────────────────
+
+    /**
+     * Initializes Intersection Observer for scroll reveal animation
+     * Elements with .reveal class fade in when scrolled into view
+     */
+    function initScrollReveal() {
+      const reveals = document.querySelectorAll('.reveal');
+
+      // Validation
+      if (reveals.length === 0) {
+        console.log('No reveal elements found');
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Stop observing after visible
+          }
+        });
+      }, {
+        threshold: 0.1 // Trigger when 10% of element is visible
+      });
+
+      reveals.forEach(el => observer.observe(el));
+    }
+
+    // ────────────────────────────────────────────────────────────────
+    // KIT ITEMS STAGGER ANIMATION
+    // ────────────────────────────────────────────────────────────────
+
+    /**
+     * Adds staggered animation delay to kit items
+     */
+    function initKitItemsAnimation() {
+      const kitItems = document.querySelectorAll('.kit-item');
+
+      kitItems.forEach((item, index) => {
+        item.style.animationDelay = `${index * 0.05}s`;
+      });
+    }
+
+    // ────────────────────────────────────────────────────────────────
+    // PRINT FUNCTIONALITY
+    // ────────────────────────────────────────────────────────────────
+
+    /**
+     * Handles print action with error handling
+     */
+    function handlePrint() {
+      try {
+        window.print();
+      } catch (error) {
+        console.error('Print failed:', error);
+        alert('Không thể in tài liệu. Vui lòng thử lại.');
+      }
+    }
+
+    /**
+     * Toggles the mobile hamburger menu on/off
+     * Adds/removes .mobile-open class from navigation
+     * Updates aria-expanded attribute for accessibility
+     */
+    function toggleHamburgerMenu() {
+      const hamburger = document.getElementById('hamburger');
+      const navMenu = document.getElementById('nav-menu');
+
+      if (!hamburger || !navMenu) {
+        console.error('❌ Hamburger or nav menu elements not found');
+        return;
+      }
+
+      // Toggle mobile-open class
+      navMenu.classList.toggle('mobile-open');
+
+      // Update ARIA attribute
+      const isOpen = navMenu.classList.contains('mobile-open');
+      hamburger.setAttribute('aria-expanded', isOpen.toString());
+
+      console.log(`✅ Menu toggled: ${isOpen ? 'opened' : 'closed'}`);
+    }
+
+    /**
+     * Closes mobile menu when link is clicked
+     * Allows user to navigate and menu auto-closes
+     */
+    function closeMobileMenu() {
+      const navMenu = document.getElementById('nav-menu');
+      const hamburger = document.getElementById('hamburger');
+
+      if (navMenu && navMenu.classList.contains('mobile-open')) {
+        navMenu.classList.remove('mobile-open');
+        hamburger?.setAttribute('aria-expanded', 'false');
+      }
+    }
+
+    // ────────────────────────────────────────────────────────────────
+    // EVENT LISTENERS
+    // ────────────────────────────────────────────────────────────────
+
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('🚀 Initializing page...');
+
+      try {
+        // ────── HAMBURGER MENU ──────
+        const hamburgerBtn = document.getElementById('hamburger');
+        if (hamburgerBtn) {
+          hamburgerBtn.addEventListener('click', toggleHamburgerMenu);
+        }
+
+        // ────── CLOSE MENU ON NAV LINK CLICK ──────
+        const navLinks = document.querySelectorAll('#nav-menu a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', closeMobileMenu);
+        });
+
+        // ────── SCROLL REVEAL & KIT ANIMATION ──────
+        initScrollReveal();
+        initKitItemsAnimation();
+
+        console.log('✅ Page initialized successfully');
+      } catch (error) {
+        console.error('❌ Initialization failed:', error);
+      }
+    });
+
+  </script>
+</body>
+
+</html>
