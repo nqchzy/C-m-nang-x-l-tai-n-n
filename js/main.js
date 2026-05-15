@@ -469,36 +469,39 @@ function initQuickSearch() {
     }
   });
 
+  // Track if input has been focused at least once
+  let hasBeenFocused = false;
+
   // Hide helper when input gains focus
   searchInput.addEventListener('focus', function() {
+    hasBeenFocused = true;
     const existingHelper = document.querySelector('.search-helper');
     if (existingHelper) {
       existingHelper.remove();
     }
   });
 
-  // Hide helper when input loses focus - do not show helper again after initial display
+  // Show helper when input is empty and loses focus (only if has been focused)
   searchInput.addEventListener('blur', function() {
     const value = searchInput.value.trim();
-    if (value.length < 2) {
+    if (hasBeenFocused && value.length < 2) {
       clearSearchResults();
-      // Do not showSearchHelper() here - only show on initial load
+      showSearchHelper();
     }
   });
 
-  // Hide results when clicking elsewhere
+  // Hide results when clicking elsewhere (only show helper if input has been focused)
   document.addEventListener('click', function(e) {
     if (!searchInput.contains(e.target) && !searchButton.contains(e.target)) {
       clearSearchResults();
       const value = searchInput.value.trim();
-      if (value.length < 2) {
+      if (hasBeenFocused && value.length < 2) {
         showSearchHelper();
       }
     }
   });
 
-  // Initialize with helper text
-  showSearchHelper();
+  // Do NOT initialize with helper text - wait for user interaction
 }
 
 // ════════════════════════════════════════════════════════════════
