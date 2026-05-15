@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Cẩm nang sơ cứu chi tiết hướng dẫn xử lý tai nạn theo tiêu chuẩn y tế quốc tế. Hồi sức CPR, xử lý bỏng, cấp cứu khẩn cấp.">
+  <meta name="keywords" content="sơ cứu, CPR, hồi sức, tai nạn, y tế, cấp cứu, hướng dẫn">
+  <meta name="theme-color" content="#E63329">
+  <meta name="author" content="First Aid Guide">
+
+  <title>Cẩm Nang Sơ Cứu — Hướng Dẫn Xử Lý Tai Nạn</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts (Roboto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- ACCESSIBILITY: Skip to main content link -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <a href="#main-content" class="skip-link">Bỏ qua về nội dung chính</a>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- HEADER / NAVIGATION -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm" role="navigation" aria-label="Navigation chính">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="bi bi-heart-pulse text-danger me-2"></i>
+        <span class="fw-bold">SƠ</span><span class="text-danger fw-bold">CỨU</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" id="hamburger" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Mở/đóng menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Trang Chủ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/huong-dan.html">Hướng Dẫn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/cpr.html">Hồi Sức CPR</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/nen-khong-nen.html">Lưu Ý</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/bo-kit.html">Bộ Kit</a>
+          </li>
+          <li class="nav-item me-2">
+            <div class="input-group" style="width: 250px;">
+              <input type="text" id="searchInput" class="form-control form-control-sm" placeholder="🔍 Tìm kiếm...">
+              <button id="searchButton" class="btn btn-danger btn-sm" type="button">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-danger text-white px-3 ms-2" href="tel:115"
+              aria-label="Gọi 115 - Cấp cứu khẩn cấp">
+              <i class="bi bi-telephone-fill me-1"></i> GỌI 115
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- MAIN CONTENT -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── HERO SECTION ── -->
+    <section class="hero-section" id="home" role="region" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="row align-items-center min-vh-100">
+          <div class="col-lg-6">
+            <div class="hero-content animate__animated animate__fadeInLeft">
+              <div class="hero-tag">
+                <span class="badge bg-danger animate__animated animate__pulse animate__infinite">Cẩm Nang Sơ Cứu Chuyên Nghiệp</span>
+              </div>
+              <h1 class="display-1 fw-bold mb-4" id="hero-title">
+                XỬ LÝ<br>TAI NẠN<br><span class="text-danger">ĐÚNG CÁCH</span>
+              </h1>
+              <p class="lead text-muted mb-4 animate__animated animate__fadeIn animate__delay-1s">
+                Hướng dẫn sơ cứu từng bước, dựa trên tiêu chuẩn y tế quốc tế.
+                Hành động đúng trong những giây đầu tiên có thể cứu một mạng người.
+              </p>
+              <div class="d-flex gap-3 flex-wrap animate__animated animate__fadeInUp animate__delay-2s">
+                <a href="pages/huong-dan.html" class="btn btn-danger btn-lg">Xem Hướng Dẫn</a>
+                <a href="pages/cpr.html" class="btn btn-outline-dark btn-lg">Hồi Sức CPR</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 d-none d-lg-block">
+            <div class="hero-visual animate__animated animate__fadeInRight">
+              <i class="bi bi-plus-circle-fill text-danger" style="font-size: 20rem; opacity: 0.1;"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Stats -->
+        <div class="hero-stats animate__animated animate__fadeInUp animate__delay-3s">
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="stat-item">
+                <div class="stat-num text-danger">4'</div>
+                <div class="stat-label">Thời gian vàng CPR</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="stat-item">
+                <div class="stat-num text-danger">115</div>
+                <div class="stat-label">Cấp cứu khẩn cấp</div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="stat-item">
+                <div class="stat-num text-danger">12+</div>
+                <div class="stat-label">Tình huống tai nạn</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── EMERGENCY BAR ── -->
+    <div class="emergency-bar animate__animated animate__slideInDown" role="region" aria-labelledby="emergency-label">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center gap-4">
+          <div class="text-white fw-bold" id="emergency-label">
+            <i class="bi bi-telephone-fill me-2"></i>Đường Dây Khẩn Cấp
+          </div>
+          <div class="d-flex flex-wrap gap-4">
+            <div class="hotline-item text-center">
+              <div class="text-white"><i class="bi bi-ambulance me-1"></i>Cấp cứu y tế</div>
+              <div class="fs-4 fw-bold">115</div>
+            </div>
+            <div class="hotline-item text-center">
+              <div class="text-white"><i class="bi bi-fire me-1"></i>Cứu hỏa</div>
+              <div class="fs-4 fw-bold">114</div>
+            </div>
+            <div class="hotline-item text-center">
+              <div class="text-white"><i class="bi bi-shield-check me-1"></i>Công an</div>
+              <div class="fs-4 fw-bold">113</div>
+            </div>
+            <div class="hotline-item text-center">
+              <div class="text-white"><i class="bi bi-life-preserver me-1"></i>Tìm kiếm cứu nạn</div>
+              <div class="fs-4 fw-bold">112</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── QUICK ACCESS SECTION ── -->
+    <section id="quick-access" class="py-5" role="region" aria-labelledby="quick-title">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="badge bg-danger mb-3 animate__animated animate__bounceIn">Truy Cập Nhanh</span>
+          <h2 class="section-title animate__animated animate__fadeInUp" id="quick-title">Chọn Tình Huống</h2>
+        </div>
+
+
+        <div class="row g-4">
+          <div class="col-6 col-md-3">
+            <a href="pages/huong-dan.html#ngung-tim" class="quick-card w-100 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+              <i class="bi bi-heart-pulse-fill text-danger fs-1"></i>
+              <div class="qcard-title">Ngừng tim</div>
+              <div class="qcard-sub">CPR khẩn cấp</div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="pages/huong-dan.html#bong" class="quick-card w-100 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+              <i class="bi bi-fire text-warning fs-1"></i>
+              <div class="qcard-title">Bỏng</div>
+              <div class="qcard-sub">Bỏng nhiệt / hóa chất</div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="pages/huong-dan.html#gay-xuong" class="quick-card w-100 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+              <span class="me-3 fs-1 text-primary" aria-hidden="true">🦴</span>
+              <div class="qcard-title">Gãy xương</div>
+              <div class="qcard-sub">Cố định tạm thời</div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="pages/huong-dan.html#dien-giat" class="quick-card w-100 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+              <i class="bi bi-lightning-fill text-warning fs-1"></i>
+              <div class="qcard-title">Điện giật</div>
+              <div class="qcard-sub">Tách nguồn điện</div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="pages/huong-dan.html#di-vat" class="quick-card w-100 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+              <i class="bi bi-emoji-dizzy text-info fs-1"></i>
+              <div class="qcard-title">Dị vật đường thở</div>
+              <div class="qcard-sub">Nghiệm pháp Heimlich</div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="pages/huong-dan.html#xuat-huyet" class="quick-card w-100 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+              <i class="bi bi-droplet-fill text-danger fs-1"></i>
+              <div class="qcard-title">Chảy máu nặng</div>
+              <div class="qcard-sub">Cầm máu khẩn cấp</div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="pages/huong-dan.html#duoi-nuoc" class="quick-card w-100 animate__animated animate__fadeInUp" style="animation-delay: 0.7s;">
+              <i class="bi bi-water text-primary fs-1"></i>
+              <div class="qcard-title">Đuối nước</div>
+              <div class="qcard-sub">Cứu nạn & hồi sức</div>
+            </a>
+          </div>
+          <div class="col-6 col-md-3">
+            <a href="pages/huong-dan.html#ngo-doc" class="quick-card w-100 animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
+              <span class="fs-1" aria-hidden="true">☠️</span>
+              <div class="qcard-title">Ngộ độc</div>
+              <div class="qcard-sub">Thực phẩm / hóa chất</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FEATURED SECTIONS ── -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="card h-100 border-0 shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+              <div class="card-body text-center">
+                <i class="bi bi-heart-pulse-fill text-danger fs-1 mb-3"></i>
+                <h5 class="fw-bold">Hồi Sức CPR</h5>
+                <p class="text-muted">Hướng dẫn chi tiết kỹ thuật ép tim ngoài lồng ngực</p>
+                <a href="pages/cpr.html" class="btn btn-outline-danger btn-sm">Xem ngay</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 border-0 shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+              <div class="card-body text-center">
+                <i class="bi bi-book text-primary fs-1 mb-3"></i>
+                <h5 class="fw-bold">Hướng Dẫn Chi Tiết</h5>
+                <p class="text-muted">12+ tình huống tai nạn với hướng dẫn từng bước</p>
+                <a href="pages/huong-dan.html" class="btn btn-outline-primary btn-sm">Xem ngay</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 border-0 shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+              <div class="card-body text-center">
+                <i class="bi bi-exclamation-triangle-fill text-warning fs-1 mb-3"></i>
+                <h5 class="fw-bold">Lưu Ý Quan Trọng</h5>
+                <p class="text-muted">Những việc nên và không nên làm khi sơ cứu</p>
+                <a href="pages/nen-khong-nen.html" class="btn btn-outline-warning btn-sm">Xem ngay</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card h-100 border-0 shadow-sm animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+              <div class="card-body text-center">
+                <i class="bi bi-bandaid fs-1 text-info mb-3"></i>
+                <h5 class="fw-bold">Bộ Sơ Cứu</h5>
+                <p class="text-muted">12 vật dụng thiết yếu có trong tủ thuốc gia đình</p>
+                <a href="pages/bo-kit.html" class="btn btn-outline-info btn-sm">Xem ngay</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- FOOTER -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <footer class="bg-white border-top py-5" role="contentinfo" aria-label="Thông tin trang web">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-heart-pulse-fill text-danger fs-2 me-2"></i>
+            <span class="fs-4 fw-bold">SƠ CỨU</span>
+          </div>
+          <p class="text-muted small">Cẩm Nang Hướng Dẫn Xử Lý Tai Nạn</p>
+          <img src="assets\images\rr.png" alt="" style="height: 30%;">
+        </div>
+        <div class="col-md-4">
+          <h6 class="fw-bold mb-3">Liên kết nhanh</h6>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="pages/huong-dan.html" class="text-decoration-none text-muted">Hướng dẫn chi tiết</a></li>
+            <li class="mb-2"><a href="pages/cpr.html" class="text-decoration-none text-muted">Hồi sức CPR</a></li>
+            <li class="mb-2"><a href="pages/nen-khong-nen.html" class="text-decoration-none text-muted">Lưu ý quan trọng</a></li>
+            <li class="mb-2"><a href="pages/bo-kit.html" class="text-decoration-none text-muted">Bộ sơ cứu</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <p class="text-muted small mb-0">
+            <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>
+            Tài liệu này chỉ mang tính chất hướng dẫn tham khảo. Không thay thế cho việc đào tạo sơ cứu chuyên nghiệp.
+            Trong mọi tình huống khẩn cấp, hãy gọi <strong>115</strong> ngay lập tức.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>

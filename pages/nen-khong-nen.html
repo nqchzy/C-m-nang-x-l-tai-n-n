@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Những điều nên và không nên làm khi sơ cứu. Hướng dẫn quan trọng để tránh sai lầm khi xử lý tình huống khẩn cấp.">
+  <meta name="keywords" content="sơ cứu, lưu ý, nên làm, không nên, tai nạn, khẩn cấp">
+  <meta name="theme-color" content="#E63329">
+
+  <title>Lưu Ý Quan Trọng — Cẩm Nang Sơ Cứu</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <!-- Skip to content -->
+  <a href="#main-content" class="skip-link">Bỏ qua về nội dung chính</a>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <i class="bi bi-heart-pulse text-danger me-2"></i>
+        <span class="fw-bold">SƠ</span><span class="text-danger fw-bold">CỨU</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Trang Chủ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="huong-dan.html">Hướng Dẫn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cpr.html">Hồi Sức CPR</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="nen-khong-nen.html">Lưu Ý</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="bo-kit.html">Bộ Kit</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-danger text-white px-3 ms-2" href="tel:115">
+              <i class="bi bi-telephone-fill me-1"></i> GỌI 115
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content" class="pt-5">
+
+    <!-- Page Header -->
+    <section class="py-5 bg-gradient">
+      <div class="container">
+        <div class="text-center animate__animated animate__fadeInDown">
+          <span class="badge bg-danger mb-3">Những Điều Quan Trọng</span>
+          <h1 class="display-4 fw-bold">Nên & Không Nên</h1>
+          <p class="lead text-muted">Những việc cần làm và tránh khi sơ cứu khẩn cấp</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Search -->
+    <section class="py-3 bg-white border-bottom">
+      <div class="container">
+        <div class="position-relative" style="max-width: 400px; margin: 0 auto;">
+          <div class="input-group">
+            <input type="text" id="searchInput" class="form-control" placeholder="🔍 Tìm kiếm tình huống...">
+            <button id="searchButton" class="btn btn-danger" type="button">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Do / Don't Section -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="card h-100 border-success animate__animated animate__fadeInLeft" style="animation-delay: 0.1s;">
+              <div class="card-header bg-success bg-opacity-10 text-success fw-bold py-3">
+                <i class="bi bi-check-circle-fill me-2"></i>NÊN LÀM
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled">
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-right-circle-fill text-success fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Gọi 115 trước khi làm bất cứ điều gì khác</strong>
+                        <small class="d-block text-muted">Trong tình huống nguy kịch, gọi cấp cứu là ưu tiên hàng đầu.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-right-circle-fill text-success fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Giữ bình tĩnh</strong>
+                        <small class="d-block text-muted">Hoảng loạn dẫn đến sai lầm và mất thời gian quý báu.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-right-circle-fill text-success fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Kiểm tra bản thân trước</strong>
+                        <small class="d-block text-muted">Không tạo thêm nạn nhân. Đảm bảo an toàn cho bản thân trước khi giúp người khác.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-right-circle-fill text-success fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Ghi nhớ thời gian xảy ra tai nạn</strong>
+                        <small class="d-block text-muted">Thông báo cho bác sĩ để họ có thể đưa ra quyết định điều trị tốt nhất.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-right-circle-fill text-success fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Giữ nạn nhân ấm và trấn an</strong>
+                        <small class="d-block text-muted">Nói chuyện nhẹ nhàng, giữ ấm cơ thể nạn nhân.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.7s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-right-circle-fill text-success fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Học CPR và sơ cứu cơ bản</strong>
+                        <small class="d-block text-muted">Ít nhất 1 khóa học trong đời. Kỹ năng này có thể cứu mạng người.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-right-circle-fill text-success fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Mang theo bộ sơ cứu cơ bản</strong>
+                        <small class="d-block text-muted">Khi đi xa, du lịch, dã ngoại. Luôn chuẩn bị sẵn.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="animate__animated animate__fadeInUp" style="animation-delay: 0.9s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-right-circle-fill text-success fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Chụp ảnh hiện trường nếu an toàn</strong>
+                        <small class="d-block text-muted">Phục vụ điều tra và bảo vệ pháp lý cho bạn.</small>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card h-100 border-danger animate__animated animate__fadeInRight" style="animation-delay: 0.1s;">
+              <div class="card-header bg-danger bg-opacity-10 text-danger fw-bold py-3">
+                <i class="bi bi-x-circle-fill me-2"></i>KHÔNG NÊN
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled">
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-left-circle-fill text-danger fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Không di chuyển nạn nhân nghi gãy cột sống</strong>
+                        <small class="d-block text-muted">Khi không cần thiết. Di chuyển có thể gây tổn thương nghiêm trọng hơn.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-left-circle-fill text-danger fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Không cho ăn uống nếu nạn nhân không tỉnh táo</strong>
+                        <small class="d-block text-muted">Có thể gây sặc, nghẹn đường thở và nguy hiểm đến tính mạng.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-left-circle-fill text-danger fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Không rút dị vật cắm sâu vào cơ thể</strong>
+                        <small class="d-block text-muted">Cố định tại chỗ và đến cấp cứu ngay. Rút ra có thể gây chảy máu nặng.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-left-circle-fill text-danger fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Không dùng đá lạnh trực tiếp lên vết bỏng</strong>
+                        <small class="d-block text-muted">Hoặc vùng sưng. Có thể gây tổn thương lạnh và làm tình trạng tồi tệ hơn.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-left-circle-fill text-danger fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Không gây nôn khi ngộ độc hóa chất</strong>
+                        <small class="d-block text-muted">Hoặc chất ăn mòn. Có thể gây tổn thương thực quản và hô hấp.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.7s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-left-circle-fill text-danger fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Không chạm vào nạn nhân điện giật</strong>
+                        <small class="d-block text-muted">Khi chưa ngắt nguồn điện. Bạn cũng có thể bị điện giật.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-left-circle-fill text-danger fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Không tin vào các mẹo dân gian</strong>
+                        <small class="d-block text-muted">Chưa được y tế kiểm chứng. Có thể gây hại cho nạn nhân.</small>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="animate__animated animate__fadeInUp" style="animation-delay: 0.9s;">
+                    <div class="d-flex gap-3">
+                      <i class="bi bi-arrow-left-circle-fill text-danger fs-5 flex-shrink-0"></i>
+                      <div>
+                        <strong>Không bỏ lại nạn nhân một mình</strong>
+                        <small class="d-block text-muted">Trong tình trạng nguy kịch. Luôn ở bên cạnh và theo dõi.</small>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Common Mistakes Section -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h3 class="mb-4 text-center animate__animated animate__fadeInUp">Những Sai Lầm Thường Gặp</h3>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-warning animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+              <div class="card-body">
+                <div class="d-flex gap-3 mb-3">
+                  <i class="bi bi-exclamation-triangle-fill text-warning fs-3"></i>
+                  <div>
+                    <h5 class="fw-bold"><i class="bi bi-bottle"></i> Dùng nước mắm lên vết bỏng</h5>
+                    <small class="text-muted">Sai lầm phổ biến</small>
+                  </div>
+                </div>
+                <p class="text-muted small">Nước mắm chứa muối có thể gây đau và nhiễm trùng vết bỏng. Chỉ nên dùng nước mát.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-warning animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+              <div class="card-body">
+                <div class="d-flex gap-3 mb-3">
+                  <i class="bi bi-exclamation-triangle-fill text-warning fs-3"></i>
+                  <div>
+                    <h5 class="fw-bold">Dốc ngược người đuối nước</h5>
+                    <small class="text-muted">Vô hiệu và nguy hiểm</small>
+                  </div>
+                </div>
+                <p class="text-muted small">Không giúp thoát nước và có thể gây tổn thương cột sống. Nên đặt nằm ngửa và kiểm tra hô hấp.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-warning animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+              <div class="card-body">
+                <div class="d-flex gap-3 mb-3">
+                  <i class="bi bi-exclamation-triangle-fill text-warning fs-3"></i>
+                  <div>
+                    <h5 class="fw-bold">Hút nọc rắn bằng miệng</h5>
+                    <small class="text-muted">Nguy hiểm cho cả hai</small>
+                  </div>
+                </div>
+                <p class="text-muted small">Nọc có thể đi vào miệng và gây ngộ độc. Không hiệu quả trong việc loại bỏ nọc.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-warning animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+              <div class="card-body">
+                <div class="d-flex gap-3 mb-3">
+                  <i class="bi bi-exclamation-triangle-fill text-warning fs-3"></i>
+                  <div>
+                    <h5 class="fw-bold">Nắn thẳng xương gãy</h5>
+                    <small class="text-muted">Gây tổn thương thêm</small>
+                  </div>
+                </div>
+                <p class="text-muted small">Có thể làm tổn thương mạch máu, thần kinh quanh vùng gãy. Chỉ nên cố định tạm thời.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-warning animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+              <div class="card-body">
+                <div class="d-flex gap-3 mb-3">
+                  <i class="bi bi-exclamation-triangle-fill text-warning fs-3"></i>
+                  <div>
+                    <h5 class="fw-bold">Cho uống thuốc khi bất tỉnh</h5>
+                    <small class="text-muted">Nguy hiểm đến tính mạng</small>
+                  </div>
+                </div>
+                <p class="text-muted small">Có thể gây sặc, nghẹn đường thở. Chỉ nên cho uống khi nạn nhân hoàn toàn tỉnh táo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-warning animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+              <div class="card-body">
+                <div class="d-flex gap-3 mb-3">
+                  <i class="bi bi-exclamation-triangle-fill text-warning fs-3"></i>
+                  <div>
+                    <h5 class="fw-bold">Ép tim quá nhẹ</h5>
+                    <small class="text-muted">Không hiệu quả</small>
+                  </div>
+                </div>
+                <p class="text-muted small">Ép tim cần đủ sâu (5-6 cm) và đủ nhanh (100-120 lần/phút) mới có hiệu quả.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Emergency Numbers -->
+    <section class="py-5">
+      <div class="container">
+        <div class="card bg-danger text-white border-0 animate__animated animate__fadeInUp">
+          <div class="card-body py-5">
+            <div class="row align-items-center">
+              <div class="col-md-8">
+                <h3 class="fw-bold mb-2">Gọi 115 Ngay Khi Cần!</h3>
+                <p class="mb-0">Trong mọi tình huống khẩn cấp, đừng ngần ngại gọi cấp cứu. Mỗi giây đều có giá trị.</p>
+              </div>
+              <div class="col-md-4 text-md-end mt-4 mt-md-0">
+                <a href="tel:115" class="btn btn-light text-danger btn-lg fw-bold">
+                  <i class="bi bi-telephone-fill me-2"></i>GỌI 115
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-top py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-heart-pulse-fill text-danger fs-2 me-2"></i>
+            <span class="fs-4 fw-bold">SƠ CỨU</span>
+          </div>
+          <p class="text-muted small">Cẩm Nang Hướng Dẫn Xử Lý Tai Nạn</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="fw-bold mb-3">Liên kết nhanh</h6>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="../index.html" class="text-decoration-none text-muted">Trang chủ</a></li>
+            <li class="mb-2"><a href="huong-dan.html" class="text-decoration-none text-muted">Hướng dẫn chi tiết</a></li>
+            <li class="mb-2"><a href="cpr.html" class="text-decoration-none text-muted">Hồi sức CPR</a></li>
+            <li class="mb-2"><a href="bo-kit.html" class="text-decoration-none text-muted">Bộ sơ cứu</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <p class="text-muted small mb-0">
+            <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>
+            Tài liệu này chỉ mang tính chất hướng dẫn tham khảo. Không thay thế cho việc đào tạo sơ cứu chuyên nghiệp.
+            Trong mọi tình huống khẩn cấp, hãy gọi <strong>115</strong> ngay lập tức.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Print Button -->
+  <button class="btn btn-dark position-fixed bottom-0 end-0 m-4 rounded-pill shadow" onclick="window.print()">
+    <i class="bi bi-printer me-2"></i>In Tài Liệu
+  </button>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

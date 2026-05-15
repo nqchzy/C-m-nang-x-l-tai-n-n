@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Hướng dẫn chi tiết kỹ thuật hồi sức CPR - ép tim ngoài lồng ngực theo tiêu chuẩn y tế quốc tế.">
+  <meta name="keywords" content="CPR, hồi sức, ép tim, sơ cứu, cấp cứu">
+  <meta name="theme-color" content="#E63329">
+
+  <title>Hồi Sức CPR — Cẩm Nang Sơ Cứu</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <!-- Skip to content -->
+  <a href="#main-content" class="skip-link">Bỏ qua về nội dung chính</a>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <i class="bi bi-heart-pulse text-danger me-2"></i>
+        <span class="fw-bold">SƠ</span><span class="text-danger fw-bold">CỨU</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Trang Chủ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="huong-dan.html">Hướng Dẫn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="cpr.html">Hồi Sức CPR</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="nen-khong-nen.html">Lưu Ý</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="bo-kit.html">Bộ Kit</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-danger text-white px-3 ms-2" href="tel:115">
+              <i class="bi bi-telephone-fill me-1"></i> GỌI 115
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content" class="pt-5">
+
+    <!-- Page Header -->
+    <section class="py-5 bg-gradient">
+      <div class="container">
+        <div class="text-center animate__animated animate__fadeInDown">
+          <span class="badge bg-danger mb-3">Kỹ Thuật Hồi Sức</span>
+          <h1 class="display-4 fw-bold">Ép Tim Ngoài Lồng Ngực (CPR)</h1>
+          <p class="lead text-muted">Hướng dẫn từng bước theo tiêu chuẩn y tế quốc tế</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Search -->
+    <section class="py-3 bg-white border-bottom">
+      <div class="container">
+        <div class="position-relative" style="max-width: 400px; margin: 0 auto;">
+          <div class="input-group">
+            <input type="text" id="searchInput" class="form-control" placeholder="🔍 Tìm kiếm tình huống...">
+            <button id="searchButton" class="btn btn-danger" type="button">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CPR Timer Section -->
+    <section class="py-4 bg-danger text-white">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-stopwatch-fill fs-1"></i>
+              <div>
+                <h5 class="mb-0">Thời gian vàng: 4 phút</h5>
+                <small>Mỗi giây trôi qua đều có giá trị!</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 text-md-end">
+            <button id="cprTimerBtn" class="btn btn-light text-danger fw-bold">
+              <i class="bi bi-play-fill me-1"></i>Bắt đầu đếm
+            </button>
+            <span id="cprTimer" class="ms-3 fs-4 fw-bold">00:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CPR Steps -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-6">
+            <h3 class="mb-4 animate__animated animate__fadeInLeft">Các Bước Thực Hiện</h3>
+
+            <div class="cpr-steps">
+              <div class="cpr-step mb-4 animate__animated animate__fadeInLeft" style="animation-delay: 0.1s;">
+                <div class="d-flex gap-3">
+                  <div class="cpr-step-num">01</div>
+                  <div>
+                    <h5 class="fw-bold">Kiểm tra an toàn & gọi cấp cứu</h5>
+                    <p class="text-muted">Đảm bảo môi trường an toàn. Gọi 115 hoặc nhờ người bên cạnh gọi ngay khi phát hiện nạn nhân bất tỉnh, không thở bình thường.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cpr-step mb-4 animate__animated animate__fadeInLeft" style="animation-delay: 0.2s;">
+                <div class="d-flex gap-3">
+                  <div class="cpr-step-num">02</div>
+                  <div>
+                    <h5 class="fw-bold">Kiểm tra phản ứng & hô hấp</h5>
+                    <p class="text-muted">Lay nhẹ nạn nhân và gọi to. Kiểm tra hô hấp: quan sát ngực phồng lên và xuống trong 10 giây.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cpr-step mb-4 animate__animated animate__fadeInLeft" style="animation-delay: 0.3s;">
+                <div class="d-flex gap-3">
+                  <div class="cpr-step-num">03</div>
+                  <div>
+                    <h5 class="fw-bold">Tư thế ép tim</h5>
+                    <p class="text-muted">Quỳ bên cạnh nạn nhân. Đặt gót bàn tay lên 1/2 dưới xương ức. Tay còn lại chồng lên, ngón tay đan vào nhau, khóa thẳng.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cpr-step mb-4 animate__animated animate__fadeInLeft" style="animation-delay: 0.4s;">
+                <div class="d-flex gap-3">
+                  <div class="cpr-step-num">04</div>
+                  <div>
+                    <h5 class="fw-bold">Ép sâu và mạnh</h5>
+                    <p class="text-muted">Ép sâu 5–6 cm, tốc độ 100–120 lần/phút (nhịp bài "Staying Alive"). Để ngực nở hoàn toàn giữa các lần ép.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cpr-step mb-4 animate__animated animate__fadeInLeft" style="animation-delay: 0.5s;">
+                <div class="d-flex gap-3">
+                  <div class="cpr-step-num">05</div>
+                  <div>
+                    <h5 class="fw-bold">Thổi ngạt (nếu được huấn luyện)</h5>
+                    <p class="text-muted">Sau 30 lần ép: ngửa đầu, nâng cằm, bịt mũi, thổi 2 hơi mỗi hơi 1 giây — quan sát ngực phồng lên.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cpr-step mb-4 animate__animated animate__fadeInLeft" style="animation-delay: 0.6s;">
+                <div class="d-flex gap-3">
+                  <div class="cpr-step-num">06</div>
+                  <div>
+                    <h5 class="fw-bold">Dùng AED nếu có sẵn</h5>
+                    <p class="text-muted">Bật máy AED, dán điện cực theo hướng dẫn hình vẽ trên máy. Làm theo giọng nói hướng dẫn của AED. Tiếp tục CPR khi máy phân tích.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <h3 class="mb-4 animate__animated animate__fadeInRight">Thông Số Quan Trọng</h3>
+
+            <div class="cpr-visual">
+              <div class="card bg-danger bg-opacity-10 border-danger mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                <div class="card-body text-center">
+                  <div class="display-1 fw-bold text-danger">100–120</div>
+                  <div class="text-muted text-uppercase small fw-bold">Lần ép / phút</div>
+                  <small class="text-muted">Nhịp bài "Staying Alive"</small>
+                </div>
+              </div>
+
+              <div class="card bg-dark bg-opacity-10 border-dark mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <div class="card-body text-center">
+                  <div class="display-1 fw-bold text-dark">5–6 cm</div>
+                  <div class="text-muted text-uppercase small fw-bold">Độ sâu mỗi lần ép</div>
+                  <small class="text-muted">Ép đủ sâu để tạo hiệu quả</small>
+                </div>
+              </div>
+
+              <div class="card bg-primary bg-opacity-10 border-primary mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                <div class="card-body text-center">
+                  <div class="display-1 fw-bold text-primary">30:2</div>
+                  <div class="text-muted text-uppercase small fw-bold">Tỷ lệ ép:thổi</div>
+                  <small class="text-muted">30 lần ép, 2 lần thổi</small>
+                </div>
+              </div>
+
+              <h5 class="mb-3 animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">Mẹo quan trọng</h5>
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="card bg-light border-start border-4 border-primary animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                    <div class="card-body">
+                      <strong><i class="bi bi-body-text"></i> Dùng trọng lượng cơ thể</strong>
+                      <small class="d-block text-muted">Giữ khuỷu tay thẳng, sức ép từ hông — không chỉ từ cánh tay.</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="card bg-light border-start border-4 border-primary animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                    <div class="card-body">
+                      <strong><i class="bi bi-arrow-repeat"></i> Đổi người</strong>
+                      <small class="d-block text-muted">Sau mỗi 2 phút, đổi người ép tim để đảm bảo chất lượng.</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="card bg-light border-start border-4 border-primary animate__animated animate__fadeInUp" style="animation-delay: 0.7s;">
+                    <div class="card-body">
+                      <strong><i class="bi bi-music-note-beamed"></i> Nhịp đúng</strong>
+                      <small class="d-block text-muted">Hát thầm "Staying Alive" — đúng nhịp 100–120 BPM.</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="card bg-light border-start border-4 border-primary animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
+                    <div class="card-body">
+                      <strong>⏰ Không dừng</strong>
+                      <small class="d-block text-muted">Gián đoạn tối đa 10 giây giữa các đợt ép.</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CPR Rhythm Visual -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h3 class="animate__animated animate__fadeInUp">Nhịp Đúng CPR</h3>
+          <p class="text-muted animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">Hát theo nhịp bài "Stayin' Alive" của Bee Gees</p>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card border-0 shadow animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+              <div class="card-body text-center py-5">
+                <div class="cpr-rhythm-visual mb-4">
+                  <i class="bi bi-heart-pulse-fill text-danger" style="font-size: 4rem;"></i>
+                </div>
+                <h4 class="mb-3">100–120 nhịp/phút</h4>
+                <p class="text-muted mb-4">Ép tim theo nhịp đều đặn, không dừng giữa các lần ép</p>
+                <button id="rhythmBtn" class="btn btn-danger btn-lg">
+                  <i class="bi bi-play-fill me-2"></i>Thử nhịp
+                </button>
+                <div id="rhythmIndicator" class="mt-3 fs-1 fw-bold text-danger" style="display: none;">
+                  ●
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Important Notes -->
+    <section class="py-5">
+      <div class="container">
+        <h3 class="mb-4 text-center animate__animated animate__fadeInUp">Lưu Ý Quan Trọng</h3>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card border-success animate__animated animate__fadeInLeft" style="animation-delay: 0.1s;">
+              <div class="card-header bg-success bg-opacity-10 text-success fw-bold">
+                <i class="bi bi-check-circle-fill me-2"></i>NÊN LÀM
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Gọi 115 ngay lập tức</li>
+                  <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Bắt đầu CPR ngay nếu nạn nhân không thở</li>
+                  <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Ép tim đủ sâu và đủ nhanh</li>
+                  <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Đổi người sau mỗi 2 phút</li>
+                  <li class="mb-2"><i class="bi bi-check text-success me-2"></i>Sử dụng AED nếu có sẵn</li>
+                  <li><i class="bi bi-check text-success me-2"></i>Tiếp tục đến khi nạn nhân hồi phục hoặc cấp cứu đến</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card border-danger animate__animated animate__fadeInRight" style="animation-delay: 0.2s;">
+              <div class="card-header bg-danger bg-opacity-10 text-danger fw-bold">
+                <i class="bi bi-x-circle-fill me-2"></i>KHÔNG NÊN
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2"><i class="bi bi-x text-danger me-2"></i>Không dừng CPR trừ khi kiệt sức</li>
+                  <li class="mb-2"><i class="bi bi-x text-danger me-2"></i>Không ép quá nhẹ hoặc quá chậm</li>
+                  <li class="mb-2"><i class="bi bi-x text-danger me-2"></i>Không ngả người sang bên cạnh khi ép</li>
+                  <li class="mb-2"><i class="bi bi-x text-danger me-2"></i>Không dừng quá 10 giây giữa các đợt</li>
+                  <li class="mb-2"><i class="bi bi-x text-danger me-2"></i>Không thổi ngạt nếu không được huấn luyện</li>
+                  <li><i class="bi bi-x text-danger me-2"></i>Không bỏ nạn nhân một mình</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-top py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="d-flex align-items-center mb-3">
+            <i class="bi bi-heart-pulse-fill text-danger fs-2 me-2"></i>
+            <span class="fs-4 fw-bold">SƠ CỨU</span>
+          </div>
+          <p class="text-muted small">Cẩm Nang Hướng Dẫn Xử Lý Tai Nạn</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="fw-bold mb-3">Liên kết nhanh</h6>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="../index.html" class="text-decoration-none text-muted">Trang chủ</a></li>
+            <li class="mb-2"><a href="huong-dan.html" class="text-decoration-none text-muted">Hướng dẫn chi tiết</a></li>
+            <li class="mb-2"><a href="nen-khong-nen.html" class="text-decoration-none text-muted">Lưu ý quan trọng</a></li>
+            <li class="mb-2"><a href="bo-kit.html" class="text-decoration-none text-muted">Bộ sơ cứu</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-md-end">
+          <p class="text-muted small mb-0">
+            <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>
+            Tài liệu này chỉ mang tính chất hướng dẫn tham khảo. Không thay thế cho việc đào tạo sơ cứu chuyên nghiệp.
+            Trong mọi tình huống khẩn cấp, hãy gọi <strong>115</strong> ngay lập tức.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Print Button -->
+  <button class="btn btn-dark position-fixed bottom-0 end-0 m-4 rounded-pill shadow" onclick="window.print()">
+    <i class="bi bi-printer me-2"></i>In Tài Liệu
+  </button>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="../js/main.js"></script>
+
+  <!-- CPR Page Specific JS -->
+  <script>
+    // CPR Timer
+    let cprTimerInterval = null;
+    let cprSeconds = 0;
+    let cprTimerRunning = false;
+
+    const cprTimerBtn = document.getElementById('cprTimerBtn');
+    const cprTimerDisplay = document.getElementById('cprTimer');
+
+    if (cprTimerBtn) {
+      cprTimerBtn.addEventListener('click', () => {
+        if (cprTimerRunning) {
+          // Stop timer
+          clearInterval(cprTimerInterval);
+          cprTimerRunning = false;
+          cprTimerBtn.innerHTML = '<i class="bi bi-play-fill me-1"></i>Tiếp tục';
+        } else {
+          // Start timer
+          cprTimerRunning = true;
+          cprTimerBtn.innerHTML = '<i class="bi bi-pause-fill me-1"></i>Tạm dừng';
+          cprTimerInterval = setInterval(() => {
+            cprSeconds++;
+            const minutes = Math.floor(cprSeconds / 60);
+            const seconds = cprSeconds % 60;
+            cprTimerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+          }, 1000);
+        }
+      });
+    }
+
+    // CPR Rhythm Visual
+    const rhythmBtn = document.getElementById('rhythmBtn');
+    const rhythmIndicator = document.getElementById('rhythmIndicator');
+    let rhythmInterval = null;
+    let rhythmRunning = false;
+
+    if (rhythmBtn) {
+      rhythmBtn.addEventListener('click', () => {
+        if (rhythmRunning) {
+          // Stop rhythm
+          clearInterval(rhythmInterval);
+          rhythmRunning = false;
+          rhythmBtn.innerHTML = '<i class="bi bi-play-fill me-2"></i>Thử nhịp';
+          rhythmIndicator.style.display = 'none';
+        } else {
+          // Start rhythm - 100-120 BPM = ~0.5-0.6 seconds per beat
+          rhythmRunning = true;
+          rhythmBtn.innerHTML = '<i class="bi bi-pause-fill me-2"></i>Dừng';
+          rhythmIndicator.style.display = 'block';
+
+          let beat = true;
+          rhythmInterval = setInterval(() => {
+            rhythmIndicator.style.opacity = beat ? '1' : '0.3';
+            beat = !beat;
+          }, 550); // ~109 BPM
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
