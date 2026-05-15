@@ -317,22 +317,22 @@ function initQuickSearch() {
 
   // Define searchable content
   const searchableContent = [
-    { title: 'Hướng Dẫn Sơ Cứu', url: 'pages/huong-dan.html', keywords: ['sơ cứu', 'hướng dẫn', 'tai nạn', 'cấp cứu'] },
-    { title: 'Hồi Sức CPR', url: 'pages/cpr.html', keywords: ['cpr', 'hồi sức', 'ép tim', 'hô hấp'] },
-    { title: 'Lưu Ý Quan Trọng', url: 'pages/nen-khong-nen.html', keywords: ['lưu ý', 'nên', 'không nên', 'sơ cứu'] },
-    { title: 'Bộ Kit Sơ Cứu', url: 'pages/bo-kit.html', keywords: ['bộ kit', 'sơ cứu', 'dụng cụ', 'thuốc'] },
-    { title: 'Ngừng tim - CPR khẩn cấp', url: 'pages/huong-dan.html#ngung-tim', keywords: ['ngừng tim', 'cpr', 'khẩn cấp', 'ép tim'] },
-    { title: 'Bỏng nhiệt / hóa chất', url: 'pages/huong-dan.html#bong', keywords: ['bỏng', 'nhiệt', 'hóa chất', 'laze'] },
-    { title: 'Gãy xương - Cố định tạm thời', url: 'pages/huong-dan.html#gay-xuong', keywords: ['gãy xương', 'cố định', 'xương', 'thoái vị'] },
-    { title: 'Điện giật - Tách nguồn điện', url: 'pages/huong-dan.html#dien-giat', keywords: ['điện giật', 'tách nguồn', 'điện', 'sập'] },
-    { title: 'Dị vật đường thở - Nghiệm pháp Heimlich', url: 'pages/huong-dan.html#di-vat', keywords: ['dị vật', 'đường thở', 'heimlich', 'ngạt'] },
-    { title: 'Chảy máu nặng - Cầm máu khẩn cấp', url: 'pages/huong-dan.html#xuat-huyet', keywords: ['chảy máu', 'cầm máu', 'xuất huyết', 'băng'] },
-    { title: 'Đuối nước - Cứu nạn & hồi sức', url: 'pages/huong-dan.html#duoi-nuoc', keywords: ['đuối nước', 'cứu nạn', 'nước', 'hô hấp'] },
-    { title: 'Ngộ độc - Thực phẩm / hóa chất', url: 'pages/huong-dan.html#ngo-doc', keywords: ['ngộ độc', 'thực phẩm', 'hóa chất', 'niềm'] },
-    { title: 'Sốc phản vệ - Dị ứng nặng', url: 'pages/huong-dan.html#collapseSocPhanVe', keywords: ['sốc phản vệ', 'dị ứng', 'epipen', 'côn trùng'] },
-    { title: 'Đột quỵ - Stroke Test FAST', url: 'pages/huong-dan.html#collapseDotQuy', keywords: ['đột quỵ', 'stroke', 'fast test', 'mặt'] },
-    { title: 'Rắn cắn & côn trùng đốt', url: 'pages/huong-dan.html#collapseRanCan', keywords: ['rắn cắn', 'côn trùng', 'nọc độc', 'đốt'] },
-    { title: 'Say nắng & kiệt sức nhiệt', url: 'pages/huong-dan.html#collapseSayNang', keywords: ['say nắng', 'kiệt sức', 'nhiệt độ', 'nóng'] }
+    { title: 'Hướng Dẫn Sơ Cứu', url: '../pages/huong-dan.html', keywords: ['sơ cứu', 'hướng dẫn', 'tai nạn', 'cấp cứu'] },
+    { title: 'Hồi Sức CPR', url: '../pages/cpr.html', keywords: ['cpr', 'hồi sức', 'ép tim', 'hô hấp'] },
+    { title: 'Lưu Ý Quan Trọng', url: '../pages/nen-khong-nen.html', keywords: ['lưu ý', 'nên', 'không nên', 'sơ cứu'] },
+    { title: 'Bộ Kit Sơ Cứu', url: '../pages/bo-kit.html', keywords: ['bộ kit', 'sơ cứu', 'dụng cụ', 'thuốc'] },
+    { title: 'Ngừng tim - CPR khẩn cấp', url: '../pages/huong-dan.html#ngung-tim', keywords: ['ngừng tim', 'cpr', 'khẩn cấp', 'ép tim'] },
+    { title: 'Bỏng nhiệt / hóa chất', url: '../pages/huong-dan.html#bong', keywords: ['bỏng', 'nhiệt', 'hóa chất', 'laze'] },
+    { title: 'Gãy xương - Cố định tạm thời', url: '../pages/huong-dan.html#gay-xuong', keywords: ['gãy xương', 'cố định', 'xương', 'thoái vị'] },
+    { title: 'Điện giật - Tách nguồn điện', url: '../pages/huong-dan.html#dien-giat', keywords: ['điện giật', 'tách nguồn', 'điện', 'sập'] },
+    { title: 'Dị vật đường thở - Nghiệm pháp Heimlich', url: '../pages/huong-dan.html#di-vat', keywords: ['dị vật', 'đường thở', 'heimlich', 'ngạt'] },
+    { title: 'Chảy máu nặng - Cầm máu khẩn cấp', url: '../pages/huong-dan.html#xuat-huyet', keywords: ['chảy máu', 'cầm máu', 'xuất huyết', 'băng'] },
+    { title: 'Đuối nước - Cứu nạn & hồi sức', url: '../pages/huong-dan.html#duoi-nuoc', keywords: ['đuối nước', 'cứu nạn', 'nước', 'hô hấp'] },
+    { title: 'Ngộ độc - Thực phẩm / hóa chất', url: '../pages/huong-dan.html#ngo-doc', keywords: ['ngộ độc', 'thực phẩm', 'hóa chất', 'niềm'] },
+    { title: 'Sốc phản vệ - Dị ứng nặng', url: '../pages/huong-dan.html#collapseSocPhanVe', keywords: ['sốc phản vệ', 'dị ứng', 'epipen', 'côn trùng'] },
+    { title: 'Đột quỵ - Stroke Test FAST', url: '../pages/huong-dan.html#collapseDotQuy', keywords: ['đột quỵ', 'stroke', 'fast test', 'mặt'] },
+    { title: 'Rắn cắn & côn trùng đốt', url: '../pages/huong-dan.html#collapseRanCan', keywords: ['rắn cắn', 'côn trùng', 'nọc độc', 'đốt'] },
+    { title: 'Say nắng & kiệt sức nhiệt', url: '../pages/huong-dan.html#collapseSayNang', keywords: ['say nắng', 'kiệt sức', 'nhiệt độ', 'nóng'] }
   ];
 
   // Perform search
@@ -563,11 +563,42 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounters();
     initQuickSearch(); // Initialize quick search
 
+    // Handle hash navigation for accordion sections
+    handleHashNavigation();
+
     console.log('✅ Page initialized successfully');
   } catch (error) {
     console.error('❌ Initialization failed:', error);
   }
 });
+
+// Handle hash navigation for accordion sections
+function handleHashNavigation() {
+  const hash = window.location.hash;
+  if (hash) {
+    // Remove the # prefix
+    const sectionId = hash.substring(1);
+
+    // Check if it's an accordion section
+    const accordionItem = document.getElementById(sectionId);
+    if (accordionItem && accordionItem.classList.contains('accordion-item')) {
+      // Open the accordion card
+      openCard(sectionId);
+
+      // Update active nav link based on hash
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === hash) {
+          link.classList.add('active');
+        }
+      });
+    }
+  }
+
+  // Also handle hash changes (for SPA-like behavior)
+  window.addEventListener('hashchange', handleHashNavigation);
+}
 
 // ════════════════════════════════════════════════════════════════
 // UTILITY FUNCTIONS
