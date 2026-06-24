@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Giỏ hàng – Giftify</title>
-  <meta name="description" content="Xem lại quà tặng cá nhân hoá đã chọn và tiến hành thanh toán."/>
+  <title>Đăng ký – Giftify</title>
+  <meta name="description" content="Tạo tài khoản Giftify của bạn."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
@@ -47,73 +47,49 @@
     </div>
   </div>
 
-  <!-- Cart Page Content -->
-  <div class="container" style="padding-top:100px">
-    <div class="breadcrumb" style="padding-top:0;margin-bottom:28px">
-      <a href="index.html">Trang chủ</a><span class="sep">›</span><span>Giỏ hàng</span>
-    </div>
-    <h1 class="heading" style="font-size:1.875rem;margin-bottom:28px">Giỏ hàng của bạn <span style="font-size:1rem;color:var(--text-muted);font-weight:400">(0 món)</span></h1>
-  </div>
-  <section class="section-sm" style="padding-top:0">
+  <!-- Register Page Content -->
+  <section class="page-hero">
     <div class="container">
-      <div class="cart-layout">
-        <div>
-          <!-- Cart items will be dynamically added via JS; placeholder -->
-          <div class="cart-item">
-            <div class="cart-item-img">☕</div>
-            <div class="cart-item-info">
-              <h3>Mẫu sản phẩm</h3>
-              <p>Mô tả mẫu</p>
-              <div class="cart-item-meta">
-                <div class="qty-control">
-                  <button class="qty-btn" onclick="changeQty(-1,'sample1')">−</button>
-                  <span class="qty-val" id="sample1">1</span>
-                  <button class="qty-btn" onclick="changeQty(1,'sample1')">+</button>
-                </div>
-                <div class="cart-item-price">$29.99</div>
-                <button class="cart-remove" onclick="this.closest('.cart-item').style.opacity='.3'">Xóa</button>
-              </div>
-            </div>
+      <div class="breadcrumb">
+        <a href="index.html">Trang chủ</a>
+        <span class="sep">›</span>
+        <span>Đăng ký</span>
+      </div>
+      <h1 class="display">Tạo tài khoản</h1>
+      <p style="color:var(--text-muted);margin-top:8px">Đăng ký để bắt đầu trải nghiệm mua sắm cá nhân hoá.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="max-width:400px;margin:0 auto;">
+        <form id="registerForm">
+          <div style="margin-bottom:24px;">
+            <label class="field-label" for="fullName">Họ và tên</label>
+            <input type="text" class="field-input" id="fullName" placeholder="Nhập họ và tên của bạn" required/>
           </div>
-        </div>
-
-        <div class="order-summary">
-          <h3>Tóm tắt đơn hàng</h3>
-          <div class="summary-row"><span>Tạm tính</span><span>$0.00</span></div>
-          <div class="summary-row"><span>Vận chuyển</span><span style="color:#10B981">MIỄN PHÍ</span></div>
-          <div class="summary-row"><span>Bao bì quà tặng</span><span>$0.00</span></div>
-          <div class="coupon-row">
-            <input type="text" placeholder="Mã giảm giá" id="couponInput"/>
-            <button onclick="applyCoupon()">Áp dụng</button>
+          <div style="margin-bottom:24px;">
+            <label class="field-label" for="email">Địa chỉ email</label>
+            <input type="email" class="field-input" id="email" placeholder="you@example.com" required/>
           </div>
-          <div class="summary-row" id="discountRow" style="display:none;color:#10B981"><span>Discount (GIFT15)</span><span id="discAmt">−$0.00</span></div>
-          <div class="summary-row total"><span>Tổng</span><span id="cartTotal">$0.00</span></div>
-
-          <button class="btn btn-primary" style="width:100%;margin-top:16px" onclick="showToast('Đang tiến hành thanh toán!')">🔒 Thanh toán bảo mật</button>
-          <button class="btn btn-secondary" style="width:100%;margin-top:10px" onclick="window.location.href='shop.html'">← Tiếp tục mua sắm</button>
-
-          <div class="trust-badges">
-            <div class="trust-badge">🔒 Mã hoá SSL</div>
-            <div class="trust-badge">🔄 Trả lại miễn phí</div>
-            <div class="trust-badge">💳 Thanh toán an toàn</div>
+          <div style="margin-bottom:24px;">
+            <label class="field-label" for="password">Mật khẩu</label>
+            <input type="password" class="field-input" id="password" placeholder="••••••••" required/>
           </div>
-
-          <div class="divider"></div>
-          <div style="font-size:.8125rem;font-weight:600;margin-bottom:10px">Phương thức thanh toán</div>
-          <div class="payment-methods">
-            <div class="pay-method active">💳 Thẻ</div>
-            <div class="pay-method" onclick="selectPay(this)">🅿️ PayPal</div>
-            <div class="pay-method" onclick="selectPay(this)">🍎 Apple Pay</div>
-            <div class="pay-method" onclick="selectPay(this)">G Pay</div>
+          <div style="margin-bottom:24px;">
+            <label class="field-label" for="confirmPassword">Nhập lại mật khẩu</label>
+            <input type="password" class="field-input" id="confirmPassword" placeholder="••••••••" required/>
           </div>
-
-          <div class="divider"></div>
-          <div style="font-size:.8125rem;font-weight:600;margin-bottom:10px">Tín nhắn quà tặng (tùy chọn)</div>
-          <textarea placeholder="Thêm ghi chú quà tặng..." style="width:100%;height:80px;"></div>
-
-          <div class="divider"></div>
-          <div style="font-size:.8125rem;font-weight:600;margin-bottom:10px">Dự kiến giao hàng</div>
-          <div style="font-size:.9rem;color:var(--text-muted)">Chuẩn: 5‑7 ngày làm việc • Nhanh: 2‑3 ngày làm việc</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+            <label class="label">
+              <input type="checkbox" id="rememberMe"/> Ghi nhớ đăng nhập
+            </label>
+            <a href="login.html" style="color:var(--purple);font-size:.875rem;">Đã có tài khoản? Đăng nhập</a>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;padding:12px 24px;">Đăng ký</button>
+        </form>
+        <div style="text-align:center;margin-top:24px;color:var(--text-muted);font-size:.875rem;">
+          Bằng cách đăng ký, bạn đồng ý với <a href="#" style="color:var(--purple);">Điều khoản dịch vụ</a> và <a href="#" style="color:var(--purple);">Chính sách bảo mật</a>.
         </div>
       </div>
     </div>
@@ -187,7 +163,7 @@
         </div>
       </div>
       <div class="chat-messages" id="chatMessages">
-        <div class="chat-msg bot">Xin chào! 👋 Tôi ở đây để giúp bạn tìm món quà tặng cá nhân hoá hoàn hảo. Dịp nào đó?</div>
+        <div class="chat-msg bot">Xin chào! 👋 Tôi ở đây để giúp bạn đăng ký tài khoản. Bạn cần giúp đỡ gì?</div>
       </div>
       <div class="chat-input-row">
         <input type="text" placeholder="Nhập tin nhắn..." id="chatInput" onkeypress="if(event.key==='Enter')sendChat()"/>
@@ -203,5 +179,31 @@
   <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
   <script src="script.js"></script>
+  <script>
+    // Handle registration form submission
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (!fullName || !email || !password || !confirmPassword) {
+        showToast('Vui lòng điền đầy đủ thông tin');
+        return;
+      }
+
+      if (password !== confirmPassword) {
+        showToast('Mật khẩu không khớp');
+        return;
+      }
+
+      // In a real app, you would send this data to a server
+      showToast('Đăng ký thành công! Vui lòng kiểm tra email để kích hoạt tài khoản.');
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 1500);
+    });
+  </script>
 </body>
 </html>

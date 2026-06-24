@@ -1,361 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Giftify – My Account</title>
-<meta name="description" content="Manage your Giftify account, orders, and preferences."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="styles.css"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tài khoản – Giftify</title>
+  <meta name="description" content="Bảng điều khören cá nhân của bạn cho đơn hàng, thiết kế và cài đặt."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-
-<!-- ============================================================
-     NAVBAR
-     ============================================================ -->
-<nav class="navbar" id="navbar">
-  <div class="nav-inner">
-    <a class="nav-logo" href="home.html">
-      <div class="nav-logo-icon">🎁</div>
-      <span>Giftify</span>
-    </a>
-    <div class="nav-links">
-      <a class="nav-link" href="home.html">Home</a>
-      <a class="nav-link" href="occasions.html">Occasions</a>
-      <a class="nav-link" href="customize.html">Customize</a>
-      <a class="nav-link" href="product.html">Products</a>
-    </div>
-    <div class="nav-actions">
-      <button class="nav-icon-btn" onclick="toggleDark()" title="Toggle dark mode">🌙</button>
-      <a class="nav-icon-btn" href="account.html">👤</a>
-      <a class="nav-icon-btn" href="cart.html">
-        🛒
-        <span class="badge" id="nav-cart-badge">3</span>
-      </button>
-      <a class="btn-nav-cta" href="customize.html">✨ Create Gift</a>
-      <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <a class="mobile-nav-link" href="home.html">🏠 Home</a>
-  <a class="mobile-nav-link" href("occasions.html">🎉 Occasions</a>
-  <a class="mobile-nav-link" href="customize.html">✏️ Customize</a>
-  <a class="mobile-nav-link" href="product.html">🛍️ Products</a>
-  <a class="mobile-nav-link" href="cart.html">🛒 Cart (3)</a>
-  <a class="mobile-nav-link" href="account.html">👤 My Account</a>
-  <div style="margin-top:24px">
-    <span class="badge" id="mobile-cart-badge">3</span>
-  </div>
-  <div style="margin-top:24px">
-    <button class="btn btn-primary" style="width:100%" onclick="showPage('customize');toggleMobile()">✨ Create Personalized Gift</button>
-  </div>
-</div>
-
-<!-- ============================================================
-     ACCOUNT PAGE
-     ============================================================ -->
-<div class="container">
-  <div id="account-content">
-    <!-- This will be filled by JavaScript based on auth state -->
-  </div>
-</div>
-
-<!-- ============================================================
-     LIVE CHAT
-     ============================================================ -->
-<div class="chat-bubble">
-  <button class="chat-btn" onclick="toggleChat()">
-    💬
-    <div class="chat-ping"></div>
-  </button>
-  <div class="chat-window" id="chatWindow">
-    <div class="chat-head">
-      <div class="agent">🤖</div>
-      <div class="chat-head-info">
-        <h4>Giftify Assistant</h4>
-        <p>● Online now</p>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">
+        <div class="nav-logo-icon">🎁</div>
+        <span>Giftify</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Trang chủ</a>
+        <a class="nav-link" href="shop.html">Cửa hàng</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" onclick="toggleDark()" title="Chuyển chế độ tối">🌙</button>
+        <button class="nav-icon-btn" onclick="window.location.href='account.html'">👤</button>
+        <button class="nav-icon-btn" onclick="window.location.href='cart.html'">
+          🛒
+          <span class="badge">0</span>
+        </button>
+        <a href="shop.html" class="btn-nav-cta">Mua ngay</a>
+        <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
-    <div class="chat-messages" id="chatMessages">
-      <div class="chat-msg bot">Hi there! 👋 I'm here to help you find the perfect personalized gift. What's the occasion?</div>
-    </div>
-    <div class="chat-input-row">
-      <input type="text" placeholder="Type a message..." id="chatInput" onkeypress="if(event.key==='Enter')sendChat()"/>
-      <button onclick="sendChat()">→</button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a class="mobile-nav-link" href="index.html">🏠 Trang chủ</a>
+    <a class="mobile-nav-link" href="shop.html">🛍️ Cửa hàng</a>
+    <a class="mobile-nav-link" href="account.html">👤 Tài khoản của tôi</a>
+    <a class="mobile-nav-link" href="cart.html">🛒 Giỏ hàng</a>
+    <div style="margin-top:24px">
+      <button class="btn btn-primary" style="width:100%" onclick="window.location.href='shop.html'">🛍️ Mua ngay</button>
     </div>
   </div>
-</div>
 
-<!-- Toast -->
-<div class="toast" id="toast"></div>
+  <!-- Account Page Content -->
+  <div class="container">
+    <div class="dashboard-layout">
+      <!-- Sidebar -->
+      <div>
+        <div style="background:linear-gradient(135deg,var(--purple),var(--pink));border-radius:var(--radius-lg);padding:24px;text-align:center;margin-bottom:12px">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:2rem">👤</div>
+          <div style="color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:1.0625rem">John Doe</div>
+          <div style="color:rgba(255,255,255,.7);font-size:.8rem">Thành viên</div>
+        </div>
+        <div class="sidebar-nav">
+          <div class="sidebar-link active" onclick="dashNav(this,'dash-home')"><span class="icon">📊</span>Tổng quan</div>
+          <div class="sidebar-link" onclick="dashNav(this,'dash-orders')"><span class="icon">📦</span>Đơn hàng của tôi</div>
+          <div class="sidebar-link" onclick="dashNav(this,'dash-designs')"><span class="icon">🎨</span>Thiết kế đã lưu</div>
+          <div class="sidebar-link" onclick="dashNav(this,'dash-wishlist')"><span class="icon">💝</span>Danh sách mong muốn</div>
+          <div class="sidebar-link" onclick="dashNav(this,'dash-tracking')"><span class="icon">🚚</span>Giám sát đơn hàng</div>
+          <div class="sidebar-link" onclick="dashNav(this,'dash-settings')"><span class="icon">⚙️</span>Cài đặt</div>
+          <!-- Admin link removed -->
+        </div>
+      </div>
 
-<!-- Scroll to top -->
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-<script src="script.js"></script>
-<script>
-  // Initialize account page based on auth state
-  document.addEventListener('DOMContentLoaded', function() {
-    const accountContent = document.getElementById('account-content');
-    const isLoggedIn = localStorage.getItem('giftifyUser') !== null;
-
-    if (isLoggedIn) {
-      // Show dashboard
-      accountContent.innerHTML = `
-        <div class="dashboard-layout">
-          <!-- Sidebar -->
-          <div>
-            <div style="background:linear-gradient(135deg,var(--purple),var(--pink));border-radius:var(--radius-lg);padding:24px;text-align:center;margin-bottom:12px">
-              <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:2rem">👤</div>
-              <div style="color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:1.0625rem">Sarah Johnson</div>
-              <div style="color:rgba(255,255,255,.7);font-size:.8rem">Premium Member ⭐</div>
+      <!-- Content -->
+      <div>
+        <div id="dash-home">
+          <div class="dash-card">
+            <h2>Chào lại, John! 👋</h2>
+            <div class="stats-row">
+              <div class="stat-card"><div class="s-val">5</div><div class="s-label">Tổng đơn hàng</div></div>
+              <div class="stat-card"><div class="s-val">3</div><div class="s-label">Thiết kế đã lưu</div></div>
+              <div class="stat-card"><div class="s-val">7</div><div class="s-label">Mục trong danh sách mong muốn</div></div>
+              <div class="stat-card"><div class="s-val">$180</div><div class="s-label">Tổng chi tiêu</div></div>
             </div>
-            <div class="sidebar-nav">
-              <div class="sidebar-link active" onclick="dashNav(this,'dash-home')"><span class="icon">📊</span>Overview</div>
-              <div class="sidebar-link" onclick="dashNav(this,'dash-orders')"><span class="icon">📦</span>My Orders</div>
-              <div class="sidebar-link" onclick="dashNav(this,'dash-designs')"><span class="icon">🎨</span>Saved Designs</div>
-              <div class="sidebar-link" onclick="dashNav(this,'dash-wishlist')"><span class="icon">💝</span>Wishlist</div>
-              <div class="sidebar-link" onclick="dashNav(this,'dash-tracking')"><span class="icon">🚚</span>Order Tracking</div>
-              <div class="sidebar-link" onclick="dashNav(this,'dash-settings')"><span class="icon">⚙️</span>Settings</div>
-              <div class="sidebar-link" onclick="showPage('admin')" style="margin-top:16px;border-top:1px solid var(--border);padding-top:16px"><span class="icon">🔐</span>Admin Panel</div>
+            <div style="background:var(--amber-light);border-radius:var(--radius-md);padding:14px 18px;display:flex;align-items:center;gap:12px">
+              <span style="font-size:1.5rem">🎁</span>
+              <div><strong style="font-size:.9rem">Ưu đãi quà tặng sinh nhật của bạn!</strong><p style="font-size:.8rem;color:var(--text-muted);margin-top:2px">Giảm 20% cho đơn hàng tiếp theo với mã BDAY20 — hết hạn sau 7 ngày.</p></div>
             </div>
           </div>
-
-          <!-- Content -->
-          <div>
-            <div id="dash-home">
-              <div class="dash-card">
-                <h2>Welcome back, Sarah! 👋</h2>
-                <div class="stats-row">
-                  <div class="stat-card"><div class="s-val">12</div><div class="s-label">Total Orders</div></div>
-                  <div class="stat-card"><div class="s-val">5</div><div class="s-label">Saved Designs</div></div>
-                  <div class="stat-card"><div class="s-val">8</div><div class="s-label">Wishlist Items</div></div>
-                  <div class="stat-card"><div class="s-val">$340</div><div class="s-label">Total Spent</div></div>
-                </div>
-                <div style="background:var(--amber-light);border-radius:var(--radius-md);padding:14px 18px;display:flex;align-items:center;gap:12px">
-                  <span style="font-size:1.5rem">🎁</span>
-                  <div><strong style="font-size:.9rem">Your birthday gift deal!</strong><p style="font-size:.8rem;color:var(--text-muted);margin-top:2px">Get 20% off your next order with code BDAY20 — expires in 7 days.</p></div>
-                </div>
-              </div>
-              <div class="dash-card">
-                <h2>Recent Orders</h2>
-                <div class="order-row">
-                  <div style="flex:1"><strong style="font-size:.9rem">Custom Photo Mug</strong><p style="font-size:.8rem;color:var(--text-muted)">#GFY-10042 · Nov 12, 2025</p></div>
-                  <span class="order-status status-delivered">✓ Delivered</span>
-                  <div style="font-weight:700;font-size:.9rem">$24.99</div>
-                </div>
-                <div class="order-row">
-                  <div style="flex:1"><strong style="font-size:.9rem">Engraved Necklace</strong><p style="font-size:.8rem;color:var(--text-muted)">#GFY-10039 · Nov 5, 2025</p></div>
-                  <span class="order-status status-transit">🚚 In Transit</span>
-                  <div style="font-weight:700;font-size:.9rem">$49.99</div>
-                </div>
-                <div class="order-row">
-                  <div style="flex:1"><strong style="font-size:.9rem">Canvas Print (3 pcs)</strong><p style="font-size:.8rem;color:var(--text-muted)">#GFY-10031 · Oct 28, 2025</p></div>
-                  <span class="order-status status-processing">⏳ Processing</span>
-                  <div style="font-weight:700;font-size:.9rem">$125.97</div>
-                </div>
-              </div>
+          <div class="dash-card">
+            <h2>Đơn hàng gần đây</h2>
+            <div class="order-row">
+              <div style="flex:1"><strong style="font-size:.9rem">Mug ảnh tùy chỉnh</strong><p style="font-size:.8rem;color:var(--text-muted)">#GFY-10042 · 12/11/2025</p></div>
+              <span class="order-status status-delivered">✓ Đã giao</span>
+              <div style="font-weight:700;font-size:.9rem">$24.99</div>
             </div>
-            <div id="dash-orders" style="display:none">
-              <div class="dash-card"><h2>All Orders</h2><p style="color:var(--text-muted)">Your complete order history will appear here.</p></div>
+            <div class="order-row">
+              <div style="flex:1"><strong style="font-size:.9rem">Vòng cổ khắc họa</strong><p style="font-size:.8rem;color:var(--text-muted)">#GFY-10039 · 05/11/2025</p></div>
+              <span class="order-status status-transit">🚚 Đang trên đường</span>
+              <div style="font-weight:700;font-size:.9rem">$49.99</div>
             </div>
-            <div id="dash-designs" style="display:none">
-              <div class="dash-card"><h2>Saved Designs</h2><p style="color:var(--text-muted)">Your saved custom designs will appear here. <a href="customize.html" style="color:var(--purple);">Create a new design →</a></p></div>
-            </div>
-            <div id="dash-wishlist" style="display:none">
-              <div class="dash-card"><h2>Wishlist</h2><p style="color:var(--text-muted)">Items you've saved for later will appear here.</p></div>
-            </div>
-            <div id="dash-tracking" style="display:none">
-              <div class="dash-card"><h2>Order Tracking</h2>
-                <div style="background:var(--bg);border-radius:var(--radius-md);padding:20px;margin-top:8px">
-                  <div style="font-weight:700;margin-bottom:16px">Order #GFY-10039 — Engraved Necklace</div>
-                  <div style="display:flex;gap:0;margin-bottom:8px">
-                    <div style="flex:1;text-align:center">
-                      <div style="width:28px;height:28px;background:var(--purple);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:.75rem;margin:0 auto 6px">✓</div>
-                      <div style="font-size:.7rem;font-weight:600">Ordered</div>
-                    </div>
-                    <div style="flex:1;position:relative">
-                      <div style="height:2px;background:var(--purple);position:absolute;top:14px;left:0;right:0"></div>
-                      <div style="width:28px;height:28px;background:var(--purple);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:.75rem;margin:0 auto 6px;position:relative">✓</div>
-                      <div style="font-size:.7rem;font-weight:600;text-align:center">Processing</div>
-                    </div>
-                    <div style="flex:1;position:relative">
-                      <div style="height:2px;background:var(--purple);position:absolute;top:14px;left:0;right:0"></div>
-                      <div style="width:28px;height:28px;background:var(--amber);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:.75rem;margin:0 auto 6px;position:relative">🚚</div>
-                      <div style="font-size:.7rem;font-weight:600;text-align:center">Shipped</div>
-                    </div>
-                    <div style="flex:1;position:relative">
-                      <div style="height:2px;background:var(--border);position:absolute;top:14px;left:0;right:0"></div>
-                      <div style="width:28px;height:28px;background:var(--border);border-radius:50%;display:grid;place-items:center;color:var(--text-muted);font-size:.75rem;margin:0 auto 6px;position:relative">📦</div>
-                      <div style="font-size:.7rem;color:var(--text-muted);text-align:center">Delivered</div>
-                    </div>
-                  </div>
-                  <p style="font-size:.8rem;color:var(--text-muted);text-align:center;margin-top:8px">Expected delivery: November 18, 2025</p>
-                </div>
-              </div>
-            </div>
-            <div id="dash-settings" style="display:none">
-              <div class="dash-card"><h2>Account Settings</h2>
-                <div style="display:grid;gap:14px;max-width:400px">
-                  <div><label class="field-label">Full Name</label><input class="field-input" value="Sarah Johnson"/></div>
-                  <div><label class="field-label">Email</label><input class="field-input" value="sarah@example.com"/></div>
-                  <div><label class="field-label">Phone</label><input class="field-input" value="+1 555 0192"/></div>
-                  <button class="btn btn-primary" style="width:fit-content" onclick="showToast('Settings saved!')">Save Changes</button>
-                </div>
-              </div>
+            <div class="order-row">
+              <div style="flex:1"><strong style="font-size:.9rem">In ảnh trên vải canvas (3 mảnh)</strong><p style="font-size:.8rem;color:var(--text-muted)">#GFY-10031 · 28/10/2025</p></div>
+              <span class="order-status status-processing">⏳ Đang xử lý</span>
+              <div style="font-weight:700;font-size:.9rem">$125.97</div>
             </div>
           </div>
         </div>
-      `;
-    } else {
-      // Show login/register forms
-      accountContent.innerHTML = `
-        <div class="auth-box">
-          <div class="auth-tabs">
-            <div class="tab active" onclick="switchAuthTab(0,this)">Login</div>
-            <div class="tab" onclick="switchAuthTab(1,this)">Register</div>
-          </div>
-          <div class="auth-tab-content" id="auth-tab-0">
-            <h3>Login to Your Account</h3>
-            <div class="form-group">
-              <label>Username</label>
-              <input type="text" id="loginUsername" placeholder="Enter username"/>
+        <div id="dash-orders" style="display:none">
+          <div class="dash-card"><h2>Tất cả đơn hàng</h2><p style="color:var(--text-muted)">Lịch sử đơn hàng đầy đủ sẽ xuất hiện ở đây.</p></div>
+        </div>
+        <div id="dash-designs" style="display:none">
+          <div class="dash-card"><h2>Thiết kế đã lưu</h2><p style="color:var(--text-muted)">Các thiết kế tùy chỉnh đã lưu của bạn sẽ xuất hiện ở đây. <a href="shop.html" style="color:var(--purple);cursor:pointer">Tạo thiết kế mới →</a></p></div>
+        </div>
+        <div id="dash-wishlist" style="display:none">
+          <div class="dash-card"><h2>Danh sách mong muốn</h2><p style="color:var(--text-muted)">Các mục bạn đã lưu để mua sau sẽ xuất hiện ở đây.</p></div>
+        </div>
+        <div id="dash-tracking" style="display:none">
+          <div class="dash-card"><h2>Giám sát đơn hàng</h2>
+            <div style="background:var(--bg);border-radius:var(--radius-md);padding:20px;margin-top:8px">
+              <div style="font-weight:700;margin-bottom:16px">Đơn hàng #GFY-10039 — Vòng cổ khắc họa</div>
+              <div style="display:flex;gap:0;margin-bottom:8px">
+                <div style="flex:1;text-align:center">
+                  <div style="width:28px;height:28px;background:var(--purple);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:.75rem;margin:0 auto 6px">✓</div>
+                  <div style="font-size:.7rem;font-weight:600">Đặt hàng</div>
+                </div>
+                <div style="flex:1;position:relative">
+                  <div style="height:2px;background:var(--purple);position:absolute;top:14px;left:0;right:0"></div>
+                  <div style="width:28px;height:28px;background:var(--purple);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:.75rem;margin:0 auto 6px;position:relative">🚚</div>
+                  <div style="font-size:.7rem;font-weight:600;text-align:center">Đang giao</div>
+                </div>
+                <div style="flex:1;position:relative">
+                  <div style="height:2px;background:var(--border);position:absolute;top:14px;left:0;right:0"></div>
+                  <div style="width:28px;height:28px;background:var(--border);border-radius:50%;display:grid;place-items:center;color:var(--text-muted);font-size:.75rem;margin:0 auto 6px;position:relative">📦</div>
+                  <div style="font-size:.7rem;color:var(--text-muted);text-align:center">Đã giao</div>
+                </div>
+              </div>
+              <p style="font-size:.8rem;color:var(--text-muted);text-align:center;margin-top:8px">Dự kiến giao hàng: 18/11/2025</p>
             </div>
-            <div class="form-group">
-              <label>Password</label>
-              <input type="password" id="loginPassword" placeholder="Enter password"/>
-            </div>
-            <button class="btn btn-primary" onclick="handleLogin()">Login</button>
-            <p class="toggle-link" onclick="switchAuthTab(1,this.parentNode.parentNode.querySelector('.auth-tabs .tab'))">Don't have an account? Register</p>
-          </div>
-          <div class="auth-tab-content" id="auth-tab-1" style="display:none;">
-            <h3>Create New Account</h3>
-            <div class="form-group">
-              <label>Username</label>
-              <input type="text" id="regUsername" placeholder="Choose username"/>
-            </div>
-            <div class="form-group">
-              <label>Password</label>
-              <input type="password" id="regPassword" placeholder="Choose password"/>
-            </div>
-            <div class="form-group">
-              <label>Confirm Password</label>
-              <input type="password" id="regConfirmPassword" placeholder="Confirm password"/>
-            </div>
-            <button class="btn btn-primary" onclick="handleRegister()">Register</button>
-            <p class="toggle-link" onclick="switchAuthTab(0,this.parentNode.parentNode.querySelector('.auth-tabs .tab'))">Already have an account? Login</p>
           </div>
         </div>
-      `;
+        <div id="dash-settings" style="display:none">
+          <div class="dash-card"><h2>Cài đặt tài khoản</h2>
+            <div style="display:grid;gap:14px;max-width:400px">
+              <div><label class="field-label">Họ và tên</label><input class="field-input" value="John Doe"/></div>
+              <div><label class="field-label">Email</label><input class="field-input" value="john@example.com"/></div>
+              <div><label class="field-label">Số điện thoại</label><input class="field-input" value="+1 555 0192"/></div>
+              <button class="btn btn-primary" style="width:fit-content" onclick="showToast('Cài đặt đã được lưu!')">Lưu thay đổi</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      // Re-initialize auth styles if needed
-      if (!document.getElementById('auth-styles')) {
-        const style = document.createElement('style');
-        style.id = 'auth-styles';
-        style.textContent = `
-          .auth-box {
-            max-width: 400px;
-            margin: 40px auto;
-            padding: 20px;
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-          }
-          .auth-tabs {
-            display: flex;
-            margin-bottom: 20px;
-          }
-          .auth-tabs .tab {
-            flex: 1;
-            text-align: center;
-            padding: 10px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-bottom: none;
-            cursor: pointer;
-          }
-          .auth-tabs .tab.active {
-            background: var(--purple);
-            color: white;
-            border-top-left-radius: var(--radius-md);
-            border-top-right-radius: var(--radius-md);
-          }
-          .auth-tab-content {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-top: none;
-            padding: 20px;
-            border-bottom-left-radius: var(--radius-md);
-            border-bottom-right-radius: var(--radius-md);
-          }
-          .form-group {
-            margin-bottom: 15px;
-          }
-          .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-          }
-          .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            font-size: 1rem;
-            background: var(--background);
-            color: var(--text);
-          }
-          .form-group input:focus {
-            outline: none;
-            border-color: var(--purple);
-          }
-          .btn-primary {
-            width: 100%;
-            padding: 12px;
-            background: var(--purple);
-            color: white;
-            border: none;
-            border-radius: var(--radius-md);
-            font-size: 1rem;
-            cursor: pointer;
-          }
-          .btn-primary:hover {
-            background: var(--purple-dark, #5b21b6);
-          }
-          .toggle-link {
-            display: block;
-            text-align: center;
-            margin-top: 12px;
-            color: var(--purple);
-            cursor: pointer;
-            font-size: 0.9rem;
-          }
-        `;
-        document.head.appendChild(style);
-      }
-    }
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:16px">
+            <div class="nav-logo-icon">🎁</div>
+            <span style="color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size:1.4rem">Giftify</span>
+          </div>
+          <p>Tạo quà tặng cá nhân hoá có ý nghĩa, kể câu chuyện của bạn. Mỗi món quà được làm bằng tình yêu và được giao đến tay bạn.</p>
+          <div class="footer-socials" style="margin-top:20px">
+            <a class="social-btn" href="#">📘</a>
+            <a class="social-btn" href="#">📸</a>
+            <a class="social-btn" href="#">🐦</a>
+            <a class="social-btn" href="#">▶️</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Cửa hàng</h4>
+          <a href="shop.html">Tất cả sản phẩm</a>
+          <a href="shop.html">Sản phẩm mới</a>
+          <a href="shop.html">Sản phẩm bán chạy</a>
+          <a href="shop.html">Tùy chỉnh quà tặng</a>
+          <a href="shop.html">Thẻ quà tặng</a>
+        </div>
+        <div class="footer-col">
+          <h4>Dịp</h4>
+          <a href="shop.html">Sinh nhật</a>
+          <a href="shop.html">Ngày kỷ niệm</a>
+          <a href="shop.html">Lễ cưới</a>
+          <a href="shop.html">Tốt nghiệp</a>
+          <a href="shop.html">Giáng sinh</a>
+        </div>
+        <div class="footer-col">
+          <h4>Hỗ trợ</h4>
+          <a href="#">Trung tâm trợ giúp</a>
+          <a href="#">Theo dõi đơn hàng</a>
+          <a href="#">Chính sách hoàn trả</a>
+          <a href="#">Liên hệ chúng tôi</a>
+          <a href="account.html">Tài khoản của tôi</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Giftify. Bảo lưu mọi quyền. Làm với 💜 cho những ai yêu tặng quà.</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap">
+          <a href="#" style="font-size:.8rem">Chính sách riêng tư</a>
+          <a href="#" style="font-size:.8rem">Điều khoản sử dụng</a>
+          <a href="#" style="font-size:.8rem">Chính sách cookie</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    // Update cart badge in navbar
-    updateCartBadge();
-  });
+  <!-- Live Chat -->
+  <div class="chat-bubble">
+    <button class="chat-btn" onclick="toggleChat()">
+      💬
+      <div class="chat-ping"></div>
+    </button>
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-head">
+        <div class="agent">🤖</div>
+        <div class="chat-head-info">
+          <h4>Trợ lý Giftify</h4>
+          <p>● Trực tuyến ngay</p>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-msg bot">Xin chào! 👋 Tôi ở đây để giúp bạn quản lý tài khoản. Bạn cần ayuda gì?</div>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" placeholder="Nhập tin nhắn..." id="chatInput" onkeypress="if(event.key==='Enter')sendChat()"/>
+        <button onclick="sendChat()">→</button>
+      </div>
+    </div>
+  </div>
 
-  // Helper function to update cart badge in navbar
-  function updateCartBadge() {
-    const badge = document.querySelector('.badge');
-    const navBadge = document.getElementById('nav-cart-badge');
-    const mobileBadge = document.getElementById('mobile-cart-badge');
-    if (badge) {
-      const count = parseInt(badge.textContent) || 0;
-      if (navBadge) navBadge.textContent = count;
-      if (mobileBadge) mobileBadge.textContent = count;
-    }
-  }
-</script>
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script src="script.js"></script>
 </body>
 </html>

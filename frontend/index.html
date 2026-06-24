@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Giftify – Quà tặng cá nhân hóa kể câu chuyện của bạn</title>
+  <meta name="description" content="Tạo quà tặng cá nhân hóa có ý nghĩa, độc nhất vô hai cho mọi dịp. Khắc pesso, ảnh, văn bản và nhiều hơn nữa."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">
+        <div class="nav-logo-icon">🎁</div>
+        <span>Giftify</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Trang chủ</a>
+        <a class="nav-link" href="shop.html">Cửa hàng</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" onclick="toggleDark()" title="Chuyển chế độ tối">🌙</button>
+        <button class="nav-icon-btn" onclick="window.location.href='account.html'">👤</button>
+        <button class="nav-icon-btn" onclick="window.location.href='cart.html'">
+          🛒
+          <span class="badge">0</span>
+        </button>
+        <a href="shop.html" class="btn-nav-cta">Mua ngay</a>
+        <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a class="mobile-nav-link" href="index.html">🏠 Trang chủ</a>
+    <a class="mobile-nav-link" href="shop.html">🛍️ Cửa hàng</a>
+    <a class="mobile-nav-link" href="account.html">👤 Tài khoản của tôi</a>
+    <a class="mobile-nav-link" href="cart.html">🛒 Giỏ hàng</a>
+    <div style="margin-top:24px">
+      <button class="btn btn-primary" style="width:100%" onclick="window.location.href='shop.html'">🛍️ Mua ngay</button>
+    </div>
+  </div>
+
+  <!-- Home Page Content -->
+  <section class="hero">
+    <div class="hero-ribbon"></div>
+    <div class="hero-ribbon2"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span>✨</span>
+          <span>Nhân tạo cá nhân hóa quà tặng</span>
+        </div>
+        <h1 class="display hero-title">
+          Quà tặng kể <br>
+          <span class="grad-text">câu chuyện độc đáo của bạn</span>
+        </h1>
+        <p class="hero-sub">Tạo quà tặng cá nhân hóa độc nhất cho mọi khoảnh khắc đặc biệt. Từ khắc họa tới in ảnh — làm cho mỗi món quà trở thành khó forget.</p>
+        <div class="hero-search">
+          <input type="text" placeholder="Tìm kiếm quà tặng, dịp, hoặc ý tưởng..." id="heroSearch"/>
+          <button onclick="window.location.href='shop.html'">Tìm kiếm 🔍</button>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-stat">⭐ <strong>4.9/5</strong> từ 12k+ đánh giá</div>
+          <div class="trust-stat">🎁 <strong>50k+</strong> quà tặng đã giao</div>
+          <div class="trust-stat">⚡ <strong>24h</strong> thời gian xử lý</div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="hero-main-card">
+            <div class="hero-badge">🔥 Best Seller</div>
+            <div class="hero-gift-img">🎁</div>
+            <div class="hero-card-info">
+              <h3>Mug ảnh tùy chỉnh</h3>
+              <p>Thêm ảnh yêu thích & lời nhắn của bạn</p>
+              <div class="price">$29.99</div>
+            </div>
+          </div>
+          <div class="hero-floating-card hfc-1">
+            <div class="hfc-icon" style="background:var(--amber-light)">⚡</div>
+            <div class="hfc-text">
+              <h4>Giao hàng nhanh</h4>
+              <p>Giao trong 24 giờ</p>
+            </div>
+          </div>
+          <div class="hero-floating-card hfc-2">
+            <div class="hfc-icon" style="background:var(--pink-light)">💝</div>
+            <div class="hfc-text">
+              <h4>Vừa được đặt!</h4>
+              <p>Vòng cổ tim khắc họa</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Strip -->
+    <div class="container">
+      <div class="features-row" style="margin-top:60px">
+        <div class="feature-item">
+          <div class="feature-icon">🤖</div>
+          <div class="feature-title">Gợi ý AI</div>
+          <div class="feature-desc">Gợi ý thông minh dựa trên sở thích của bạn</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🎨</div>
+          <div class="feature-title">Xem trước thời gian thực</div>
+          <div class="feature-desc">Xem trước quà tặng trước khi đặt hàng</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🚚</div>
+          <div class="feature-title">Giao hàng nhanh</div>
+          <div class="feature-desc">Giao nhanh 24h & giao hàng thường</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">💎</div>
+          <div class="feature-title">Bảo đảm chất lượng</div>
+          <div class="feature-desc">Hài lòng 100% hoặc làm lại miễn phí</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow"><div class="dot"></div><span style="color:var(--purple)">Duyệt theo loại</span></div>
+        <h2 class="heading section-title">Loại <span class="grad-text">quà tặng</span></h2>
+        <p class="section-sub">Tìm món quà tặng cá nhân hóa hoàn hảo cho mọi sở thích và phong cách.</p>
+      </div>
+      <div class="categories-grid">
+        <div class="category-card" onclick="window.location.href='shop.html'">
+          <div class="cat-icon">🖼️</div>
+          <div class="cat-name">Quà tặng ảnh</div>
+          <div class="cat-count">84 sản phẩm</div>
+        </div>
+        <div class="category-card" onclick="window.location.href='shop.html'">
+          <div class="cat-icon">💍</div>
+          <div class="cat-name">Trang sức</div>
+          <div class="cat-count">62 sản phẩm</div>
+        </div>
+        <div class="category-card" onclick="window.location.href='shop.html'">
+          <div class="cat-icon">👕</div>
+          <div class="cat-name">Thời trang</div>
+          <div class="cat-count">118 sản phẩm</div>
+        </div>
+        <div class="category-card" onclick="window.location.href='shop.html'">
+          <div class="cat-icon">☕</div>
+          <div class="cat-name">Đồ uống</div>
+          <div class="cat-count">45 sản phẩm</div>
+        </div>
+        <div class="category-card" onclick="window.location.href='shop.html'">
+          <div class="cat-icon">🕯️</div>
+          <div class="cat-name">Trang trí nhà</div>
+          <div class="cat-count">93 sản phẩm</div>
+        </div>
+        <div class="category-card" onclick="window.location.href='shop.html'">
+          <div class="cat-icon">📦</div>
+          <div class="cat-name">Hộp quà</div>
+          <div class="cat-count">37 sản phẩm</div>
+        </div>
+        <div class="category-card" onclick="window.location.href='shop.html'">
+          <div class="cat-icon">📚</div>
+          <div class="cat-name">Sách & Nghệ thuật</div>
+          <div class="cat-count">29 sản phẩm</div>
+        </div>
+        <div class="category-card" onclick="window.location.href='shop.html'">
+          <div class="cat-icon">🧸</div>
+          <div class="cat-name">Đồ bông & Đồ chơi</div>
+          <div class="cat-count">51 sản phẩm</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow"><div class="dot"></div><span style="color:var(--purple)">Nổi bật</span></div>
+        <h2 class="heading section-title">Sản phẩm <span class="grad-text">nổi bật</span></h2>
+        <p class="section-sub">Các sản phẩm bestseller được chọn lọc yêu thích bởi hàng nghìn khách hàng hài lòng.</p>
+      </div>
+      <div class="products-grid">
+        <div class="product-card" onclick="window.location.href='shop.html'">
+          <div class="product-card-img">
+            <div class="img-emoji">🎁</div>
+            <span class="product-badge-tag tag-bestseller">Bán chạy</span>
+            <button class="wishlist-btn" onclick="event.stopPropagation();toggleWish(this)">♡</button>
+          </div>
+          <div class="product-card-body">
+            <h3>Mug ảnh tùy chỉnh</h3>
+            <p>Tải lên bất kỳ hình ảnh nào để có món quà sáng sớm ấm áp</p>
+            <div class="stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              <span>(284)</span>
+            </div>
+          </div>
+          <div class="product-meta" style="padding:0 20px 12px">
+            <div class="product-price"><del>$34.99</del>$24.99</div>
+          </div>
+          <div class="product-card-footer">
+            <button class="btn-cart" onclick="event.stopPropagation();addToCart()">Thêm vào giỏ</button>
+          </div>
+        </div>
+        <div class="product-card" onclick="window.location.href='shop.html'">
+          <div class="product-card-img" style="background:linear-gradient(135deg,var(--amber-light),#FDE68A)">
+            <div class="img-emoji">💍</div>
+            <span class="product-badge-tag tag-new">Mới</span>
+            <button class="wishlist-btn" onclick="event.stopPropagation();toggleWish(this)">♡</button>
+          </div>
+          <div class="product-card-body">
+            <h3>Vòng cổ tim khắc họa</h3>
+            <p>Bạc sterling với việc khắc họa tên tùy chỉnh</p>
+            <div class="stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              <span>(142)</span>
+            </div>
+          </div>
+          <div class="product-meta" style="padding:0 20px 12px">
+            <div class="product-price">$49.99</div>
+          </div>
+          <div class="product-card-footer">
+            <button class="btn-cart" onclick="event.stopPropagation();addToCart()">Thêm vào giỏ</button>
+          </div>
+        </div>
+        <div class="product-card" onclick="window.location.href='shop.html'">
+          <div class="product-card-img" style="background:linear-gradient(135deg,#E0F2FE,#BAE6FD)">
+            <div class="img-emoji">🖼️</div>
+            <span class="product-badge-tag tag-sale">−30%</span>
+            <button class="wishlist-btn" onclick="event.stopPropagation();toggleWish(this)">♡</button>
+          </div>
+          <div class="product-card-body">
+            <h3>In ảnh trên vải canvas</h3>
+            <p>In chất lượng bảo tàng trên vải canvas cao cấp</p>
+            <div class="stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              <span>(391)</span>
+            </div>
+          </div>
+          <div class="product-meta" style="padding:0 20px 12px">
+            <div class="product-price"><del>$59.99</del>$41.99</div>
+          </div>
+          <div class="product-card-footer">
+            <button class="btn-cart" onclick="event.stopPropagation();addToCart()">Thêm vào giỏ</button>
+          </div>
+        </div>
+        <div class="product-card" onclick="window.location.href='shop.html'">
+          <div class="product-card-img" style="background:linear-gradient(135deg,#FCE7F3,#FBCFE8)">
+            <div class="img-emoji">🎀</div>
+            <button class="wishlist-btn" onclick="event.stopPropagation();toggleWish(this)">♡</button>
+          </div>
+          <div class="product-card-body">
+            <h3>Bộ hộp quà tùy chỉnh</h3>
+            <p>Basquet quà được curate với băng rตร个性化</p>
+            <div class="stars">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>☆
+              <span>(87)</span>
+            </div>
+          </div>
+          <div class="product-meta" style="padding:0 20px 12px">
+            <div class="product-price">$79.99</div>
+          </div>
+          <div class="product-card-footer">
+            <button class="btn-cart" onclick="event.stopPropagation();addToCart()">Thêm vào giỏ</button>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top:36px">
+        <button class="btn btn-secondary" onclick="window.location.href='shop.html'">Xem tất cả sản phẩm →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop by Occasion -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow"><div class="dot"></div><span style="color:var(--purple)">Mua sắm theo dịp</span></div>
+        <h2 class="heading section-title">Hoàn hảo cho <span class="grad-text">mỗi khoảnh khắc</span></h2>
+        <p class="section-sub">Tìm món quà idéal phù hợp với những dịp ý nghĩa nhất trong cuộc đời.</p>
+      </div>
+      <div class="occasions-grid">
+        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#EDE9FE,#DDD6FE)">
+          <div class="occasion-bg">🎂</div>
+          <div class="occasion-info"><h3>Sinh nhật</h3><p>Tạo nên kỷ niệm đẹp</p></div>
+        </div>
+        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#FCE7F3,#FBCFE8)">
+          <div class="occasion-bg">💑</div>
+          <div class="occasion-info"><h3>Ngày kỷ niệm</h3><p>Chiến thắng tình yêu</p></div>
+        </div>
+        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A)">
+          <div class="occasion-bg">💍</div>
+          <div class="occasion-info"><h3>Lễ cưới</h3><p>Món quà mà họ sẽ lưu giữ mãi</p></div>
+        </div>
+        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#D1FAE5,#A7F3D0)">
+          <div class="occasion-bg">🎓</div>
+          <div class="occasion-info"><h3>Tốt nghiệp</h3><p>Đánh dấu thành tựu</p></div>
+        </div>
+        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#FEE2E2,#FECACA)">
+          <div class="occasion-bg">❤️</div>
+          <div class="occasion-info"><h3>Valentine</h3><p>Thể hiện tình yêu</p></div>
+        </div>
+        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#E0F2FE,#BAE6FD)">
+          <div class="occasion-bg">🎄</div>
+          <div class="occasion-info"><h3>Giáng sinh</h3><p>Làm cho mùa đông ấm áp hơn</p></div>
+        </div>
+        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#FDF4FF,#FAE8FF)">
+          <div class="occasion-bg">👩</div>
+          <div class="occasion-info"><h3>Ngày madre</h3><p>Cảm ơn sự dedicación của mẹ</p></div>
+        </div>
+        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
+          <div class="occasion-bg">👨</div>
+          <div class="occasion-info"><h3>Ngày cha</h3><p>B tỏ sự trân trọng wobec cha</p></div>
+        </div>
+        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5)">
+          <div class="occasion-bg">🎆</div>
+          <div class="occasion-info"><h3>Năm mới</h3><p>Bắt đầu một năm mới đặc biệt</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow"><div class="dot"></div><span style="color:var(--purple)">Được yêu thích bởi hàng ngàn</span></div>
+        <h2 class="heading section-title">Các <span class="grad-text">khách hàng</span> nói gì</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">Tôi đã mua một mug ảnh tùy chỉnh cho生日 của mẹ và cô ta khóc n击 vì vui vẻ! Chất lượng tuyệt vời và nó đến chỉ trong hai ngày. Tuyệt vời sẽ mua lại.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:linear-gradient(135deg,var(--purple),var(--pink))">S</div>
+            <div>
+              <div class="author-name">Sarah M.</div>
+              <div class="author-role">✅ Khách hàng xác minh</div>
+              <div class="stars" style="margin-top:4px"><span class="star">★★★★★</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">Tính năng xem trước thời gian thực thật tuyệt vời! Tôi có thể thấy chính xác cách vòng cổ sẽ выгля先前 khi đặt hàng. You girlfriend yêu thích nó — quà tặng ngày kỷ niệm tuyệt vời nhất.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:linear-gradient(135deg,var(--amber),#F97316)">J</div>
+            <div>
+              <div class="author-name">James R.</div>
+              <div class="author-role">✅ Khách hàng xác minh</div>
+              <div class="stars" style="margin-top:4px"><span class="star">★★★★★</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">Giftify làm việc tặng quà trở nên đơn giản vàractices. AI gợi ý món quà tốt nhất cho sinh nhật con gái tôi. Ảnh in trên canvas trông mycket đẹp trong căn hộ mới của cô.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background:linear-gradient(135deg,#10B981,#059669)">L</div>
+            <div>
+              <div class="author-name">Linda K.</div>
+              <div class="author-role">✅ Khách hàng xác minh</div>
+              <div class="stars" style="margin-top:4px"><span class="star">★★★★★</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Sẵn sàng tạo ra điều thật đặc biệt?</h2>
+        <p>Bắt đầu tùy chỉnh quà tặng cá nhân hóa của bạn hôm nay. Giao hàng miễn phí cho đơn hàng trên 50$.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+          <a href="shop.html" class="btn-white">✨ Mua ngay</a>
+          <a href="shop.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4)">Duyệt theo dịp</a>
+        </div>
+        <div style="margin-top:28px">
+          <p style="color:rgba(255,255,255,.7);font-size:.875rem;margin-bottom:12px">Tham gia 45,000+ khách hàng hài lòng — giảm 15% cho đơn hàng đầu tiên:</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="Địa chỉ email của bạn"/>
+            <button onclick="subscribe()">Đăng ký</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:16px">
+            <div class="nav-logo-icon">🎁</div>
+            <span style="color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size:1.4rem">Giftify</span>
+          </div>
+          <p>Tạo quà tặng cá nhân hóa có ý nghĩa, kể câu chuyện của bạn. Mỗi món quà được làm bằng tình yêu và được giao đến tay bạn.</p>
+          <div class="footer-socials" style="margin-top:20px">
+            <a class="social-btn" href="#">📘</a>
+            <a class="social-btn" href="#">📸</a>
+            <a class="social-btn" href="#">🐦</a>
+            <a class="social-btn" href="#">▶️</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Cửa hàng</h4>
+          <a href="shop.html">Tất cả sản phẩm</a>
+          <a href="shop.html">Sản phẩm mới</a>
+          <a href="shop.html">Sản phẩm bán chạy</a>
+          <a href="shop.html">Tùy chỉnh quà tặng</a>
+          <a href="shop.html">Thẻ quà tặng</a>
+        </div>
+        <div class="footer-col">
+          <h4>Dịp</h4>
+          <a href="shop.html">Sinh nhật</a>
+          <a href="shop.html">Ngày kỷ niệm</a>
+          <a href="shop.html">Lễ cưới</a>
+          <a href="shop.html">Tốt nghiệp</a>
+          <a href="shop.html">Giáng sinh</a>
+        </div>
+        <div class="footer-col">
+          <h4>Hỗ trợ</h4>
+          <a href="#">Trung tâm trợ giúp</a>
+          <a href="#">Theo dõi đơn hàng</a>
+          <a href="#">Chính sách hoàn trả</a>
+          <a href="#">Liên hệ chúng tôi</a>
+          <a href="account.html">Tài khoản của tôi</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Giftify. Bảo lưu mọi quyền. Làm với 💜 cho những ai yêu tặng quà.</p>
+        <div style="display:flex;gap:20px;flex-wrap:wrap">
+          <a href="#" style="font-size:.8rem">Chính sách riêng tư</a>
+          <a href="#" style="font-size:.8rem">Điều khoản sử dụng</a>
+          <a href="#" style="font-size:.8rem">Chính sách cookie</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Live Chat -->
+  <div class="chat-bubble">
+    <button class="chat-btn" onclick="toggleChat()">
+      💬
+      <div class="chat-ping"></div>
+    </button>
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-head">
+        <div class="agent">🤖</div>
+        <div class="chat-head-info">
+          <h4>Trợ lý Giftify</h4>
+          <p>● Trực tuyến ngay</p>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-msg bot">Xin chào! 👋 Tôi ở đây để giúp bạn tìm món quà tặng cá nhân hóa hoàn hảo. Dịp nào đó?</div>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" placeholder="Nhập tin nhắn..." id="chatInput" onkeypress="if(event.key==='Enter')sendChat()"/>
+        <button onclick="sendChat()">→</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
