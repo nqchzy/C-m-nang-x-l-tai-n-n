@@ -190,90 +190,12 @@
         <h2 class="heading section-title">Sản phẩm <span class="grad-text">nổi bật</span></h2>
         <p class="section-sub">Các sản phẩm bestseller được chọn lọc yêu thích bởi hàng nghìn khách hàng hài lòng.</p>
       </div>
-      <div class="products-grid">
-        <div class="product-card" onclick="window.location.href='shop.html'">
-          <div class="product-card-img">
-            <div class="img-emoji">🎁</div>
-            <span class="product-badge-tag tag-bestseller">Bán chạy</span>
-            <button class="wishlist-btn" onclick="event.stopPropagation();toggleWish(this)">♡</button>
-          </div>
-          <div class="product-card-body">
-            <h3>Mug ảnh tùy chỉnh</h3>
-            <p>Tải lên bất kỳ hình ảnh nào để có món quà sáng sớm ấm áp</p>
-            <div class="stars">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              <span>(284)</span>
-            </div>
-          </div>
-          <div class="product-meta" style="padding:0 20px 12px">
-            <div class="product-price"><del>$34.99</del>$24.99</div>
-          </div>
-          <div class="product-card-footer">
-            <button class="btn-cart" onclick="event.stopPropagation();addToCart()">Thêm vào giỏ</button>
-          </div>
-        </div>
-        <div class="product-card" onclick="window.location.href='shop.html'">
-          <div class="product-card-img" style="background:linear-gradient(135deg,var(--amber-light),#FDE68A)">
-            <div class="img-emoji">💍</div>
-            <span class="product-badge-tag tag-new">Mới</span>
-            <button class="wishlist-btn" onclick="event.stopPropagation();toggleWish(this)">♡</button>
-          </div>
-          <div class="product-card-body">
-            <h3>Vòng cổ tim khắc họa</h3>
-            <p>Bạc sterling với việc khắc họa tên tùy chỉnh</p>
-            <div class="stars">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              <span>(142)</span>
-            </div>
-          </div>
-          <div class="product-meta" style="padding:0 20px 12px">
-            <div class="product-price">$49.99</div>
-          </div>
-          <div class="product-card-footer">
-            <button class="btn-cart" onclick="event.stopPropagation();addToCart()">Thêm vào giỏ</button>
-          </div>
-        </div>
-        <div class="product-card" onclick="window.location.href='shop.html'">
-          <div class="product-card-img" style="background:linear-gradient(135deg,#E0F2FE,#BAE6FD)">
-            <div class="img-emoji">🖼️</div>
-            <span class="product-badge-tag tag-sale">−30%</span>
-            <button class="wishlist-btn" onclick="event.stopPropagation();toggleWish(this)">♡</button>
-          </div>
-          <div class="product-card-body">
-            <h3>In ảnh trên vải canvas</h3>
-            <p>In chất lượng bảo tàng trên vải canvas cao cấp</p>
-            <div class="stars">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-              <span>(391)</span>
-            </div>
-          </div>
-          <div class="product-meta" style="padding:0 20px 12px">
-            <div class="product-price"><del>$59.99</del>$41.99</div>
-          </div>
-          <div class="product-card-footer">
-            <button class="btn-cart" onclick="event.stopPropagation();addToCart()">Thêm vào giỏ</button>
-          </div>
-        </div>
-        <div class="product-card" onclick="window.location.href='shop.html'">
-          <div class="product-card-img" style="background:linear-gradient(135deg,#FCE7F3,#FBCFE8)">
-            <div class="img-emoji">🎀</div>
-            <button class="wishlist-btn" onclick="event.stopPropagation();toggleWish(this)">♡</button>
-          </div>
-          <div class="product-card-body">
-            <h3>Bộ hộp quà tùy chỉnh</h3>
-            <p>Basquet quà được curate với băng rตร个性化</p>
-            <div class="stars">
-              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>☆
-              <span>(87)</span>
-            </div>
-          </div>
-          <div class="product-meta" style="padding:0 20px 12px">
-            <div class="product-price">$79.99</div>
-          </div>
-          <div class="product-card-footer">
-            <button class="btn-cart" onclick="event.stopPropagation();addToCart()">Thêm vào giỏ</button>
-          </div>
-        </div>
+      <div class="products-grid" id="productsGrid">
+        <!-- Loading skeleton -->
+        <div class="product-card skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+        <div class="product-card skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+        <div class="product-card skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+        <div class="product-card skeleton-card"><div class="skeleton-img"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
       </div>
       <div class="text-center" style="margin-top:36px">
         <button class="btn btn-secondary" onclick="window.location.href='shop.html'">Xem tất cả sản phẩm →</button>
@@ -287,45 +209,13 @@
       <div class="section-header">
         <div class="section-eyebrow"><div class="dot"></div><span style="color:var(--purple)">Mua sắm theo dịp</span></div>
         <h2 class="heading section-title">Hoàn hảo cho <span class="grad-text">mỗi khoảnh khắc</span></h2>
-        <p class="section-sub">Tìm món quà idéal phù hợp với những dịp ý nghĩa nhất trong cuộc đời.</p>
+        <p class="section-sub">Tìm món quà lý tưởng phù hợp với những dịp ý nghĩa nhất trong cuộc đời.</p>
       </div>
-      <div class="occasions-grid">
-        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#EDE9FE,#DDD6FE)">
-          <div class="occasion-bg">🎂</div>
-          <div class="occasion-info"><h3>Sinh nhật</h3><p>Tạo nên kỷ niệm đẹp</p></div>
-        </div>
-        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#FCE7F3,#FBCFE8)">
-          <div class="occasion-bg">💑</div>
-          <div class="occasion-info"><h3>Ngày kỷ niệm</h3><p>Chiến thắng tình yêu</p></div>
-        </div>
-        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#FEF3C7,#FDE68A)">
-          <div class="occasion-bg">💍</div>
-          <div class="occasion-info"><h3>Lễ cưới</h3><p>Món quà mà họ sẽ lưu giữ mãi</p></div>
-        </div>
-        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#D1FAE5,#A7F3D0)">
-          <div class="occasion-bg">🎓</div>
-          <div class="occasion-info"><h3>Tốt nghiệp</h3><p>Đánh dấu thành tựu</p></div>
-        </div>
-        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#FEE2E2,#FECACA)">
-          <div class="occasion-bg">❤️</div>
-          <div class="occasion-info"><h3>Valentine</h3><p>Thể hiện tình yêu</p></div>
-        </div>
-        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#E0F2FE,#BAE6FD)">
-          <div class="occasion-bg">🎄</div>
-          <div class="occasion-info"><h3>Giáng sinh</h3><p>Làm cho mùa đông ấm áp hơn</p></div>
-        </div>
-        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#FDF4FF,#FAE8FF)">
-          <div class="occasion-bg">👩</div>
-          <div class="occasion-info"><h3>Ngày madre</h3><p>Cảm ơn sự dedicación của mẹ</p></div>
-        </div>
-        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#EFF6FF,#DBEAFE)">
-          <div class="occasion-bg">👨</div>
-          <div class="occasion-info"><h3>Ngày cha</h3><p>B tỏ sự trân trọng wobec cha</p></div>
-        </div>
-        <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:linear-gradient(135deg,#FFF7ED,#FFEDD5)">
-          <div class="occasion-bg">🎆</div>
-          <div class="occasion-info"><h3>Năm mới</h3><p>Bắt đầu một năm mới đặc biệt</p></div>
-        </div>
+      <div class="occasions-grid" id="occasionsGrid">
+        <!-- Loading skeleton -->
+        <div class="occasion-card skeleton-card"><div class="skeleton-text"></div></div>
+        <div class="occasion-card skeleton-card"><div class="skeleton-text"></div></div>
+        <div class="occasion-card skeleton-card"><div class="skeleton-text"></div></div>
       </div>
     </div>
   </section>
@@ -483,5 +373,104 @@
   <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
   <script src="script.js"></script>
+
+  <script>
+  // ============================================================
+  // FETCH SHOP DATA FROM SERVER
+  // ============================================================
+  const API_BASE = 'http://localhost:8000';
+
+  function renderStars(starCount) {
+    let html = '';
+    for (let i = 1; i <= 5; i++) {
+      html += i <= starCount
+        ? '<span class="star">★</span>'
+        : '<span class="star" style="color:#ccc">☆</span>';
+    }
+    return html;
+  }
+
+  function renderProductCard(product) {
+    const bgStyle = product.bgStyle ? `style="background:${product.bgStyle}"` : '';
+    const badgeClass = product.badge === 'bestseller' ? 'tag-bestseller'
+                     : product.badge === 'new' ? 'tag-new'
+                     : product.badge === 'sale' ? 'tag-sale' : '';
+    const badgeHtml = product.badge
+      ? `<span class="product-badge-tag ${badgeClass}">${product.badgeText}</span>`
+      : '';
+    const priceHtml = product.tienGoc
+      ? `<del>$${product.tienGoc.toFixed(2)}</del>$${product.tien.toFixed(2)}`
+      : `$${product.tien.toFixed(2)}`;
+
+    return `
+      <div class="product-card" onclick="window.location.href='shop.html'" data-product-id="${product.id}">
+        <div class="product-card-img" ${bgStyle}>
+          <div class="img-emoji">${product.emoji}</div>
+          ${badgeHtml}
+          <button class="wishlist-btn" onclick="event.stopPropagation();toggleWish(this)">♡</button>
+        </div>
+        <div class="product-card-body">
+          <h3>${product.TieuDe}</h3>
+          <p>${product.MoTa}</p>
+          <div class="stars">
+            ${renderStars(product.rating.stars)}
+            <span>(${product.rating.count})</span>
+          </div>
+        </div>
+        <div class="product-meta" style="padding:0 20px 12px">
+          <div class="product-price">${priceHtml}</div>
+        </div>
+        <div class="product-card-footer">
+          <button class="btn-cart" onclick="event.stopPropagation();addToCart()">Thêm vào giỏ</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderOccasionCard(occasion) {
+    return `
+      <div class="occasion-card" onclick="window.location.href='shop.html'" style="background:${occasion.bgStyle}">
+        <div class="occasion-bg">${occasion.emoji}</div>
+        <div class="occasion-info">
+          <h3>${occasion.name}</h3>
+          <p>${occasion.desc}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  async function loadShopData() {
+    try {
+      const response = await fetch(`${API_BASE}/data/shop.json`);
+      if (!response.ok) throw new Error('Không thể tải dữ liệu');
+      const data = await response.json();
+
+      // Render products
+      const productsGrid = document.getElementById('productsGrid');
+      if (data.products && data.products.length > 0) {
+        productsGrid.innerHTML = data.products.map(renderProductCard).join('');
+      } else {
+        productsGrid.innerHTML = '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1">Chưa có sản phẩm nào.</p>';
+      }
+
+      // Render occasions
+      const occasionsGrid = document.getElementById('occasionsGrid');
+      if (data.occasions && data.occasions.length > 0) {
+        occasionsGrid.innerHTML = data.occasions.map(renderOccasionCard).join('');
+      } else {
+        occasionsGrid.innerHTML = '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1">Chưa có dịp nào.</p>';
+      }
+
+    } catch (error) {
+      console.error('Lỗi tải dữ liệu:', error);
+      document.getElementById('productsGrid').innerHTML =
+        '<p style="text-align:center;color:#e74c3c;grid-column:1/-1">⚠️ Không thể kết nối đến server. Vui lòng thử lại sau.</p>';
+      document.getElementById('occasionsGrid').innerHTML =
+        '<p style="text-align:center;color:#e74c3c;grid-column:1/-1">⚠️ Không thể kết nối đến server. Vui lòng thử lại sau.</p>';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadShopData);
+  </script>
 </body>
 </html>

@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Đăng nhập – Giftify</title>
-  <meta name="description" content="Đăng nhập vào tài khoản Giftify của bạn."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css"/>
+  <meta name="description" content="Đăng nhập vào tài khoản Giftify của bạn." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
@@ -43,7 +47,8 @@
     <a class="mobile-nav-link" href="account.html">👤 Tài khoản của tôi</a>
     <a class="mobile-nav-link" href="cart.html">🛒 Giỏ hàng</a>
     <div style="margin-top:24px">
-      <button class="btn btn-primary" style="width:100%" onclick="window.location.href='shop.html'">🛍️ Mua ngay</button>
+      <button class="btn btn-primary" style="width:100%" onclick="window.location.href='shop.html'">🛍️ Mua
+        ngay</button>
     </div>
   </div>
 
@@ -66,15 +71,15 @@
         <form id="loginForm">
           <div style="margin-bottom:24px;">
             <label class="field-label" for="email">Địa chỉ email</label>
-            <input type="email" class="field-input" id="email" placeholder="you@example.com" required/>
+            <input type="email" class="field-input" id="email" placeholder="you@example.com" required />
           </div>
           <div style="margin-bottom:24px;">
             <label class="field-label" for="password">Mật khẩu</label>
-            <input type="password" class="field-input" id="password" placeholder="••••••••" required/>
+            <input type="password" class="field-input" id="password" placeholder="••••••••" required />
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
             <label class="label">
-              <input type="checkbox" id="rememberMe"/> Ghi nhớ đăng nhập
+              <input type="checkbox" id="rememberMe" /> Ghi nhớ đăng nhập
             </label>
             <a href="#" style="color:var(--purple);font-size:.875rem;">Quên mật khẩu?</a>
           </div>
@@ -96,7 +101,8 @@
             <div class="nav-logo-icon">🎁</div>
             <span style="color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size:1.4rem">Giftify</span>
           </div>
-          <p>Tạo quà tặng cá nhân hoá có ý nghĩa, kể câu chuyện của bạn. Mỗi món quà được làm bằng tình yêu và được giao đến tay bạn.</p>
+          <p>Tạo quà tặng cá nhân hoá có ý nghĩa, kể câu chuyện của bạn. Mỗi món quà được làm bằng tình yêu và được giao
+            đến tay bạn.</p>
           <div class="footer-socials" style="margin-top:20px">
             <a class="social-btn" href="#">📘</a>
             <a class="social-btn" href="#">📸</a>
@@ -158,7 +164,8 @@
         <div class="chat-msg bot">Xin chào! 👋 Tôi ở đây để giúp bạn đăng nhập. Bạn cần giúp đỡ gì?</div>
       </div>
       <div class="chat-input-row">
-        <input type="text" placeholder="Nhập tin nhắn..." id="chatInput" onkeypress="if(event.key==='Enter')sendChat()"/>
+        <input type="text" placeholder="Nhập tin nhắn..." id="chatInput"
+          onkeypress="if(event.key==='Enter')sendChat()" />
         <button onclick="sendChat()">→</button>
       </div>
     </div>
@@ -173,17 +180,34 @@
   <script src="script.js"></script>
   <script>
     // Handle login form submission
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
+    document.getElementById('loginForm').addEventListener('submit', async function (e) {
       e.preventDefault();
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
-      // In a real app, you would send this to a server
-      // For now, just show a toast and redirect to account page
-      showToast('Đăng nhập thành công!');
-      setTimeout(() => {
-        window.location.href = 'account.html';
-      }, 1500);
+      try {
+        const response = await fetch('http://localhost:8000/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: email, password })
+        });
+        if (!response.ok) {
+          const err = await response.json();
+          showToast(err.detail || 'Đăng nhập thất bại');
+          return;
+        }
+        const data = await response.json();
+        showToast('Đăng nhập thành công!');
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('user', JSON.stringify(data));
+        setTimeout(() => {
+          window.location.href = 'account.html';
+        }, 1500);
+      } catch (err) {
+        showToast('Lỗi kết nối đến máy chủ');
+        console.error(err);
+      }
     });
   </script>
 </body>
+
 </html>

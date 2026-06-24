@@ -181,7 +181,7 @@
   <script src="script.js"></script>
   <script>
     // Handle registration form submission
-    document.getElementById('registerForm').addEventListener('submit', function(e) {
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       const fullName = document.getElementById('fullName').value.trim();
       const email = document.getElementById('email').value.trim();
@@ -198,11 +198,32 @@
         return;
       }
 
-      // In a real app, you would send this data to a server
-      showToast('Đăng ký thành công! Vui lòng kiểm tra email để kích hoạt tài khoản.');
-      setTimeout(() => {
-        window.location.href = 'login.html';
-      }, 1500);
+      try {
+        const response = await fetch('http://localhost:8000/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: email, // using email as username
+            password: password,
+            name: fullName
+          })
+        });
+
+        if (response.ok) {
+          showToast('Đăng ký thành công! Vui lòng kiểm tra email để kích hoạt tài khoản.');
+          setTimeout(() => {
+            window.location.href = 'login.html';
+          }, 1500);
+        } else {
+          const err = await response.json();
+          showToast(err.detail || 'Đăng ký thất bại');
+        }
+      } catch (err) {
+        showToast('Lỗi kết nối tới server');
+        console.error(err);
+      }
     });
   </script>
 </body>

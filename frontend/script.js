@@ -260,3 +260,16 @@ function buildChart() {
     labels.appendChild(label);
   });
 }
+
+// ============================================================
+// AUTH CHECK
+// ============================================================
+function checkAuth() {
+  const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const protectedPages = ['account.html'];
+  const page = window.location.pathname.split('/').pop();
+  if (protectedPages.includes(page) && !loggedIn) {
+    window.location.href = 'login.html';
+  }
+}
+document.addEventListener('DOMContentLoaded', checkAuth);

@@ -24,6 +24,7 @@
       <div class="nav-actions">
         <button class="nav-icon-btn" onclick="toggleDark()" title="Chuyển chế độ tối">🌙</button>
         <button class="nav-icon-btn" onclick="window.location.href='account.html'">👤</button>
+        <button class="nav-icon-btn" onclick="logout()" title="Đăng xuất">Đăng xuất</button>
         <button class="nav-icon-btn" onclick="window.location.href='cart.html'">
           🛒
           <span class="badge">0</span>
@@ -54,7 +55,7 @@
       <div>
         <div style="background:linear-gradient(135deg,var(--purple),var(--pink));border-radius:var(--radius-lg);padding:24px;text-align:center;margin-bottom:12px">
           <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:2rem">👤</div>
-          <div style="color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:1.0625rem">John Doe</div>
+          <div style="color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:1.0625rem" id="sidebar-username">John Doe</div>
           <div style="color:rgba(255,255,255,.7);font-size:.8rem">Thành viên</div>
         </div>
         <div class="sidebar-nav">
@@ -72,7 +73,7 @@
       <div>
         <div id="dash-home">
           <div class="dash-card">
-            <h2>Chào lại, John! 👋</h2>
+            <h2 id="welcome-message">Chào lại, John! 👋</h2>
             <div class="stats-row">
               <div class="stat-card"><div class="s-val">5</div><div class="s-label">Tổng đơn hàng</div></div>
               <div class="stat-card"><div class="s-val">3</div><div class="s-label">Thiết kế đã lưu</div></div>
@@ -139,9 +140,9 @@
         <div id="dash-settings" style="display:none">
           <div class="dash-card"><h2>Cài đặt tài khoản</h2>
             <div style="display:grid;gap:14px;max-width:400px">
-              <div><label class="field-label">Họ và tên</label><input class="field-input" value="John Doe"/></div>
-              <div><label class="field-label">Email</label><input class="field-input" value="john@example.com"/></div>
-              <div><label class="field-label">Số điện thoại</label><input class="field-input" value="+1 555 0192"/></div>
+              <div><label class="field-label">Họ và tên</label><input class="field-input" id="settings-name" /></div>
+              <div><label class="field-label">Email</label><input class="field-input" type="email" id="settings-email" /></div>
+              <div><label class="field-label">Số điện thoại</label><input class="field-input" id="settings-phone" /></div>
               <button class="btn btn-primary" style="width:fit-content" onclick="showToast('Cài đặt đã được lưu!')">Lưu thay đổi</button>
             </div>
           </div>
@@ -218,7 +219,7 @@
         </div>
       </div>
       <div class="chat-messages" id="chatMessages">
-        <div class="chat-msg bot">Xin chào! 👋 Tôi ở đây để giúp bạn quản lý tài khoản. Bạn cần ayuda gì?</div>
+        <div class="chat-msg bot">Xin chào! 👋 Tôi ở đây để giúp bạn quản lý tài khoản. Bạn cần giúp đỡ gì?</div>
       </div>
       <div class="chat-input-row">
         <input type="text" placeholder="Nhập tin nhắn..." id="chatInput" onkeypress="if(event.key==='Enter')sendChat()"/>
@@ -234,5 +235,47 @@
   <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
   <script src="script.js"></script>
-</body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const userStr = localStorage.getItem('user');
+      if (userStr) {
+        try {
+          const user = JSON.parse(userStr);
+          // Update welcome message
+          const welcomeEl = document.getElementById('welcome-message');
+          if (welcomeEl && user.name) {
+            welcomeEl.textContent = `Chào lại, ${user.name}! 👋`;
+          }
+          // Update sidebar username
+          const sidebarUserEl = document.getElementById('sidebar-username');
+          if (sidebarUserEl && user.name) {
+            sidebarUserEl.textContent = user.name;
+          }
+          // Update settings form if exists
+          const nameInput = document.getElementById('settings-name');
+          if (nameInput && user.name) {
+            nameInput.value = user.name;
+          }
+          const emailInput = document.getElementById('settings-email');
+          if (emailInput && user.username) {
+            emailInput.value = user.username;
+          }
+          const phoneInput = document.getElementById('settings-phone');
+          if (phoneInput && user.sdt) {
+            phoneInput.value = user.sdt;
+          }
+        } catch (e) {
+          console.error('Failed to parse user data', e);
+        }
+      }
+    });
+  </script>
+<script>
+  function logout() {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('user');
+    window.location.href = 'login.html';
+  }
+  </script>
+  </body>
 </html>
