@@ -256,13 +256,33 @@
       const data = await response.json();
 
       // Render products
-      const productsGrid = document.getElementById('productsGrid');
-      if (data.products && data.products.length > 0) {
-        productsGrid.innerHTML = data.products.map(renderProductCard).join('');
-      } else {
-        productsGrid.innerHTML = '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1">Chưa có sản phẩm nào.</p>';
-      }
+const productsGrid = document.getElementById('productsGrid');
 
+if (data.products && data.products.length > 0) {
+
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get("category");
+
+    let products = data.products;
+
+    if (category) {
+        products = products.filter(
+            product => product.category === category
+        );
+    }
+
+    if (products.length > 0) {
+        productsGrid.innerHTML =
+            products.map(renderProductCard).join('');
+    } else {
+        productsGrid.innerHTML =
+            '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1">Không có sản phẩm thuộc danh mục này.</p>';
+    }
+
+} else {
+    productsGrid.innerHTML =
+        '<p style="text-align:center;color:var(--text-muted);grid-column:1/-1">Chưa có sản phẩm nào.</p>';
+}
       // Render occasions
       const occasionsGrid = document.getElementById('occasionsGrid');
       if (data.occasions && data.occasions.length > 0) {

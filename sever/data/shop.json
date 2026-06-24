@@ -1,114 +1,185 @@
 {
-    "products": [
-        {
-            "id": 2,
-            "TieuDe": "Vòng cổ tim khắc họa",
-            "emoji": "💍",
-            "MoTa": "Bạc sterling với việc khắc họa tên tùy chỉnh",
-            "tien": 1250000,
-            "tienGoc": null,
-            "badge": "new",
-            "badgeText": "Mới",
-            "bgStyle": "linear-gradient(135deg,#FEF3C7,#FDE68A)",
-            "rating": {
-                "stars": 5,
-                "count": 142
-            }
-        },
-        {
-            "id": 3,
-            "TieuDe": "In ảnh trên vải canvas",
-            "emoji": "🖼️",
-            "MoTa": "In chất lượng bảo tàng trên vải canvas cao cấp",
-            "tien": 1050000,
-            "tienGoc": 1500000,
-            "badge": "sale",
-            "badgeText": "−30%",
-            "bgStyle": "linear-gradient(135deg,#E0F2FE,#BAE6FD)",
-            "rating": {
-                "stars": 5,
-                "count": 391
-            }
-        },
-        {
-            "id": 4,
-            "TieuDe": "Bộ hộp quà tùy chỉnh",
-            "emoji": "🎀",
-            "MoTa": "Giỏ quà được chọn lọc với băng ruy băng cá nhân hóa",
-            "tien": 2000000,
-            "tienGoc": null,
-            "badge": "",
-            "badgeText": "",
-            "bgStyle": "linear-gradient(135deg,#FCE7F3,#FBCFE8)",
-            "rating": {
-                "stars": 4,
-                "count": 87
-            }
-        }
-    ],
-    "occasions": [
-        {
-            "id": 1,
-            "name": "Sinh nhật",
-            "emoji": "🎂",
-            "desc": "Tạo nên kỷ niệm đẹp",
-            "bgStyle": "linear-gradient(135deg,#EDE9FE,#DDD6FE)"
-        },
-        {
-            "id": 2,
-            "name": "Ngày kỷ niệm",
-            "emoji": "💑",
-            "desc": "Chiến thắng tình yêu",
-            "bgStyle": "linear-gradient(135deg,#FCE7F3,#FBCFE8)"
-        },
-        {
-            "id": 3,
-            "name": "Lễ cưới",
-            "emoji": "💍",
-            "desc": "Món quà mà họ sẽ lưu giữ mãi",
-            "bgStyle": "linear-gradient(135deg,#FEF3C7,#FDE68A)"
-        },
-        {
-            "id": 4,
-            "name": "Tốt nghiệp",
-            "emoji": "🎓",
-            "desc": "Đánh dấu thành tựu",
-            "bgStyle": "linear-gradient(135deg,#D1FAE5,#A7F3D0)"
-        },
-        {
-            "id": 5,
-            "name": "Valentine",
-            "emoji": "❤️",
-            "desc": "Thể hiện tình yêu",
-            "bgStyle": "linear-gradient(135deg,#FEE2E2,#FECACA)"
-        },
-        {
-            "id": 6,
-            "name": "Giáng sinh",
-            "emoji": "🎄",
-            "desc": "Làm cho mùa đông ấm áp hơn",
-            "bgStyle": "linear-gradient(135deg,#E0F2FE,#BAE6FD)"
-        },
-        {
-            "id": 7,
-            "name": "Ngày của mẹ",
-            "emoji": "👩",
-            "desc": "Cảm ơn sự cống hiến của mẹ",
-            "bgStyle": "linear-gradient(135deg,#FDF4FF,#FAE8FF)"
-        },
-        {
-            "id": 8,
-            "name": "Ngày của cha",
-            "emoji": "👨",
-            "desc": "Bày tỏ sự trân trọng với cha",
-            "bgStyle": "linear-gradient(135deg,#EFF6FF,#DBEAFE)"
-        },
-        {
-            "id": 9,
-            "name": "Năm mới",
-            "emoji": "🎆",
-            "desc": "Bắt đầu một năm mới đặc biệt",
-            "bgStyle": "linear-gradient(135deg,#FFF7ED,#FFEDD5)"
-        }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "category": "trang-suc",
+      "TieuDe": "Vòng cổ tim khắc họa",
+      "emoji": "💍",
+      "MoTa": "Bạc sterling với việc khắc họa tên tùy chỉnh",
+      "tien": 1250000,
+      "tienGoc": null,
+      "badge": "new",
+      "badgeText": "Mới",
+      "bgStyle": "linear-gradient(135deg,#FEF3C7,#FDE68A)",
+      "rating": { "stars": 5, "count": 142 }
+    },
+
+    {
+      "id": 2,
+      "category": "qua-tang-anh",
+      "TieuDe": "In ảnh trên vải canvas",
+      "emoji": "🖼️",
+      "MoTa": "In chất lượng bảo tàng trên vải canvas cao cấp",
+      "tien": 1050000,
+      "tienGoc": 1500000,
+      "badge": "sale",
+      "badgeText": "−30%",
+      "bgStyle": "linear-gradient(135deg,#E0F2FE,#BAE6FD)",
+      "rating": { "stars": 5, "count": 391 }
+    },
+
+    {
+      "id": 3,
+      "category": "hop-qua",
+      "TieuDe": "Bộ hộp quà tùy chỉnh",
+      "emoji": "🎀",
+      "MoTa": "Giỏ quà được chọn lọc với băng ruy băng cá nhân hóa",
+      "tien": 2000000,
+      "tienGoc": null,
+      "badge": "",
+      "badgeText": "",
+      "bgStyle": "linear-gradient(135deg,#FCE7F3,#FBCFE8)",
+      "rating": { "stars": 4, "count": 87 }
+    },
+
+    {
+      "id": 4,
+      "category": "thoi-trang",
+      "TieuDe": "Áo thun in hình",
+      "emoji": "👕",
+      "MoTa": "Áo thun cotton in ảnh theo yêu cầu",
+      "tien": 350000,
+      "tienGoc": null,
+      "badge": "new",
+      "badgeText": "Mới",
+      "bgStyle": "linear-gradient(135deg,#D1FAE5,#A7F3D0)",
+      "rating": { "stars": 5, "count": 75 }
+    },
+
+    {
+      "id": 5,
+      "category": "thoi-trang",
+      "TieuDe": "Áo hoodie cá nhân hóa",
+      "emoji": "🧥",
+      "MoTa": "Hoodie thêu tên riêng",
+      "tien": 650000,
+      "tienGoc": 800000,
+      "badge": "sale",
+      "badgeText": "-20%",
+      "bgStyle": "linear-gradient(135deg,#E0E7FF,#C7D2FE)",
+      "rating": { "stars": 5, "count": 122 }
+    },
+
+    {
+      "id": 6,
+      "category": "do-uong",
+      "TieuDe": "Ly sứ in ảnh",
+      "emoji": "☕",
+      "MoTa": "Ly sứ cao cấp in ảnh cá nhân",
+      "tien": 250000,
+      "tienGoc": null,
+      "badge": "",
+      "badgeText": "",
+      "bgStyle": "linear-gradient(135deg,#FEF9C3,#FDE68A)",
+      "rating": { "stars": 4, "count": 64 }
+    },
+
+    {
+      "id": 7,
+      "category": "do-uong",
+      "TieuDe": "Bình giữ nhiệt khắc tên",
+      "emoji": "🥤",
+      "MoTa": "Khắc laser theo yêu cầu",
+      "tien": 450000,
+      "tienGoc": null,
+      "badge": "new",
+      "badgeText": "Mới",
+      "bgStyle": "linear-gradient(135deg,#DBEAFE,#BFDBFE)",
+      "rating": { "stars": 5, "count": 97 }
+    },
+
+    {
+      "id": 8,
+      "category": "trang-tri-nha",
+      "TieuDe": "Đèn ngủ ảnh 3D",
+      "emoji": "🕯️",
+      "MoTa": "Đèn ngủ khắc ảnh cá nhân",
+      "tien": 790000,
+      "tienGoc": null,
+      "badge": "",
+      "badgeText": "",
+      "bgStyle": "linear-gradient(135deg,#FCE7F3,#F9A8D4)",
+      "rating": { "stars": 5, "count": 88 }
+    },
+
+    {
+      "id": 9,
+      "category": "trang-tri-nha",
+      "TieuDe": "Khung tranh treo tường",
+      "emoji": "🖼️",
+      "MoTa": "Khung tranh hiện đại",
+      "tien": 490000,
+      "tienGoc": null,
+      "badge": "",
+      "badgeText": "",
+      "bgStyle": "linear-gradient(135deg,#E0F2FE,#7DD3FC)",
+      "rating": { "stars": 4, "count": 52 }
+    },
+
+    {
+      "id": 10,
+      "category": "sach-nghe-thuat",
+      "TieuDe": "Sổ tay nghệ thuật",
+      "emoji": "📚",
+      "MoTa": "Sổ tay bìa cứng thiết kế đẹp",
+      "tien": 180000,
+      "tienGoc": null,
+      "badge": "",
+      "badgeText": "",
+      "bgStyle": "linear-gradient(135deg,#F3E8FF,#DDD6FE)",
+      "rating": { "stars": 4, "count": 41 }
+    },
+
+    {
+      "id": 11,
+      "category": "sach-nghe-thuat",
+      "TieuDe": "Album ảnh kỷ niệm",
+      "emoji": "📖",
+      "MoTa": "Lưu giữ những khoảnh khắc đẹp",
+      "tien": 320000,
+      "tienGoc": null,
+      "badge": "new",
+      "badgeText": "Mới",
+      "bgStyle": "linear-gradient(135deg,#EDE9FE,#C4B5FD)",
+      "rating": { "stars": 5, "count": 60 }
+    },
+
+    {
+      "id": 12,
+      "category": "do-bong-do-choi",
+      "TieuDe": "Gấu Teddy cao cấp",
+      "emoji": "🧸",
+      "MoTa": "Gấu bông mềm mại cao cấp",
+      "tien": 390000,
+      "tienGoc": null,
+      "badge": "",
+      "badgeText": "",
+      "bgStyle": "linear-gradient(135deg,#FED7AA,#FDBA74)",
+      "rating": { "stars": 5, "count": 135 }
+    },
+
+    {
+      "id": 13,
+      "category": "do-bong-do-choi",
+      "TieuDe": "Thỏ bông dễ thương",
+      "emoji": "🐰",
+      "MoTa": "Quà tặng cho bé và người yêu",
+      "tien": 290000,
+      "tienGoc": null,
+      "badge": "",
+      "badgeText": "",
+      "bgStyle": "linear-gradient(135deg,#FBCFE8,#F9A8D4)",
+      "rating": { "stars": 5, "count": 80 }
+    }
+  ]
 }
