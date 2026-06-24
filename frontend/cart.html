@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Giftify – Shopping Cart</title>
+<meta name="description" content="Review your selected personalized gifts before checkout."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="home.html">
+      <div class="nav-logo-icon">🎁</div>
+      <span>Giftify</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="home.html">Home</a>
+      <a class="nav-link" href="occasions.html">Occasions</a>
+      <a class="nav-link" href="customize.html">Customize</a>
+      <a class="nav-link" href="product.html">Products</a>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" onclick="toggleDark()" title="Toggle dark mode">🌙</button>
+      <a class="nav-icon-btn" href="account.html">👤</a>
+      <a class="nav-icon-btn" href="cart.html" aria-current="page">
+        🛒
+        <span class="badge">3</span>
+      </button>
+      <a class="btn-nav-cta" href="customize.html">✨ Create Gift</a>
+      <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a class="mobile-nav-link" href="home.html">🏠 Home</a>
+  <a class="mobile-nav-link" href="occasions.html">🎉 Occasions</a>
+  <a class="mobile-nav-link" href("customize.html">✏️ Customize</a>
+  <a class="mobile-nav-link" href("product.html">🛍️ Products</a>
+  <a class="mobile-nav-link" href="cart.html" aria-current="true">🛒 Cart (3)</a>
+  <a class="mobile-nav-link" href="account.html">👤 My Account</a>
+  <div style="margin-top:24px">
+    <button class="btn btn-primary" style="width:100%" onclick="showPage('customize');toggleMobile()">✨ Create Personalized Gift</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     CART PAGE
+     ============================================================ -->
+<div class="container" style="padding-top:100px">
+  <div class="breadcrumb" style="padding-top:0;margin-bottom:28px">
+    <a href="home.html">Home</a><span class="sep">›</span><span>Shopping Cart</span>
+  </div>
+  <h1 class="heading" style="font-size:1.875rem;margin-bottom:28px">Your Cart <span style="font-size:1rem;color:var(--text-muted);font-weight:400">(3 items)</span></h1>
+</div>
+<section class="section-sm" style="padding-top:0">
+  <div class="container">
+    <div class="cart-layout">
+      <div>
+        <div class="cart-item">
+          <div class="cart-item-img">☕</div>
+          <div class="cart-item-info">
+            <h3>Custom Photo Mug — 11oz</h3>
+            <p>Text: "Happy Birthday, Sarah!" · Color: Purple · No wrapping</p>
+            <div class="cart-item-meta">
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(-1,'c1')">−</button>
+                <span class="qty-val" id="c1">1</span>
+                <button class="qty-btn" onclick="changeQty(1,'c1')">+</button>
+              </div>
+              <div class="cart-item-price">$24.99</div>
+              <button class="cart-remove" onclick="this.closest('.cart-item').style.opacity='.3'">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="cart-item">
+          <div class="cart-item-img">💍</div>
+          <div class="cart-item-info">
+            <h3>Engraved Heart Necklace</h3>
+            <p>Engraving: "Emma & Jake · 06.12.2020" · Sterling Silver</p>
+            <div class="cart-item-meta">
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(-1,'c2')">−</button>
+                <span class="qty-val" id="c2">1</span>
+                <button class="qty-btn" onclick="changeQty(1,'c2')">+</button>
+              </div>
+              <div class="cart-item-price">$49.99</div>
+              <button class="cart-remove" onclick="this.closest('.cart-item').style.opacity='.3'">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div class="cart-item">
+          <div class="cart-item-img">🎀</div>
+          <div class="cart-item-info">
+            <h3>Custom Gift Box Set</h3>
+            <p>Occasion: Birthday · Luxury box wrapping · Gift card included</p>
+            <div class="cart-item-meta">
+              <div class="qty-control">
+                <button class="qty-btn" onclick="changeQty(-1,'c3')">−</button>
+                <span class="qty-val" id="c3">1</span>
+                <button class="qty-btn" onclick="changeQty(1,'c3')">+</button>
+              </div>
+              <div class="cart-item-price">$79.99</div>
+              <button class="cart-remove" onclick="this.closest('.cart-item').style.opacity='.3'">Remove</button>
+            </div>
+          </div>
+        </div>
+        <div style="background:var(--purple-light);border-radius:var(--radius-md);padding:14px 18px;display:flex;align-items:center;gap:12px;margin-top:8px">
+          <span style="font-size:1.25rem">🎁</span>
+          <div style="font-size:.875rem"><strong>Add a free gift note</strong> to any item — just click the item above.</div>
+        </div>
+      </div>
+
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div class="summary-row"><span>Subtotal (3 items)</span><span>$154.97</span></div>
+        <div class="summary-row"><span>Shipping</span><span style="color:#10B981">FREE</span></div>
+        <div class="summary-row"><span>Gift wrapping</span><span>$9.99</span></div>
+        <div class="coupon-row">
+          <input type="text" placeholder="Discount code" id="couponInput"/>
+          <button onclick="applyCoupon()">Apply</button>
+        </div>
+        <div class="summary-row" id="discountRow" style="display:none;color:#10B981"><span>Discount (GIFT15)</span><span id="discAmt">−$0.00</span></div>
+        <div class="summary-row total"><span>Total</span><span id="cartTotal">$164.96</span></div>
+
+        <button class="btn btn-primary" style="width:100%;margin-top:16px" onclick="showToast('Proceeding to checkout!')">🔒 Secure Checkout</button>
+        <button class="btn btn-secondary" style="width:100%;margin-top:10px" onclick="showPage('occasions')">← Continue Shopping</button>
+
+        <div class="trust-badges">
+          <div class="trust-badge">🔒 SSL Secured</div>
+          <div class="trust-badge">🔄 Free returns</div>
+          <div class="trust-badge">💳 Safe payments</div>
+        </div>
+
+        <div class="divider"></div>
+        <div style="font-size:.8125rem;font-weight:600;margin-bottom:10px">Payment methods</div>
+        <div class="payment-methods">
+          <div class="pay-method active">💳 Card</div>
+          <div class="pay-method" onclick="selectPay(this)">🅿️ PayPal</div>
+          <div class="pay-method" onclick="selectPay(this)">🍎 Apple Pay</div>
+          <div class="pay-method" onclick="selectPay(this)">G Pay</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LIVE CHAT
+     ============================================================ -->
+<div class="chat-bubble">
+  <button class="chat-btn" onclick="toggleChat()">
+    💬
+    <div class="chat-ping"></div>
+  </button>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-head">
+      <div class="agent">🤖</div>
+      <div class="chat-head-info">
+        <h4>Giftify Assistant</h4>
+        <p>● Online now</p>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">Hi there! 👋 I'm here to help you find the perfect personalized gift. What's the occasion?</div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" placeholder="Type a message..." id="chatInput" onkeypress="if(event.key==='Enter')sendChat()"/>
+      <button onclick="sendChat()">→</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>

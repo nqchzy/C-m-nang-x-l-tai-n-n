@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Giftify – Admin Dashboard</title>
+<meta name="description" content="Manage products, orders, and store operations."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a class="nav-logo" href="home.html">
+      <div class="nav-logo-icon">🎁</div>
+      <span>Giftify</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link" href="home.html">Home</a>
+      <a class="nav-link" href="occasions.html">Occasions</a>
+      <a class="nav-link" href="customize.html">Customize</a>
+      <a class="nav-link" href="product.html">Products</a>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" onclick="toggleDark()" title="Toggle dark mode">🌙</button>
+      <button class="nav-icon-btn" onclick="showPage('account')">👤</button>
+      <a class="nav-icon-btn" href="cart.html">
+        🛒
+        <span class="badge">3</span>
+      </button>
+      <button class="btn-nav-cta" onclick="showPage('customize')">✨ Create Gift</button>
+      <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a class="mobile-nav-link" href="home.html">🏠 Home</a>
+  <a class="mobile-nav-link" href="occasions.html">🎉 Occasions</a>
+  <a class="mobile-nav-link" href="customize.html">✏️ Customize</a>
+  <a class="mobile-nav-link" href="product.html">🛍️ Products</a>
+  <a class="mobile-nav-link" href="cart.html">🛒 Cart (3)</a>
+  <a class="mobile-nav-link" href="account.html">👤 My Account</a>
+  <div style="margin-top:24px">
+    <button class="btn btn-primary" style="width:100%" onclick="showPage('customize');toggleMobile()">✨ Create Personalized Gift</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     ADMIN DASHBOARD
+     ============================================================ -->
+<div class="page" id="page-admin">
+  <div class="admin-layout">
+    <!-- Admin Sidebar -->
+    <div class="admin-sidebar">
+      <div style="padding:8px 12px 20px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:8px">
+        <div style="width:32px;height:32px;background:linear-gradient(135deg,var(--purple),var(--pink));border-radius:8px;display:grid;place-items:center;font-size:.9rem">🎁</div>
+        <div>
+          <div style="color:#fff;font-family:'Nunito',sans-serif;font-weight:800;font-size:.9rem">Giftify Admin</div>
+          <div style="color:rgba(255,255,255,.4);font-size:.7rem">Management Panel</div>
+        </div>
+      </div>
+      <div class="admin-section-label">Overview</div>
+      <div class="admin-sidebar-link active" onclick="adminNav(this)"><span class="icon">📊</span>Dashboard</div>
+      <div class="admin-sidebar-link" onclick="adminNav(this)"><span class="icon">📈</span>Analytics</div>
+      <div class="admin-section-label">Commerce</div>
+      <div class="admin-sidebar-link" onclick="adminNav(this)"><span class="icon">🛍️</span>Products</div>
+      <div class="admin-sidebar-link" onclick="adminNav(this)"><span class="icon">📦</span>Orders</div>
+      <div class="admin-sidebar-link" onclick="adminNav(this)"><span class="icon">🏷️</span>Inventory</div>
+      <div class="admin-section-label">People</div>
+      <div class="admin-sidebar-link" onclick="adminNav(this)"><span class="icon">👥</span>Customers</div>
+      <div class="admin-sidebar-link" onclick="adminNav(this)"><span class="icon">💬</span>Reviews</div>
+      <div class="admin-section-label">Settings</div>
+      <div class="admin-sidebar-link" onclick="adminNav(this)"><span class="icon">⚙️</span>Settings</div>
+      <div class="admin-sidebar-link" onclick="showPage('account')" style="margin-top:auto"><span class="icon">← </span>Back to Store</div>
+    </div>
+
+    <!-- Admin Content -->
+    <div class="admin-content">
+      <div class="admin-header">
+        <div>
+          <h1>Dashboard</h1>
+          <p style="color:var(--text-muted);font-size:.875rem">Welcome back! Here's what's happening today.</p>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-secondary btn-sm">📅 Nov 2025</button>
+          <button class="btn btn-primary btn-sm" onclick="showPage('customize')">+ New Product</button>
+        </div>
+      </div>
+
+      <div class="admin-kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background:var(--purple-light)">💰</div>
+          <div class="kpi-val">$48,290</div>
+          <div class="kpi-label">Revenue this month</div>
+          <div class="kpi-change kpi-up">↑ 18.2%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background:var(--pink-light)">📦</div>
+          <div class="kpi-val">1,842</div>
+          <div class="kpi-label">Orders this month</div>
+          <div class="kpi-change kpi-up">↑ 12.4%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background:var(--amber-light)">👥</div>
+          <div class="kpi-val">3,291</div>
+          <div class="kpi-label">New customers</div>
+          <div class="kpi-change kpi-up">↑ 9.1%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-icon" style="background:#D1FAE5">⭐</div>
+          <div class="kpi-val">4.91</div>
+          <div class="kpi-label">Average rating</div>
+          <div class="kpi-change kpi-up">↑ 0.05</div>
+        </div>
+      </div>
+
+      <!-- Revenue Chart -->
+      <div class="table-card" style="margin-bottom:24px">
+        <div class="table-card-header">
+          <h3>Revenue Overview — 2025</h3>
+          <span class="pill pill-purple">Monthly</span>
+        </div>
+        <div class="chart-wrapper">
+          <div class="chart-bars" id="revenueChart"></div>
+          <div style="display:flex;gap:0" id="chartLabels"></div>
+        </div>
+      </div>
+
+      <!-- Recent Orders Table -->
+      <div class="table-card" style="margin-bottom:24px">
+        <div class="table-card-header">
+          <h3>Recent Orders</h3>
+          <button class="btn btn-secondary btn-sm">View All →</button>
+        </div>
+        <div style="overflow-x:auto">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>#GFY-10042</td><td>Sarah Johnson</td><td>Custom Photo Mug</td><td>$24.99</td><td><span class="order-status status-delivered">Delivered</span></td><td>Nov 12</td></tr>
+              <tr><td>#GFY-10041</td><td>James Rodriguez</td><td>Engraved Necklace</td><td>$49.99</td><td><span class="order-status status-transit">In Transit</span></td><td>Nov 11</td></tr>
+              <tr><td>#GFY-10040</td><td>Linda Kim</td><td>Canvas Print ×3</td><td>$125.97</td><td><span class="order-status status-processing">Processing</span></td><td>Nov 11</td></tr>
+              <tr><td>#GFY-10039</td><td>Alex Turner</td><td>Gift Box Set</td><td>$79.99</td><td><span class="order-status status-delivered">Delivered</span></td><td>Nov 10</td></tr>
+              <tr><td>#GFY-10038</td><td>Maria Lopez</td><td>Custom Pillow</td><td>$34.99</td><td><span class="order-status status-transit">In Transit</span></td><td>Nov 10</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Top Products -->
+      <div class="table-card">
+        <div class="table-card-header"><h3>Top Products</h3><span class="pill pill-amber">This Month</span></div>
+        <div style="overflow-x:auto">
+          <table class="data-table">
+            <thead>
+              <tr><th>Product</th><th>Sales</th><th>Revenue</th><th>Rating</th><th>Stock</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Custom Photo Mug</td><td>482</td><td>$12,049</td><td>⭐ 4.9</td><td><span class="pill pill-purple">In Stock</span></td></tr>
+              <tr><td>Engraved Necklace</td><td>213</td><td>$10,641</td><td>⭐ 4.8</td><td><span class="pill pill-purple">In Stock</span></td></tr>
+              <tr><td>Canvas Print</td><td>198</td><td>$8,310</td><td>⭐ 4.9</td><td><span class="pill pill-amber">Low Stock</span></td></tr>
+              <tr><td>Gift Box Set</td><td>156</td><td>$12,478</td><td>⭐ 4.7</td><td><span class="pill pill-purple">In Stock</span></td></tr>
+              <tr><td>Custom Pillow</td><td>143</td><td>$5,001</td><td>⭐ 4.8</td><td><span class="pill pill-pink">Out of Stock</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     LIVE CHAT
+     ============================================================ -->
+<div class="chat-bubble">
+  <button class="chat-btn" onclick="toggleChat()">
+    💬
+    <div class="chat-ping"></div>
+  </button>
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-head">
+      <div class="agent">🤖</div>
+      <div class="chat-head-info">
+        <h4>Giftify Assistant</h4>
+        <p>● Online now</p>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-msg bot">Hi there! 👋 I'm here to help you find the perfect personalized gift. What's the occasion?</div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" placeholder="Type a message..." id="chatInput" onkeypress="if(event.key==='Enter')sendChat()"/>
+      <button onclick="sendChat()">→</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
