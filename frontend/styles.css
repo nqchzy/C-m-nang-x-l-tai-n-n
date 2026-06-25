@@ -962,16 +962,20 @@ ul {
    display: flex;
    align-items: center;
    gap: 3px;
-   font-size: .75rem
+   font-size: 1.1rem;
+   line-height: 1
 }
 
 .stars .star {
-   color: var(--amber)
+   color: var(--amber);
+   font-weight: 700;
+   letter-spacing: -1px
 }
 
 .stars span {
    color: var(--text-muted);
-   margin-left: 4px
+   margin-left: 6px;
+   font-size: .75rem
 }
 
 .product-card-footer {
@@ -2412,151 +2416,6 @@ ul {
    font-weight: 600
 }
 
-/* ============================================================
-   LIVE CHAT
-   ============================================================ */
-.chat-bubble {
-   position: fixed;
-   bottom: 28px;
-   right: 28px;
-   z-index: 500
-}
-
-.chat-btn {
-   width: 56px;
-   height: 56px;
-   background: linear-gradient(135deg, var(--purple), var(--pink));
-   border-radius: 50%;
-   display: grid;
-   place-items: center;
-   border: none;
-   cursor: pointer;
-   box-shadow: 0 4px 20px rgba(124, 58, 237, .4);
-   font-size: 1.5rem;
-   transition: var(--transition);
-   position: relative
-}
-
-.chat-btn:hover {
-   transform: scale(1.1)
-}
-
-.chat-ping {
-   position: absolute;
-   top: -2px;
-   right: -2px;
-   width: 14px;
-   height: 14px;
-   background: #22C55E;
-   border-radius: 50%;
-   border: 2px solid var(--bg)
-}
-
-.chat-window {
-   position: absolute;
-   bottom: 70px;
-   right: 0;
-   width: 320px;
-   background: var(--surface);
-   border-radius: var(--radius-xl);
-   box-shadow: var(--shadow-lg);
-   border: 1px solid var(--border);
-   overflow: hidden;
-   display: none
-}
-
-.chat-window.open {
-   display: block;
-   animation: fadeIn .2s ease
-}
-
-.chat-head {
-   padding: 16px 20px;
-   background: linear-gradient(135deg, var(--purple), var(--pink));
-   display: flex;
-   align-items: center;
-   gap: 12px
-}
-
-.chat-head .agent {
-   width: 36px;
-   height: 36px;
-   background: rgba(255, 255, 255, .3);
-   border-radius: 50%;
-   display: grid;
-   place-items: center;
-   font-size: 1.25rem
-}
-
-.chat-head-info h4 {
-   color: #fff;
-   font-family: 'Nunito', sans-serif;
-   font-weight: 800;
-   font-size: .9375rem
-}
-
-.chat-head-info p {
-   color: rgba(255, 255, 255, .8);
-   font-size: .75rem
-}
-
-.chat-messages {
-   padding: 16px;
-   height: 200px;
-   overflow-y: auto;
-   display: flex;
-   flex-direction: column;
-   gap: 10px
-}
-
-.chat-msg {
-   max-width: 80%;
-   padding: 10px 14px;
-   border-radius: var(--radius-md);
-   font-size: .8125rem;
-   line-height: 1.5
-}
-
-.chat-msg.bot {
-   background: var(--bg);
-   color: var(--text);
-   align-self: flex-start
-}
-
-.chat-msg.user {
-   background: var(--purple);
-   color: #fff;
-   align-self: flex-end
-}
-
-.chat-input-row {
-   padding: 12px;
-   border-top: 1px solid var(--border);
-   display: flex;
-   gap: 8px
-}
-
-.chat-input-row input {
-   flex: 1;
-   padding: 8px 12px;
-   border: 1px solid var(--border);
-   border-radius: 20px;
-   font-size: .875rem;
-   outline: none
-}
-
-.chat-input-row button {
-   width: 34px;
-   height: 34px;
-   background: var(--purple);
-   border-radius: 50%;
-   display: grid;
-   place-items: center;
-   border: none;
-   color: #fff;
-   cursor: pointer;
-   font-size: .875rem
-}
 
 /* ============================================================
    DARK MODE

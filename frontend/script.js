@@ -5,7 +5,6 @@ let currentStep = 0;
 let currentColor = '#7C3AED';
 let wrapCost = 0;
 let darkMode = false;
-let chatOpen = false;
 let currentQty = 1;
 
 // ============================================================
@@ -143,29 +142,6 @@ function adminNav(btn) {
   btn.classList.add('active');
 }
 
-// ============================================================
-// CHAT TOGGLE
-// ============================================================
-function toggleChat() {
-  chatOpen = !chatOpen;
-  document.getElementById('chatWindow').classList.toggle('open', chatOpen);
-}
-
-// ============================================================
-// SEND CHAT MESSAGE
-// ============================================================
-function sendChat() {
-  const input = document.getElementById('chatInput');
-  const msg = input.value.trim();
-  if (!msg) return;
-  const container = document.getElementById('chatMessages');
-  container.innerHTML += `<div class="chat-msg user">${msg}</div>`;
-  input.value = '';
-  setTimeout(() => {
-    container.innerHTML += `<div class="chat-msg bot">Cảm ơn! Tôi sẽ giúp bạn tìm món quà hoàn hảo. Dịp nào đó?</div>`;
-    container.scrollTop = container.scrollHeight;
-  }, 500);
-}
 
 // ============================================================
 // SEARCH
@@ -188,16 +164,265 @@ function toggleWish(btn) {
 }
 
 // ============================================================
-// ADD TO CART
+// CART STATE
 // ============================================================
-function addToCart() {
-  showToast('Sản phẩm đã được thêm vào giỏ hàng!');
-  // Update cart badge (simplified)
+
+function getCartKey() {
+  const userStr = localStorage.getItem('user');
+  if (userStr) {
+    try {
+      const u = JSON.parse(userStr);
+      const name = u.username || u.email || 'guest';
+      return `cart_${name}`;
+    } catch (e) {
+      console.error('Failed to parse user for cart key', e);
+    }
+  }
+  return 'cart_guest';
+}
+
+// ============================================================
+// CART HELPERS
+// ============================================================
+function getCart() {
+  const key = getCartKey();
+  const saved = localStorage.getItem(key);
+  return saved ? JSON.parse(saved) : [];
+}
+
+function saveCart(cart) {
+  const key = getCartKey();
+  localStorage.setItem(key, JSON.stringify(cart));
+  updateCartBadge();
+}
+
+function addToCart(product) {
+  const cart = getCart();
+  const existing = cart.find(item => String(item.id) === String(product.id));
+  if (existing) {
+    existing.qty = (existing.qty || 0) + 1;
+  } else {
+    cart.push({
+      ...product,
+      qty: 1
+    });
+  }
+  saveCart(cart);
+  showToast(`Đã thêm "${product.name}" vào giỏ hàng!`);
+}
+
+function removeFromCart(id) {
+  const cart = getCart().filter(item => String(item.id) !== String(id));
+  saveCart(cart);
+  renderCart(); // if on cart page
+}
+
+function updateCartQuantity(id, delta) {
+  const cart = getCart();
+  const item = cart.find(i => String(i.id) === String(id));
+  if (!item) return;
+  item.qty = (item.qty || 0) + delta;
+  if (item.qty <= 0) {
+    // remove
+    const newCart = cart.filter(i => String(i.id) !== String(id));
+    saveCart(newCart);
+  } else {
+    saveCart(cart);
+  }
+  renderCart(); // if on cart page
+}
+
+// ============================================================
+// CART RENDERING (for cart.html)
+// ============================================================
+async function renderCart() {
+  let cart = getCart();
+  const cartItemsContainer = document.querySelector('#cart-items');
+  if (!cartItemsContainer) return; // not on cart page
+
+  // Clear existing items
+  cartItemsContainer.innerHTML = '';
+
+  // If local cart is empty, try loading server-side orders for the current account
+  if (cart.length === 0) {
+    const userStr = localStorage.getItem('user');
+    let userAcc = '';
+    if (userStr) {
+      try {
+        const u = JSON.parse(userStr);
+        userAcc = u.email || u.username || '';
+      } catch (e) { /* ignore */ }
+    }
+    userAcc = userAcc || localStorage.getItem('email') || '';
+
+    if (userAcc) {
+      try {
+        // Try server-enriched endpoint first
+        const orderResp = await fetch(`${API_BASE}/orders/${encodeURIComponent(userAcc)}`);
+        if (orderResp.ok) {
+          const orderData = await orderResp.json();
+          if (orderData && Array.isArray(orderData.products) && orderData.products.length) {
+            cart = orderData.products.map(p => ({
+              id: p.id,
+              name: p.name,
+              price: p.price,
+              img: p.img,
+              mota: p.mota,
+              qty: p.quantity || 1
+            }));
+            // persist and use
+            saveCart(cart);
+          }
+        } else {
+          // fallback: read static orders.json and map with shop.json
+          const resp = await fetch(`${API_BASE}/data/orders.json`);
+          if (resp.ok) {
+            const orders = await resp.json();
+            const order = orders.find(o => (o.acc || '').toLowerCase() === (userAcc || '').toLowerCase());
+            if (order && Array.isArray(order.products) && order.products.length) {
+              const prodResp = await fetch(`${API_BASE}/data/shop.json`);
+              if (prodResp.ok) {
+                const shopData = await prodResp.json();
+                const products = shopData.products || [];
+                cart = order.products.map(p => {
+                  const prod = products.find(x => String(x.id) === String(p.id));
+                  return {
+                    id: p.id,
+                    name: prod ? (prod.TieuDe || prod.name || (`Sản phẩm #${p.id}`)) : (`Sản phẩm #${p.id}`),
+                    price: prod ? prod.tien : 0,
+                    img: prod ? prod.img : '',
+                    mota: prod ? prod.MoTa || prod.MoTa : '',
+                    qty: p.quantity || 1
+                  };
+                });
+                saveCart(cart);
+              }
+            }
+          }
+        }
+      } catch (e) {
+        console.error('Failed to load orders from server', e);
+      }
+    }
+  }
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = `
+      <div class="cart-item" style="text-align:center; padding:40px; color:var(--text-muted);">
+        Giỏ hàng của bạn trống<br>
+        <a href="shop.html" class="btn btn-secondary" style="margin-top:16px;">Tiếp tục mua sắm</a>
+      </div>
+    `;
+    updateCartTotals();
+    return;
+  }
+
+  cart.forEach(item => {
+  const itemId = item.id;
+  const itemDiv = document.createElement('div');
+  itemDiv.className = 'cart-item';
+  const safeImg = item.img ? item.img.replace(/"/g, '&quot;') : '';
+  const placeholder = 'https://via.placeholder.com/240x120?text=%F0%9F%8E%81';
+  itemDiv.innerHTML = `
+    <div class="cart-item-img">
+      <img src="${safeImg}" alt="${item.name || ''}" onerror="this.onerror=null;this.src='${placeholder}';" style="width:100%;height:120px;object-fit:cover;border-radius:var(--radius);">
+    </div>
+    <div class="cart-item-info">
+      <h3>${item.name || ''}</h3>
+      <p>${item.mota || ''}</p>
+      <div class="cart-item-meta">
+        <div class="qty-control">
+          <button class="qty-btn" onclick="updateCartQuantity('${itemId}', -1)">−</button>
+          <span class="qty-val" id="qty-${itemId}">${item.qty}</span>
+          <button class="qty-btn" onclick="updateCartQuantity('${itemId}', 1)">+</button>
+        </div>
+        <div class="cart-item-price">${formatPrice(item.price)}</div>
+        <button class="cart-remove" onclick="removeFromCart('${itemId}')">×</button>
+      </div>
+    </div>
+  `;
+  cartItemsContainer.appendChild(itemDiv);
+  });
+
+  updateCartTotals();
+}
+
+function formatPrice(price) {
+  if (typeof price === 'number') return price.toLocaleString('vi-VN') + 'đ';
+  if (!price && price !== 0) return '';
+  const n = parsePrice(price);
+  return n ? n.toLocaleString('vi-VN') + 'đ' : String(price);
+}
+
+function parsePrice(priceStr) {
+  if (typeof priceStr === 'number') return priceStr;
+  if (!priceStr) return 0;
+  const s = String(priceStr).replace(/[^\d.,-]/g, '').replace(/,/g, '.');
+  const n = parseFloat(s);
+  return isNaN(n) ? 0 : n;
+}
+
+function updateCartTotals() {
+  const cart = getCart();
+  let subtotal = 0;
+  cart.forEach(item => {
+    subtotal += parsePrice(item.price) * item.qty;
+  });
+  const shipping = 0; // free shipping
+  const discText = document.getElementById('discAmt')?.textContent || '';
+  const discount = Math.abs(parsePrice(discText));
+  const total = subtotal - discount;
+
+  // Update summary
+  const subtotalEl = document.querySelector('.summary-row:nth-child(1) span:last-child');
+  const shippingEl = document.querySelector('.summary-row:nth-child(2) span:last-child');
+  const totalEl = document.getElementById('cartTotal');
+  if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
+  if (shippingEl) shippingEl.textContent = 'MIỄN PHÍ';
+  if (totalEl) totalEl.textContent = formatPrice(total);
+
+  // Update badge
+  updateCartBadge();
+}
+
+function updateCartBadge() {
+  const cart = getCart();
+  const totalItems = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
   const badge = document.querySelector('.nav-actions .badge');
   if (badge) {
-    let count = parseInt(badge.textContent);
-    badge.textContent = count + 1;
+    badge.textContent = totalItems;
   }
+  // Update cart page heading count if present
+  const cartCountEl = document.getElementById('cartCount');
+  if (cartCountEl) {
+    cartCountEl.textContent = `(${totalItems} món)`;
+  }
+}
+
+// ============================================================
+// ADD TO CART FROM BUTTON (used in shop.html)
+// ============================================================
+function addToCartFromButton(button) {
+  const card = button.closest('.product-card');
+  if (!card) return;
+  const productId = card.dataset.productId;
+  if (!productId) return;
+  // Find product in global allProducts (set by shop.html)
+  const product = window.allProducts?.find(p => p.id == productId);
+  if (!product) {
+    console.error('Product not found for id:', productId);
+    return;
+  }
+  // Convert product to the format expected by addToCart
+  // Ensure we have needed fields: id, name, price, img, mota
+  const productForCart = {
+    id: product.id,
+    name: product.TieuDe || product.name || '',
+    price: product.tien || '', // keep as string for display; parsePrice will handle
+    img: product.img || '',
+    mota: product.MoTa || ''
+  };
+  addToCart(productForCart);
 }
 
 // ============================================================
@@ -209,11 +434,12 @@ function applyCoupon() {
   const discAmt = document.getElementById('discAmt');
   const cartTotal = document.getElementById('cartTotal');
   if (code === 'GIFT15') {
-    const current = parseFloat(cartTotal.textContent.replace('$', ''));
+    const current = parsePrice(cartTotal.textContent);
     const discount = current * 0.15;
-    discAmt.textContent = '−$' + discount.toFixed(2);
+    discAmt.textContent = '−' + formatPrice(discount);
     discountRow.style.display = '';
-    cartTotal.textContent = '$' + (current - discount).toFixed(2);
+    // update displayed total
+    if (cartTotal) cartTotal.textContent = formatPrice(current - discount);
     showToast('Áp dụng mã giảm giá! Giảm 15%');
   } else {
     showToast('Mã giảm giá không hợp lệ');

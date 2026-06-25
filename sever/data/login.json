@@ -1,12 +1,7 @@
 {
   "no@thankyou.com": {
     "name": "Test Account",
-    "pass": 123456,
+    "pass": "123456",
     "sdt": "0909878901"
-  },
-  "test@example.com": {
-    "name": "Test User",
-    "pass": "123",
-    "sdt": "0123456789"
   }
 }

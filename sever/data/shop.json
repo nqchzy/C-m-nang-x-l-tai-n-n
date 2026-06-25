@@ -1,9 +1,23 @@
 {
     "products": [
         {
+            "id": 1,
+            "TieuDe": "Thẻ nạp điện thoại Viettel",
+            "img": "https://img.giftpop.vn/brand/VIETTEL/MP2308220018_BASIC_origin.jpg",
+            "MoTa": null,
+            "tien": 400000,
+            "tienGoc": 500000,
+            "badge": null,
+            "badgeText": null,
+            "rating": {
+                "5": 151,
+                "4": 1
+            }
+        },
+        {
             "id": 2,
             "TieuDe": "Vòng cổ tim khắc họa",
-            "emoji": "💍",
+            "img":"https://bizweb.dktcdn.net/100/465/509/products/vmn14-e-raw-21-04-07-d-5-rtc11.jpg?v=1663670516303",
             "MoTa": "Bạc sterling với việc khắc họa tên tùy chỉnh",
             "tien": 1250000,
             "tienGoc": null,
@@ -11,14 +25,14 @@
             "badgeText": "Mới",
             "bgStyle": "linear-gradient(135deg,#FEF3C7,#FDE68A)",
             "rating": {
-                "stars": 5,
-                "count": 142
+                "5": 151,
+                "4": 1
             }
         },
         {
             "id": 3,
             "TieuDe": "In ảnh trên vải canvas",
-            "emoji": "🖼️",
+            "img": null,
             "MoTa": "In chất lượng bảo tàng trên vải canvas cao cấp",
             "tien": 1050000,
             "tienGoc": 1500000,
@@ -26,89 +40,62 @@
             "badgeText": "−30%",
             "bgStyle": "linear-gradient(135deg,#E0F2FE,#BAE6FD)",
             "rating": {
-                "stars": 5,
-                "count": 391
+                "5": 151,
+                "4": 1
             }
         },
         {
             "id": 4,
-            "TieuDe": "Bộ hộp quà tùy chỉnh",
-            "emoji": "🎀",
-            "MoTa": "Giỏ quà được chọn lọc với băng ruy băng cá nhân hóa",
-            "tien": 2000000,
-            "tienGoc": null,
-            "badge": "",
-            "badgeText": "",
-            "bgStyle": "linear-gradient(135deg,#FCE7F3,#FBCFE8)",
+            "TieuDe": "Thẻ nạp điện thoại Viettel",
+            "img": "https://img.giftpop.vn/brand/VIETTEL/MP2308220018_BASIC_origin.jpg",
+            "MoTa": null,
+            "tien": null,
+            "tienGoc": 100000,
+            "badge": null,
+            "badgeText": null,
             "rating": {
-                "stars": 4,
-                "count": 87
+                "5": 151,
+                "4": 1
             }
-        }
-    ],
-    "occasions": [
-        {
-            "id": 1,
-            "name": "Sinh nhật",
-            "emoji": "🎂",
-            "desc": "Tạo nên kỷ niệm đẹp",
-            "bgStyle": "linear-gradient(135deg,#EDE9FE,#DDD6FE)"
-        },
-        {
-            "id": 2,
-            "name": "Ngày kỷ niệm",
-            "emoji": "💑",
-            "desc": "Chiến thắng tình yêu",
-            "bgStyle": "linear-gradient(135deg,#FCE7F3,#FBCFE8)"
-        },
-        {
-            "id": 3,
-            "name": "Lễ cưới",
-            "emoji": "💍",
-            "desc": "Món quà mà họ sẽ lưu giữ mãi",
-            "bgStyle": "linear-gradient(135deg,#FEF3C7,#FDE68A)"
-        },
-        {
-            "id": 4,
-            "name": "Tốt nghiệp",
-            "emoji": "🎓",
-            "desc": "Đánh dấu thành tựu",
-            "bgStyle": "linear-gradient(135deg,#D1FAE5,#A7F3D0)"
         },
         {
             "id": 5,
-            "name": "Valentine",
-            "emoji": "❤️",
-            "desc": "Thể hiện tình yêu",
-            "bgStyle": "linear-gradient(135deg,#FEE2E2,#FECACA)"
+            "TieuDe": "Thẻ nạp điện thoại Viettel",
+            "img": "https://img.giftpop.vn/brand/VIETTEL/MP2308220018_BASIC_origin.jpg",
+            "MoTa": null,
+            "tien": 0,
+            "tienGoc": 50000,
+            "badge": null,
+            "badgeText": null,
+            "rating": {
+                "5": 151,
+                "4": 1
+            }
         },
         {
             "id": 6,
-            "name": "Giáng sinh",
-            "emoji": "🎄",
-            "desc": "Làm cho mùa đông ấm áp hơn",
-            "bgStyle": "linear-gradient(135deg,#E0F2FE,#BAE6FD)"
+            "TieuDe": "Thẻ nạp điện thoại Viettel",
+            "img": "https://img.giftpop.vn/brand/VIETTEL/MP2308220018_BASIC_origin.jpg",
+            "MoTa": null,
+            "tien": 0,
+            "tienGoc": 20000,
+            "badge": null,
+            "badgeText": null,
+            "rating": {
+                "5": 151,
+                "4": 1
+            }
         },
         {
             "id": 7,
-            "name": "Ngày của mẹ",
-            "emoji": "👩",
-            "desc": "Cảm ơn sự cống hiến của mẹ",
-            "bgStyle": "linear-gradient(135deg,#FDF4FF,#FAE8FF)"
-        },
-        {
-            "id": 8,
-            "name": "Ngày của cha",
-            "emoji": "👨",
-            "desc": "Bày tỏ sự trân trọng với cha",
-            "bgStyle": "linear-gradient(135deg,#EFF6FF,#DBEAFE)"
-        },
-        {
-            "id": 9,
-            "name": "Năm mới",
-            "emoji": "🎆",
-            "desc": "Bắt đầu một năm mới đặc biệt",
-            "bgStyle": "linear-gradient(135deg,#FFF7ED,#FFEDD5)"
+            "TieuDe": "Test",
+            "img": "https://img.giftpop.vn/brand/VIETTEL/MP2308220018_BASIC_origin.jpg",
+            "MoTa": null,
+            "tien": 0,
+            "tienGoc": 20000,
+            "badge": null,
+            "badgeText": null,
+            "rating": null
         }
     ]
 }

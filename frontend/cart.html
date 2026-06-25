@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Giỏ hàng – Giftify</title>
-  <meta name="description" content="Xem lại quà tặng cá nhân hoá đã chọn và tiến hành thanh toán."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css"/>
+  <meta name="description" content="Xem lại quà tặng cá nhân hoá đã chọn và tiến hành thanh toán." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
@@ -43,7 +47,8 @@
     <a class="mobile-nav-link" href="account.html">👤 Tài khoản của tôi</a>
     <a class="mobile-nav-link" href="cart.html">🛒 Giỏ hàng</a>
     <div style="margin-top:24px">
-      <button class="btn btn-primary" style="width:100%" onclick="window.location.href='shop.html'">🛍️ Mua ngay</button>
+      <button class="btn btn-primary" style="width:100%" onclick="window.location.href='shop.html'">🛍️ Mua
+        ngay</button>
     </div>
   </div>
 
@@ -52,28 +57,14 @@
     <div class="breadcrumb" style="padding-top:0;margin-bottom:28px">
       <a href="index.html">Trang chủ</a><span class="sep">›</span><span>Giỏ hàng</span>
     </div>
-    <h1 class="heading" style="font-size:1.875rem;margin-bottom:28px">Giỏ hàng của bạn <span style="font-size:1rem;color:var(--text-muted);font-weight:400">(0 món)</span></h1>
+    <h1 class="heading" style="font-size:1.875rem;margin-bottom:28px">Giỏ hàng của bạn <span id="cartCount" style="font-size:1rem;color:var(--text-muted);font-weight:400">(0 món)</span></h1>
   </div>
   <section class="section-sm" style="padding-top:0">
     <div class="container">
       <div class="cart-layout">
         <div>
-          <!-- Cart items will be dynamically added via JS; placeholder -->
-          <div class="cart-item">
-            <div class="cart-item-img">☕</div>
-            <div class="cart-item-info">
-              <h3>Mẫu sản phẩm</h3>
-              <p>Mô tả mẫu</p>
-              <div class="cart-item-meta">
-                <div class="qty-control">
-                  <button class="qty-btn" onclick="changeQty(-1,'sample1')">−</button>
-                  <span class="qty-val" id="sample1">1</span>
-                  <button class="qty-btn" onclick="changeQty(1,'sample1')">+</button>
-                </div>
-                <div class="cart-item-price">$29.99</div>
-                <button class="cart-remove" onclick="this.closest('.cart-item').style.opacity='.3'">Xóa</button>
-              </div>
-            </div>
+          <div id="cart-items">
+            <!-- Cart items will be injected here by renderCart() -->
           </div>
         </div>
 
@@ -83,14 +74,17 @@
           <div class="summary-row"><span>Vận chuyển</span><span style="color:#10B981">MIỄN PHÍ</span></div>
           <div class="summary-row"><span>Bao bì quà tặng</span><span>$0.00</span></div>
           <div class="coupon-row">
-            <input type="text" placeholder="Mã giảm giá" id="couponInput"/>
+            <input type="text" placeholder="Mã giảm giá" id="couponInput" />
             <button onclick="applyCoupon()">Áp dụng</button>
           </div>
-          <div class="summary-row" id="discountRow" style="display:none;color:#10B981"><span>Discount (GIFT15)</span><span id="discAmt">−$0.00</span></div>
+          <div class="summary-row" id="discountRow" style="display:none;color:#10B981"><span>Discount
+              (GIFT15)</span><span id="discAmt">−$0.00</span></div>
           <div class="summary-row total"><span>Tổng</span><span id="cartTotal">$0.00</span></div>
 
-          <button class="btn btn-primary" style="width:100%;margin-top:16px" onclick="showToast('Đang tiến hành thanh toán!')">🔒 Thanh toán bảo mật</button>
-          <button class="btn btn-secondary" style="width:100%;margin-top:10px" onclick="window.location.href='shop.html'">← Tiếp tục mua sắm</button>
+          <button class="btn btn-primary" style="width:100%;margin-top:16px" onclick="placeOrder()">🔒 Thanh toán bảo
+            mật</button>
+          <button class="btn btn-secondary" style="width:100%;margin-top:10px"
+            onclick="window.location.href='shop.html'">← Tiếp tục mua sắm</button>
 
           <div class="trust-badges">
             <div class="trust-badge">🔒 Mã hoá SSL</div>
@@ -108,13 +102,14 @@
           </div>
 
           <div class="divider"></div>
-          <div style="font-size:.8125rem;font-weight:600;margin-bottom:10px">Tín nhắn quà tặng (tùy chọn)</div>
-          <textarea placeholder="Thêm ghi chú quà tặng..." style="width:100%;height:80px;"></div>
+          <div style="font-size:.8125rem;font-weight:600;margin-bottom:10px">Tin nhắn quà tặng (tùy chọn)</div>
+          <textarea placeholder="Thêm ghi chú quà tặng..." style="width:100%;height:80px;"> </textarea>
 
-          <div class="divider"></div>
-          <div style="font-size:.8125rem;font-weight:600;margin-bottom:10px">Dự kiến giao hàng</div>
-          <div style="font-size:.9rem;color:var(--text-muted)">Chuẩn: 5‑7 ngày làm việc • Nhanh: 2‑3 ngày làm việc</div>
         </div>
+
+        <div class="divider"></div>
+        <div style="font-size:.8125rem;font-weight:600;margin-bottom:10px">Dự kiến giao hàng</div>
+        <div style="font-size:.9rem;color:var(--text-muted)">Chuẩn: 5‑7 ngày làm việc • Nhanh: 2‑3 ngày làm việc</div>
       </div>
     </div>
   </section>
@@ -128,7 +123,8 @@
             <div class="nav-logo-icon">🎁</div>
             <span style="color:#fff;font-family:'Nunito',sans-serif;font-weight:900;font-size:1.4rem">Giftify</span>
           </div>
-          <p>Tạo quà tặng cá nhân hoá có ý nghĩa, kể câu chuyện của bạn. Mỗi món quà được làm bằng tình yêu và được giao đến tay bạn.</p>
+          <p>Tạo quà tặng cá nhân hoá có ý nghĩa, kể câu chuyện của bạn. Mỗi món quà được làm bằng tình yêu và được giao
+            đến tay bạn.</p>
           <div class="footer-socials" style="margin-top:20px">
             <a class="social-btn" href="#">📘</a>
             <a class="social-btn" href="#">📸</a>
@@ -172,29 +168,6 @@
     </div>
   </footer>
 
-  <!-- Live Chat -->
-  <div class="chat-bubble">
-    <button class="chat-btn" onclick="toggleChat()">
-      💬
-      <div class="chat-ping"></div>
-    </button>
-    <div class="chat-window" id="chatWindow">
-      <div class="chat-head">
-        <div class="agent">🤖</div>
-        <div class="chat-head-info">
-          <h4>Trợ lý Giftify</h4>
-          <p>● Trực tuyến ngay</p>
-        </div>
-      </div>
-      <div class="chat-messages" id="chatMessages">
-        <div class="chat-msg bot">Xin chào! 👋 Tôi ở đây để giúp bạn tìm món quà tặng cá nhân hoá hoàn hảo. Dịp nào đó?</div>
-      </div>
-      <div class="chat-input-row">
-        <input type="text" placeholder="Nhập tin nhắn..." id="chatInput" onkeypress="if(event.key==='Enter')sendChat()"/>
-        <button onclick="sendChat()">→</button>
-      </div>
-    </div>
-  </div>
 
   <!-- Toast -->
   <div class="toast" id="toast"></div>
@@ -203,5 +176,67 @@
   <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
   <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      renderCart();
+    });
+
+    function placeOrder() {
+      const cart = getCart();
+      if (cart.length === 0) {
+        showToast('Giỏ hàng của bạn trống!');
+        return;
+      }
+      const userStr = localStorage.getItem('user');
+      let username = '';
+      if (userStr) {
+        try {
+          const user = JSON.parse(userStr);
+          username = user.username || user.email || '';
+        } catch (e) {
+          console.error('Failed to parse user', e);
+        }
+      }
+      if (!username) {
+        // fallback to email from localStorage maybe?
+        username = localStorage.getItem('email') || '';
+      }
+      if (!username) {
+        showToast('Vui lòng đăng nhập để đặt hàng');
+        return;
+      }
+      // Prepare items for sending
+      const itemsToSend = cart.map(item => ({
+        id: item.id || '',
+        name: item.name || '',
+        price: item.price || '',
+        qty: item.qty || 1
+      }));
+      fetch('http://localhost:8000/order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, items: itemsToSend })
+      })
+        .then(async (resp) => {
+          const data = await resp.json();
+          if (!resp.ok) {
+            throw new Error(data.detail || 'Đặt hàng thất bại');
+          }
+          showToast('Đặt hàng thành công! Cảm ơn bạn');
+          // Clear cart
+          saveCart([]);
+          updateCartBadge();
+          // Optionally redirect to home or order confirmation
+          setTimeout(() => {
+            window.location.href = 'index.html';
+          }, 1500);
+        })
+        .catch((err) => {
+          console.error(err);
+          showToast(err.message || 'Lỗi kết nối tới máy chủ');
+        });
+    }
+  </script>
 </body>
+
 </html>
