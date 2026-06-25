@@ -10,9 +10,24 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "nqchzy"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/nqchzy/C-m-nang-x-l-tai-n-n.git",
+    "accountId": "0604ab16-18df-4af2-949b-17d9234a44c9"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="3FaZ1h1VU8COrnIMo0NtjX2io2A" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -22,6 +37,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "git-widget-placeholder": "ck",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ASUS/Downloads/C-m-nang-x-l-tai-n-n-ck (3)/C-m-nang-x-l-tai-n-n-ck",
     "project.structure.last.edited": "SDKs",
